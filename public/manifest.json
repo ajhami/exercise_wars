@@ -8,6 +8,16 @@
       "type": "image/x-icon"
     },
     {
+      "src": "./assets/images/logo/favicon-16x16.ico",
+      "sizes": "32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./assets/images/logo/favicon-32x32.ico",
+      "sizes": "32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
       "src": "./assets/images/logo/apple-touch-icon.png",
       "type": "image/png",
       "sizes": "180x180"
@@ -19,6 +29,26 @@
     },
     {
       "src": "./assets/images/logo/dumbell_logo_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./assets/images/logo/dumbell_then_text.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./assets/images/logo/exercise_wars_title.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./assets/images/logo/exercise_wars_webtitle.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "./assets/images/logo/apple-touch-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
