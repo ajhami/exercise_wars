@@ -1,46 +1,65 @@
 import React, { Component } from "react";
-import API from "../utils/API.js";
-import Container from "../components/Container"
-import CreateUser from "../components/CreateUser/index"
+import CreateAccount from "./../components/CreateAccount";
+import Wrapper from "./../components/Wrapper"
 
-class newAccount extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            users: []
-        }
+class CreateUser extends Component {
+
+constructor(props) {
+    super(props);
+    this.state = {
+         CreateUser: "",
+         password: "",
+         verifyPassword: ""
+ 
+     }
+}
+
+
+    handleUserChange = event => {
+        event.preventDefault();
+        let user = event.target.CreateUser;
+
+        this.setState({ CreateUser: user });
+        console.log(this.state.CreateUser)
+    }
+    handlePasswordChange = event => {
+        event.preventDefault();
+        let userPassword = event.target.password;
+
+        this.setState({ password : userPassword });
+        console.log(this.state.password)
     }
 
-    loadUsers = () => {
-        API.getUsers()
-            .then(res => {
-                let users = res.data.results;
-                let newState = { users };
-                this.setState(newState);
-            })
-            .catch(err => {
-                console.log(err)
-            })
+    handleVerifyPasswordChange = event => {
+        event.preventDefault();
+        let userVerifyPassword = event.target.verifyPassword;
 
+        this.setState({ verifyPassword: userVerifyPassword });
+        console.log(this.state.verifyPassword)
 
     }
+
+
 
     render() {
         return (
             <div>
                 <h1 className="text-center">Create Your Account</h1>
-                <Container style={{ minHeight: "80%" }}>
-                    <Button
+                <Wrapper style={{ minHeight: "80%" }}>
+                    <CreateAccount
+                        CreateUser = {this.state.CreateUser}
+                        password = {this.state.password}
+                        verifyPassword = {this.state.verifyPassword} 
 
-                        handleInputChange={this.handleInputChange}
-
-                    />
-                    <Table employees={this.state.shown}>
-                    </Table>
-                </Container>
+                    handleVerifyPasswordChange = {this.handleVerifyPasswordChange}
+                    handlePasswordChange = {this.handlePasswordChange}
+                    handleUserChange = {this.handleUserChange}
+                        />
+                </Wrapper>
             </div>
         );
     }
 
 };
-export default newAccount
+
+export default CreateUser;
