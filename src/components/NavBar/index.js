@@ -1,51 +1,59 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './style.css'
 // import { Card } from "reactstrap"
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand"  to="/">
+      <NavLink className="navbar-brand"  to="/">
         Home
-      </Link>
+      </NavLink>
       <div>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/ChallengeFriends"
-              className={
-                window.location.pathname === "/ChallengeFriends" || window.location.pathname === "/ChallengeFriends"
-                  ? "nav-link active" 
-                  : "nav-link"
-              }
+              className="nav-link"
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
             >
               Challenge Friends
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/GlobalChallenge"
-              className={window.location.pathname === "/GlobalChallenge" ? "nav-link active" : "nav-link"}
+              className="nav-link"
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
             >
               Global Challenge
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/LocalChallenge"
-              className={window.location.pathname === "/LocalChallenge" ? "nav-link active" : "nav-link"}
+              className="nav-link"
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
             >
               Local Challenge
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/SoloChallenge"
-              className={window.location.pathname === "/SoloChallenge" ? "nav-link active" : "nav-link"}
+              className="nav-link"
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
             >
               Solo Challenge
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
