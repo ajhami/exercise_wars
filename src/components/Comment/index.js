@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function LocalList() {
+function Comment() {
     return (
         <div>
             Login Page
@@ -9,4 +9,4 @@ function LocalList() {
     );
 };
 
-export default LocalList;
+export default Comment;

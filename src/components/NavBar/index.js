@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
+// import { Card } from "reactstrap"
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand"  to="/">
         Home
       </Link>
       <div>
@@ -15,7 +16,7 @@ function NavBar() {
               to="/ChallengeFriends"
               className={
                 window.location.pathname === "/ChallengeFriends" || window.location.pathname === "/ChallengeFriends"
-                  ? "nav-link active"
+                  ? "nav-link active" 
                   : "nav-link"
               }
             >
