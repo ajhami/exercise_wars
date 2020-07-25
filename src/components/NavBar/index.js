@@ -25,7 +25,10 @@ function NavBar() {
           <li className="nav-item">
             <Link
               to="/GlobalChallenge"
-              className={window.location.pathname === "/GlobalChallenge" ? "nav-link active" : "nav-link"}
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
+            // className={window.location.pathname === "/GlobalChallenge" ? "nav-link active" : "nav-link"}
             >
               Global Challenge
             </Link>
@@ -33,7 +36,10 @@ function NavBar() {
           <li className="nav-item">
             <Link
               to="/LocalChallenge"
-              className={window.location.pathname === "/LocalChallenge" ? "nav-link active" : "nav-link"}
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
+            // className={window.location.pathname === "/LocalChallenge" ? "nav-link active" : "nav-link"}
             >
               Local Challenge
             </Link>
@@ -41,7 +47,10 @@ function NavBar() {
           <li className="nav-item">
             <Link
               to="/SoloChallenge"
-              className={window.location.pathname === "/SoloChallenge" ? "nav-link active" : "nav-link"}
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
+              // className={window.location.pathname === "/SoloChallenge" ? "nav-link active" : "nav-link"}
             >
               Solo Challenge
             </Link>
