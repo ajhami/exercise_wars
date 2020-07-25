@@ -12,9 +12,9 @@ function NavBar() {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link
-              to="/"
+              to="/ChallengeFriends"
               className={
-                window.location.pathname === "/" || window.location.pathname === "/about"
+                window.location.pathname === "/ChallengeFriends" || window.location.pathname === "/ChallengeFriends"
                   ? "nav-link active"
                   : "nav-link"
               }
@@ -24,38 +24,29 @@ function NavBar() {
           </li>
           <li className="nav-item">
             <Link
-              to="/discover"
-              className={window.location.pathname === "/discover" ? "nav-link active" : "nav-link"}
+              to="/GlobalChallenge"
+              className={window.location.pathname === "/GlobalChallenge" ? "nav-link active" : "nav-link"}
             >
-             Global Challenge
+              Global Challenge
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/search"
-              className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+              to="/LocalChallenge"
+              className={window.location.pathname === "/LocalChallenge" ? "nav-link active" : "nav-link"}
             >
               Local Challenge
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/search"
-              className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+              to="/SoloChallenge"
+              className={window.location.pathname === "/SoloChallenge" ? "nav-link active" : "nav-link"}
             >
               Solo Challenge
             </Link>
           </li>
-        
-        
-        
-        
-        
-        
-        
-        
         </ul>
-
       </div>
     </nav>
   );
