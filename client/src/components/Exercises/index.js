@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css";
 
-function FriendFeed() {
+function Exercises() {
     return (
         <div>
-            Login Page
+            Excercises
         </div>
     );
 };
 
-export default FriendFeed;
+export default Exercises;
