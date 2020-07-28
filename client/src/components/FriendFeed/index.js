@@ -4,7 +4,7 @@ import { Card } from "reactstrap";
 import Post from "../Post";
 import postsJSON from "../../posts.json";
 
-class Portfolio extends Component {
+class FriendFeed extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -12,6 +12,7 @@ class Portfolio extends Component {
         }
     }
     render() {
+        // console.log(this.state)
         return (
             <div>
                 {this.state.posts.map(post => (
@@ -31,4 +32,4 @@ class Portfolio extends Component {
     }
 }
 
-export default Portfolio;
+export default FriendFeed;
