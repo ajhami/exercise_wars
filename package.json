@@ -1,5 +1,11 @@
 {
   "name": "exercise_wars",
+  "private": true,
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -16,10 +22,5 @@
   "bugs": {
     "url": "https://github.com/ajhami/exercise_wars/issues"
   },
-  "homepage": "https://github.com/ajhami/exercise_wars#readme",
-  "dependencies": {
-    "compression": "^1.7.4",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.25"
-  }
+  "homepage": "https://github.com/ajhami/exercise_wars#readme"
 }
