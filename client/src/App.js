@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Test from "./pages/Test";
+import PushUps from "./pages/PushUps";
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import CreateAccount from "./pages/CreateAccount"
@@ -26,6 +26,7 @@ function App() {
           <Route exact path="/GlobalChallenge" component={GlobalChallenge} />
           <Route exact path="/LocalChallenge" component={LocalChallenge} />
           <Route exact path="/SoloChallenge" component={SoloChallenge} />
+          <Route exact path="/PushUps" component={PushUps} />
         </Wrapper>
         <Footer />
       </div>
