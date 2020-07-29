@@ -4,7 +4,9 @@ import "./style.css";
 import Exercises from "../Exercises"
 
 function Post(props) {
+
     return (
+
         <div className="card">
             <div className="img-container">
                 <img alt={props.title} src={props.image} />
@@ -24,8 +26,14 @@ function Post(props) {
                         <strong>Description:</strong> {props.description}
                     </li>
                     <li>
-                        <Exercises>
-                            <strong>Excercises:</strong> {props.exercises}</Exercises>
+                        {props.exercises.map(exercise => (
+                            <Exercises
+                                exerciseName={exercise.name}
+                                reps={exercise.reps}
+                                sets={exercise.sets}
+                                weight={exercise.weight}
+                            />
+                        ))}
                     </li>
                     <li>
                         <Button>Likes: {props.likes}</Button>
