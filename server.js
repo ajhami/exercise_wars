@@ -20,7 +20,7 @@ app.use(express.static("public"));
 // app.use(morgan("combined"));
 // app.use(bodyParser.json({type: "*/*" }))
 
-const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB"
+const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
 
 mongoose.connect(URI, {
   useNewUrlParser: true,
