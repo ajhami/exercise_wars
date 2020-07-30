@@ -1,6 +1,10 @@
 const express = require("express");
+const http = require("http");
 const mongoose = require("mongoose");
 const compression = require("compression");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
+const db = require("./models");
 
 const PORT = process.env.PORT || 3001;
 
@@ -12,7 +16,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const URI = process.env.MONGODB_URI || "mongodb://localhost/exerccise"
+// Can use for logging
+// app.use(morgan("combined"));
+// app.use(bodyParser.json({type: "*/*" }))
+
+const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB"
 
 mongoose.connect(URI, {
   useNewUrlParser: true,
@@ -20,7 +28,7 @@ mongoose.connect(URI, {
 });
 
 // routes
-//app.use(require("./routes/api.js"));
+app.use(require("./routes/apiRoutes"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
