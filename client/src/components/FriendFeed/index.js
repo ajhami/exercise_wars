@@ -16,7 +16,8 @@ class FriendFeed extends Component {
         return (
             <div>
                 {this.state.posts.map(post => (
-                        <Post
+                        <Post 
+                        key = {post.id}
                             id={post.id}
                             user={post.user}
                             title={post.title}
