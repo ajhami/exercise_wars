@@ -14,8 +14,15 @@
       "weight":100
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "pushups",
+      "sets": 1,
+      "reps": 20,
+      "weight":50
+    },
+    {
+      "id": 3,
+      "name": "pullups",
       "sets": 1,
       "reps": 20,
       "weight":50
@@ -30,14 +37,14 @@
     "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mh0418-fit-pul-01-1558554157.jpg?crop=0.750xw:1.00xh;0.250xw,0&resize=768:*",
     "description": "Restaurant Owner",
     "exercises": [{
-      "id": 2,
+      "id": 4,
       "name": "pullups",
       "sets": 1,
       "reps": 10,
       "weight":100
     },
     {
-      "id": 2,
+      "id": 5,
       "name": "pullups",
       "sets": 1,
       "reps": 20,
@@ -53,14 +60,14 @@
     "image": "https://media.self.com/photos/5ea9bc77bb9c6b75996c7e91/4:3/w_2560%2Cc_limit/squats_woman_exercise.jpg",
     "description": "fasdfasdf",
     "exercises": [{
-      "id": 3,
+      "id": 6,
       "name": "squats",
       "sets": 1,
       "reps": 10,
       "weight":100
     },
     {
-      "id": 3,
+      "id": 7,
       "name": "squats",
       "sets": 1,
       "reps": 20,
@@ -70,20 +77,20 @@
     "comments": "Good job!!"
   },
   {
-    "id": 3,
+    "id": 4,
     "user": "Brent",
     "title": "Killer Workout bro",
     "image": "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/05/bench-press_0.jpg",
     "description": "fasdfasdf",
     "exercises": [{
-      "id": 4,
+      "id": 8,
       "name": "Bench Press",
       "sets": 1,
       "reps": 10,
       "weight":100
     },
     {
-      "id": 5,
+      "id": 9,
       "name": "Incline Bench Press",
       "sets": 1,
       "reps": 20,
