@@ -17,10 +17,40 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const workoutSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true
-  }
+  }, 
+  description: {
+    type: String,
+    default: "",
+    unique: true
+  },
+  sets: {
+    type: String,
+    default: "",
+    unique: true
+  },
+  reps: {
+    type: String,
+    default: "",
+    unique: true
+  },
+  weight: {
+    type: String,
+    default: "",
+    unique: true
+  },
+  description: {
+    type: String,
+    default: "",
+    unique: true
+  },
+  exercises: {
+    type: String,
+    default: "",
+    unique: true
+  },
 });
 
 const Workouts = mongoose.model("workout", workoutSchema);
