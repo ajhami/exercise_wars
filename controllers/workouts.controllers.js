@@ -14,7 +14,7 @@ module.exports = {
   createWorkout: function (req, res) {
     console.log(req.body);
     Workouts
-      .create({ value: req.body.value })
+       .create({ value: req.body.value })
       .then(data => {
         res.status(200).json(data);
       })

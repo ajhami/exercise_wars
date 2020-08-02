@@ -7,7 +7,7 @@ const passport = require("passport");
 // router.post("/signup", Authentication.signup);
 router.use('/api', apiRoutes);
 
-router.post("/signin", Authentication.signin);
-router.post("/signup", Authentication.signup);
+// router.post("/signin", Authentication.signin);
+// router.post("/signup", Authentication.signup);
 
 module.exports = router;
