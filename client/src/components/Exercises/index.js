@@ -1,25 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
-// var rows = [],
 
-function Exercises(props) {
-
+function Exercises() {
     return (
-        <tr>
-            <td scope="row"> 1</td>
-            <td>   {props.exerciseName}</td>
-            <td>    {props.sets}</td>
-            <td>  {props.reps}</td>
-            <td>     {props.weight}</td>
-            <td> 100</td>
-        </tr>
+        <div>
+            Excercises
+        </div>
     );
 };
 
 export default Exercises;
-
-
-
-
-
-

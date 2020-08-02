@@ -1,13 +1,16 @@
-const router = require('express').Router();
-const apiRoutes = require('./api');
 const Authentication = require("../controllers/authentication");
-const passportService = require("../services/passport")
+const router = require("express").Router();
+const db = require("../models");
+// const passportService = require("../services/passport");
+require("../services/passport");
 const passport = require("passport");
 
-// router.post("/signup", Authentication.signup);
-router.use('/api', apiRoutes);
 
-// router.post("/signin", Authentication.signin);
-// router.post("/signup", Authentication.signup);
+const requireAuth = passport.authenticate("jwt", { session: false });
+const requireSignin = passport.authenticate("local", { session: false });
+
+router.post("/signin", requireSignin, Authentication.signin);
+router.post("/signup", Authentication.signup);
+
 
 module.exports = router;
