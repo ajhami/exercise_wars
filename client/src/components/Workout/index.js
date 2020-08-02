@@ -4,7 +4,7 @@ import "./style.css";
 import Exercises from "../Exercises"
 import { Table } from "reactstrap";
 
-function Post(props) {
+function Workout(props) {
     // console.log(props.exercises)
     return (
         <div className="card">
@@ -63,4 +63,4 @@ function Post(props) {
     );
 }
 
-export default Post;
+export default Workout;

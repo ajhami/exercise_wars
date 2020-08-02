@@ -3,7 +3,7 @@ import "./style.css";
 // var rows = [],
 
 function Exercises(props) {
-    console.log(props)
+
     return (
         <tr>
             <td scope="row"> 1</td>
