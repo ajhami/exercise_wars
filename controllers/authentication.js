@@ -8,6 +8,11 @@ function tokenForUser(user) {
     return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
+// Checking created credentials and retrieving user token
+exports.signin = function(req, res, next) {
+    res.send({ token: tokenForUser(req.user) });
+}
+
 exports.signup = function(req, res, next) {
     const email = req.body.email;
     const password = req.body.password;
@@ -26,7 +31,7 @@ exports.signup = function(req, res, next) {
 
         // Returning error upon finding used account
         if (userFound) {
-            return res.status(422).send({ err: "Account already in use." })
+            return res.status(422).send({ err: "This email address is already in use." })
         };
 
         // Saving new account
@@ -40,7 +45,7 @@ exports.signup = function(req, res, next) {
                 return next(err);
             }
 
-            // Sucess message for login
+            // Successful creation, login
             res.json({ token: tokenForUser(user) });
         });
 
