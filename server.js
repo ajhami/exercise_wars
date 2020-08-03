@@ -5,12 +5,14 @@ const compression = require("compression");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const db = require("./models");
-const routes = require("./routes")
+const routes = require("./routes");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+app.use(cors()); // You will need to figure out how to limit cors access 
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,5 +31,5 @@ mongoose.connect(URI, {
 app.use(routes);
 
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+  console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
 });
