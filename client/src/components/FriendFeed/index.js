@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Card } from "reactstrap";
 // import { CardColumns } from "reactstrap";
-import Post from "../Post";
+import Workout from "../Workout";
 import postsJSON from "../../posts.json";
 
 class Portfolio extends Component {
@@ -15,7 +14,7 @@ class Portfolio extends Component {
         return (
             <div>
                 {this.state.posts.map(post => (
-                        <Post
+                        <Workout
                             id={post.id}
                             user={post.user}
                             title={post.title}
