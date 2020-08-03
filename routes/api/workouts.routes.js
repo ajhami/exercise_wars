@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { workoutContr } = require("../../controllers")
 
-
 // // path => /api/workouts/
 router
     .route("/")
