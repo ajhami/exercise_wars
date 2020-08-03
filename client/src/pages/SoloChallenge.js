@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import API from "../utils/API";
 import AddWorkout from "../components/AddWorkout"
-// import VideoContainer from "../components/VideoContainer"
+import VideoContainer from "../components/VideoContainer"
 
 class SoloChallenge extends Component {
 
