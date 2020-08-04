@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Card } from "reactstrap";
-// import { CardColumns } from "reactstrap";
+
 import Workout from "../Workout";
 import postsJSON from "../../posts.json";
 
@@ -12,7 +11,6 @@ class FriendFeed extends Component {
         }
     }
     render() {
-
         return (
             <div>
                 {this.state.posts.map(post => (
