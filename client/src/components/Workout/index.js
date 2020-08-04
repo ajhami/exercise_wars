@@ -14,19 +14,14 @@ function Workout(props) {
             <div className="content">
                 <ul>
                     <li>
-                        <strong>ID:</strong> {props.id}
+                        Workout: <strong>{props.title}</strong>
+                        <p className="userStyle">{props.user}</p>
                     </li>
                     <li>
-                        <strong>User:</strong> {props.user}
+                        {props.description}
                     </li>
                     <li>
-                        <strong>Title:</strong> {props.title}
-                    </li>
-                    <li>
-                        <strong>Description:</strong> {props.description}
-                    </li>
-                    <li>
-                        <Table striped bordered hover>
+                        <Table striped bordered hover className="exerciseTable">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -34,13 +29,12 @@ function Workout(props) {
                                     <th>sets</th>
                                     <th>reps</th>
                                     <th>weight</th>
-                                    <th>score</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {props.exercises.map(exercise => (
                                     <Exercises
-                                    key = {exercise.id}
+                                        key={exercise.id}
                                         exerciseName={exercise.name}
                                         reps={exercise.reps}
                                         sets={exercise.sets}
