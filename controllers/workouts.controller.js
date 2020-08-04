@@ -13,12 +13,25 @@ module.exports = {
             });
     },
     createWorkout: function (req, res) {
-        console.log('hiiiiiiit')
-        console.log(req.body);
+        console.log(req.body.title);
         Workouts
-            .create({ value: req.body.value })
+            .create({ 
+                id: req.body._id,
+                title: req.body.title,
+                description: req.body.description,
+                user: req.body.user,
+                image: req.body.image,
+                date: req.body.date,
+                exercises: [{
+                    exerciseName: req.body.exerciseName,
+                    sets: req.body.sets,
+                    reps: req.body.reps,
+                    weight: req.body.weight
+                }]
+            })
             .then(data => {
                 res.status(200).json(data);
+                console.log(data)
             })
             .catch(error => {
                 console.log(error);

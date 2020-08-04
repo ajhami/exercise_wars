@@ -31,7 +31,7 @@ class Home extends Component {
           <Col>
             <h3>Friend Suggestions</h3>
             <FriendSuggestions
-              id={1}
+                id={1}
               name="Jack Edwards"
               location="Folsom, CA"
               profileImg="test_profile_img.jpg"
