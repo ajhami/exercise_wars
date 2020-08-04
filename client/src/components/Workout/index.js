@@ -18,7 +18,6 @@ function Workout(props) {
                         <p>{props.description}</p>
                         <p className="userStyle">{props.user}</p>
                     </li>
-
                     <li>
                         <Table striped bordered hover className="exerciseTable">
                             <thead>
