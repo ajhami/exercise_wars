@@ -3,19 +3,12 @@ import React, { Component } from 'react';
 import FriendFeed from "../components/FriendFeed";
 import { Container, Row, Col } from "reactstrap";
 import FriendSuggestions from "../components/FriendSuggestions";
-import axios from "axios";
 import NewWorkout from "../components/SaveWorkout";
-
-
 
 class Home extends Component {
 
   render() {
-    axios.get("/api/workouts")
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(error => console.log(error))
+
 
     return (
 
