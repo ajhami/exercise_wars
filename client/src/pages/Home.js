@@ -1,49 +1,34 @@
-
-import React, { useContext, useEffect } from 'react';
-import { Container, Row, Col, Button } from "reactstrap";
-import FriendSuggestions from "../components/FriendSuggestions";
+import React, { Component } from 'react';
+// import API from "../utils/API";
 import FriendFeed from "../components/FriendFeed";
-import axios from "axios";
-// import Context from '../utils/workoutContext';
-// import fetchWorkouts from '../utils/fetchWorkouts';
-// import Workout from "../components/Workout"
+import { Container, Row, Col } from "reactstrap";
+import FriendSuggestions from "../components/FriendSuggestions";
 
-function Home() {
-function clickButton() {
-console.log("hi")
-axios.get("/api/workouts")
-.then(function (response) {
-  console.log(response);
-})
-.catch(err => {console.log(err)})
-
-}
-
-  return (
+class Home extends Component {
 
 
-    <Container>
-      <Row>
-        <Col>
-        Howdy
-        <Button  onClick={clickButton} />
+  render() {
+    return (
+
+      <Container>
+  <Row>
+    <Col>1 of 3</Col>
+    <Col xs={5}>
+      <h3> Friend Feed</h3>
+        <FriendFeed />
         </Col>
-        <Col xs={5}>
-          <h1> Friend Feed</h1>
-          <FriendFeed />
+    <Col>
+    <h3>Friend Suggestions</h3>
+    <FriendSuggestions 
+          id={1}
+          name="Jack Edwards"
+          location="Folsom, CA"
+          profileImg="test_profile_img.jpg"
+        />
         </Col>
-        <Col>
-          <h3>Friend Suggestions</h3>
-          <FriendSuggestions
-            id={1}
-            name="Jack Edwards"
-            location="Folsom, CA"
-            profileImg="test_profile_img.jpg"
-          />
-        </Col>
-      </Row>
-    </Container>
-  );
+  </Row>
+</Container>
+    );
+  };
 };
-
 export default Home;

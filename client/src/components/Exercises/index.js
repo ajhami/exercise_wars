@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
 function Exercises(props) {
-    console.log(props)
   
     return (
         <tr>

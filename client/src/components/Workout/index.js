@@ -14,12 +14,11 @@ function Workout(props) {
             <div className="content">
                 <ul>
                     <li>
-                        Workout: <strong>{props.title}</strong>
+                        <strong>{props.title}</strong>
+                        <p>{props.description}</p>
                         <p className="userStyle">{props.user}</p>
                     </li>
-                    <li>
-                        {props.description}
-                    </li>
+
                     <li>
                         <Table striped bordered hover className="exerciseTable">
                             <thead>
