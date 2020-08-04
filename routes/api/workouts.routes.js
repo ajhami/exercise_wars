@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const { workoutContr } = require("../../controllers")
-
+const { workoutsController } = require("../../controllers")
 
 // // path => /api/workouts/
 router
     .route("/")
-    .get(workoutContr.getWorkouts)
-    .post(workoutContr.createWorkout);
+    .get(workoutsController.getWorkouts)
+    .post(workoutsController.createWorkout);
 
 module.exports = router

@@ -6,7 +6,27 @@
     "title": "Push ups with Arnold",
     "image": "https://i.ndtvimg.com/i/2016-01/push-ups_625x350_61452668981.jpg",
     "description": "pushing up off the ground with the terminator",
-    "exercises": "Push ups",
+    "exercises": [{
+      "id": 1,
+      "name": "pushups",
+      "sets": 1,
+      "reps": 10,
+      "weight":100
+    },
+    {
+      "id": 2,
+      "name": "pushups asdlf;jas;ldfj asdl;fjas;ldfj ",
+      "sets": 1,
+      "reps": 20,
+      "weight":50
+    },
+    {
+      "id": 3,
+      "name": "pullups",
+      "sets": 1,
+      "reps": 20,
+      "weight":50
+    }],
     "likes": 5,
     "comments": "Good job"
   },
@@ -16,7 +36,20 @@
     "title": "pulling myself up by the bootstraps",
     "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mh0418-fit-pul-01-1558554157.jpg?crop=0.750xw:1.00xh;0.250xw,0&resize=768:*",
     "description": "Restaurant Owner",
-    "exercises": "Pull ups",
+    "exercises": [{
+      "id": 4,
+      "name": "pullups",
+      "sets": 1,
+      "reps": 10,
+      "weight":100
+    },
+    {
+      "id": 5,
+      "name": "pullups",
+      "sets": 1,
+      "reps": 20,
+      "weight":50
+    }],
     "likes": 5,
     "comments": "Good job!!"
   },
@@ -26,17 +59,43 @@
     "title": "death by Squats",
     "image": "https://media.self.com/photos/5ea9bc77bb9c6b75996c7e91/4:3/w_2560%2Cc_limit/squats_woman_exercise.jpg",
     "description": "fasdfasdf",
-    "exercises": "Squats",
+    "exercises": [{
+      "id": 6,
+      "name": "squats",
+      "sets": 1,
+      "reps": 10,
+      "weight":100
+    },
+    {
+      "id": 7,
+      "name": "squats",
+      "sets": 1,
+      "reps": 20,
+      "weight":50
+    }],
     "likes": 5,
     "comments": "Good job!!"
   },
   {
-    "id": 3,
+    "id": 4,
     "user": "Brent",
     "title": "Killer Workout bro",
     "image": "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/05/bench-press_0.jpg",
     "description": "fasdfasdf",
-    "exercises": "Bench",
+    "exercises": [{
+      "id": 8,
+      "name": "Bench Press",
+      "sets": 1,
+      "reps": 10,
+      "weight":100
+    },
+    {
+      "id": 9,
+      "name": "Incline Bench Press",
+      "sets": 1,
+      "reps": 20,
+      "weight":50
+    }],
     "likes": 5,
     "comments": "Good job!!"
   }

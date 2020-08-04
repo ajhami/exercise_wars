@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
-
 import reducers from "./reducers";
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 import Wrapper from "./components/Wrapper"
-
 import PushUps from "./pages/PushUps";
 import Login from "./pages/Login"
 import Home from "./pages/Home"
