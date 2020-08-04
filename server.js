@@ -9,13 +9,14 @@ const routes = require("./routes");
 const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
-
+// const profile = require( './routes/api/profile' );
 const app = express();
 
 app.use(cors()); // You will need to figure out how to limit cors access 
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use( '/api/profile', profile );
 
 app.use(express.static("public"));
 
@@ -32,3 +33,5 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
 });
+
+

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import FriendFeed from "../components/FriendFeed";
 import { Container, Row, Col } from "reactstrap";
 import FriendSuggestions from "../components/FriendSuggestions";
+import NewWorkout from "../components/SaveWorkout";
 
 class Home extends Component {
 
@@ -12,7 +13,7 @@ class Home extends Component {
 
       <Container>
   <Row>
-    <Col>1 of 3</Col>
+    <Col><NewWorkout/></Col>
     <Col xs={5}>
       <h3> Friend Feed</h3>
         <FriendFeed />
@@ -32,3 +33,4 @@ class Home extends Component {
   };
 };
 export default Home;
+
