@@ -4,7 +4,7 @@ import './style.css'
 function ChallengeDropDown() {
     return (
         <div>
-            <button type="button" class="btn btn-primary">Yes</button>
+            <button type="button" class="btn btn-primary" style = {{marginRight: "15px"}}>Yes</button>
             <button type="button" class="btn btn-secondary">No</button>
         </div>
     )
