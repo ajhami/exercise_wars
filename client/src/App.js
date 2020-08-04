@@ -18,7 +18,7 @@ import GlobalChallenge from "./pages/GlobalChallenge"
 import LocalChallenge from "./pages/LocalChallenge"
 import SoloChallenge from "./pages/SoloChallenge"
 import TestAuth from "./pages/TestAuth"
-import TestSignup from "./pages/TestSignup"
+import TestSignup from "./pages/TestSignup/index"
 import AuthSuccess from "./pages/AuthSuccess"
 import Logout from "./pages/Logout"
 
