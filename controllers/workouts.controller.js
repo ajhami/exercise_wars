@@ -15,7 +15,7 @@ module.exports = {
     createWorkout: function (req, res) {
         console.log('hiiiiiiit')
         console.log(req.body);
-        Todo
+        Workouts
             .create({ value: req.body.value })
             .then(data => {
                 res.status(200).json(data);

@@ -7,46 +7,47 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const workoutSchema = new mongoose.Schema({
+  id: {
+    type: String,
+  },
   title: {
     type: String,
-  }, 
+  },
+  image: {
+    type: Object,
+  },
   date: {
     type: String,
-  }, 
+  },
   user: {
     type: String,
-  }, 
-
-  description: {
-    type: String,
-    default: "",
-
-  },
-  sets: {
-    type: String,
-    default: "",
-
-  },
-  reps: {
-    type: String,
-    default: "",
-
-  },
-  weight: {
-    type: String,
-    default: "",
-
   },
   description: {
     type: String,
-    default: "",
-
   },
-  exercises: {
-    type: String,
-    default: "",
-
+  exercises: [{
+    exerciseName: {
+      type: String,
+    },
+    sets: {
+      type: Number,
+    },
+    reps: {
+      type: Number,
+    },
+    weight: {
+      type: Number,
+    }
+  }],
+  likes: {
+    type: Number,
+    default: 0
   },
+  comments: {
+    type: Array,
+    default: []
+  }
+
 });
 
 const Workouts = mongoose.model("workout", workoutSchema);
