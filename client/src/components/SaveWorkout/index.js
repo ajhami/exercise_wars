@@ -40,9 +40,11 @@ const SaveWorkout = props => {
         onChange={e => setWorkoutInput(e.target.value)}
         label="Title: "
        />
+             <AddPicture />
+             <FormSubmit className="btn btn-info" text="Add Workout" />
       </Form>
-      <AddPicture />
-      <FormSubmit className="btn btn-info" text="Add Workout" />
+
+
       </Card>
     </div>
   );
