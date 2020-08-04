@@ -5,16 +5,15 @@ import './style.css'
 function AddWorkout() {
   return (
 
-    <div className="card" style={{ backgroundColor: "yellow" }}>
+    <div className="card" style={{ backgroundColor: "blue" }}>
       <div className="container">
-        <div className="dropdown">
+        <div className="dropdown" style = {{marginLeft: "22%"}}>
 
           <button className="dropbtn">Choose Workout</button>
           <div className="dropdown-content">
             <a href="/PushUps">Push Ups</a>
-            <a href="/Pushups">Jumping Jacks</a>
-            <a href="/Pushups">Squat thrusts</a>
-            <a href="/Pushups">Run a Mile</a>
+            <a href="/Pushups">Squats</a>
+            <a href="/Pushups">Pull Ups</a>
             <a href="/Pushups">Sit Ups</a>
           </div>
         </div>
