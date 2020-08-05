@@ -1,3 +1,14 @@
-.dropbtn {
-    background-color: azure;
+.btn1 {
+    margin-right: 30px;
+}
+.btn2 {
+    margin-right: 30px;
+}
+h6 {
+    /* text-align: center; */
+    color: red
+}
+.btn-toolbar {
+    margin-left: 35px;
+    margin-top: 15px;
 }

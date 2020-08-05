@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AddWorkout from "../components/AddWorkout"
 import ExerciseTable from "../components/ExerciseTable"
-import Works from "../components/Works"
+import ChallengeForm from "../components/ChallengeForm"
 
 // import VideoContainer from "../components/VideoContainer"
 
@@ -11,23 +11,18 @@ class SoloChallenge extends Component {
 
   render() {
     return (
-      <div class="card" style = {{ width: "55%"}}>
-        <div class="card-body"></div>
+      <div class="card" style={{ width: "90%" }}>
+        <div class="card-body" id="soloChallengeCard">
+          <h3> Minute Challenge</h3>
+          <h4> Can You Move up a rank?</h4>
 
+          {/* <div className="row"> */}
 
-        <h3> Minute Challenge</h3>
-        <h4> Can You Move up a rank?</h4>
+            < ExerciseTable />
+            < AddWorkout />
+          </div>
 
-        <div className="row">
-
-
-
-          < ExerciseTable />
-          <AddWorkout />
-          <Works />
         </div>
-
-      </div>
       // </div >
     );
   };
