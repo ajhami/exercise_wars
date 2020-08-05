@@ -14,8 +14,8 @@ const router = express.Router();
  * PROFILE IMAGE STORING STARTS
  */
 const s3 = new aws.S3({
- accessKeyId: 'AKIAI4IYUCNFNIWHMB4Q',
- secretAccessKey: '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',
+ accessKeyId: '',
+ secretAccessKey: '',
  Bucket: 'onclick'
 });
 /*
@@ -61,8 +61,8 @@ if( mimetype && extname ){
  */
 router.post( '/profile-img-upload', ( req, res ) => {
 profileImgUpload( req, res, ( error ) => {
-  // console.log( 'requestOkokok', req.file );
-  // console.log( 'error', error );
+  console.log( 'requestOkokok', req.file );
+  console.log( 'error', error );
   if( error ){
    console.log( 'errors', error );
    res.json( { error: error } );

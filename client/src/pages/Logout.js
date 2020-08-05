@@ -6,7 +6,7 @@ class Logout extends Component {
     async componentDidMount() {
         try {
             await this.props.signout();
-            await this.props.history.push("/Login");
+            await this.props.history.push("/");
         }
         catch(err) {
             console.log(err);

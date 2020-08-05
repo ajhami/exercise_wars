@@ -9,19 +9,25 @@ class PushUps extends Component {
     render() {
         return (
 
-            <div className="card" style = {{height: "500px", backgroundColor: "aquamarine"}}>
+            <div className="card" style={{ height: "500px", backgroundColor: "aquamarine", width: "25%" }}>
                 <div className="row">
-                    <div class="col-sm"  style = {{marginLeft: "20%", marginBottom: "25px", marginTop: "15px"}} >                     
-                <h3> Pushups</h3>
+                    <div class="col-sm" style={{ marginLeft: "30%", marginBottom: "25px", marginTop: "15px" }} >
+                        <h3> Pushups</h3>
+                        <h5>Desired Goal</h5>
                         <ChallengeForm />
                     </div>
-                    <div className="col-sm" style = {{marginBottom: "25px"}}>
+                </div>
+                <div className="row">
+                    <div className="col-sm" style={{ marginBottom: "25px", marginLeft:"10%" }}>
                         <VideoContainer />
                     </div>
-                    <div className="col-sm" style = {{marginLeft: "25%", marginBottom: "25px"}}       >
-                      <h3>Succesful?</h3>  
+                </div>
+                <div className="row">
+
+                    <div className="col-sm" style={{ marginLeft: "30%", marginBottom: "25px" }}       >
+                        <h3>Succesful?</h3>
                         < ChallengeDropDown />
-                     </div>
+                    </div>
                 </div>
             </div>
         );
