@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from "reactstrap";
 import Form from '../Form';
 import FormInput from '../Form/FormInput';
@@ -7,8 +7,17 @@ import AddPicture from "./AddPicture";
 import axios from "axios";
 import "./style.css";
 
+
 const SaveWorkout = props => {
-  const [workoutInput, setWorkoutInput] = useState("");
+  const [workoutInputs, setWorkoutInputs] = useState({
+    title: "",
+    description: "",
+    image: ""
+  });
+
+  const handleChange = (event) => {
+    setWorkoutInputs({...workoutInputs, [event.target.name]: event.target.value})
+}
   axios.get("/api/workouts")
   .then(function (response) {
     console.log(response);
@@ -17,10 +26,7 @@ const SaveWorkout = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    axios.post("/api/workouts", 
-    {
-      title: workoutInput,
-  })
+    axios.post("/api/workouts", workoutInputs)
     .then(function (response) {
       console.log(response);
     })
@@ -36,10 +42,17 @@ const SaveWorkout = props => {
       <Form handleFormSubmit={handleFormSubmit}>
        <FormInput 
         id="workoutTitle"
-        value={workoutInput}
-        onChange={e => setWorkoutInput(e.target.value)}
+        value={workoutInputs.title}
+        onChange={e => setWorkoutInputs(e.target.value)}
         label="Title: "
        />
+              <FormInput 
+        id="workoutDescription"
+        value={workoutInputs.description}
+        onChange={e => setWorkoutInputs(e.target.value)}
+        label="Description: "
+       />
+       
              <AddPicture />
              <FormSubmit className="btn btn-info" text="Add Workout" />
       </Form>
