@@ -6,17 +6,21 @@ export const signup = (formProps, cb) => async dispatch => {
         console.log(formProps.email);
         console.log(formProps.password);
         console.log(formProps.verifyPassword);
+        console.log(formProps);
         if(!formProps.email) {
-            return dispatch({ type: AUTH_ERROR, payload: "Missing email address!" });
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Missing email address!" });
         }
         else if(!formProps.password) {
-            return dispatch({ type: AUTH_ERROR, payload: "Missing Password!" });
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Missing Password!" });
         }
         else if(formProps.password.length < 8) {
-            return dispatch({ type: AUTH_ERROR, payload: "Please adjust your password to include at least 8 characters!" });
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Please adjust your password to include at least 8 characters!" });
         }
         else if(formProps.password !== formProps.verifyPassword) {
-            return dispatch({ type: AUTH_ERROR, payload: "Your password attempts don't match. Try again!" });
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Your password attempts don't match. Try again!" });
+        }
+        else if(!formProps.dobMonth || !formProps.dobDay || !formProps.dobYear) {
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Please enter a valid birthday." });
         }
 
 
@@ -28,7 +32,7 @@ export const signup = (formProps, cb) => async dispatch => {
     }
 
     catch(err) {
-        dispatch({ type: AUTH_ERROR, payload: "This email address is already in use." })
+        dispatch({ type: AUTH_ERROR, payload: "⚠ This email address is already in use." })
     };
 };
 
@@ -50,6 +54,6 @@ export const signin = (formProps, cb) => async dispatch => {
     }
 
     catch(err) {
-        dispatch({ type: AUTH_ERROR, payload: "Invalid Login. Try again!" })
+        dispatch({ type: AUTH_ERROR, payload: "⚠ Invalid Login. Try again!" })
     };
 };
