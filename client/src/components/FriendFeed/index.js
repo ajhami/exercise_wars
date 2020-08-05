@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-// import { CardColumns } from "reactstrap";
+
 import Workout from "../Workout";
 import postsJSON from "../../posts.json";
 
-class Portfolio extends Component {
+class FriendFeed extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -14,7 +14,8 @@ class Portfolio extends Component {
         return (
             <div>
                 {this.state.posts.map(post => (
-                        <Workout
+                        <Workout 
+                        key = {post.id}
                             id={post.id}
                             user={post.user}
                             title={post.title}
@@ -30,4 +31,4 @@ class Portfolio extends Component {
     }
 }
 
-export default Portfolio;
+export default FriendFeed;

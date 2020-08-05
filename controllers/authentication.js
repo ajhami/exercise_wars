@@ -14,42 +14,49 @@ exports.signin = function(req, res, next) {
 }
 
 exports.signup = function(req, res, next) {
-    const email = req.body.email;
-    const password = req.body.password;
 
-    // Ensuring users move in with valid email and password submissions
-    if(!email || !password) {
-        return res.send(422).send({ error: "Please provide the valid email and password!" })
-    }
+        const email = req.body.email;
+        const password = req.body.password;
+        console.log(req.body);
+    
+        // console.log(email);
+        // console.log(password);
 
-    // Checking for existing user
-    Users.findOne({ email: email }, function(err, userFound) {
 
-        if (err) {
-            return next(err);
-        };
-
-        // Returning error upon finding used account
-        if (userFound) {
-            return res.status(422).send({ err: "This email address is already in use." })
-        };
-
-        // Saving new account
-        const user = new Users({
-            email: email,
-            password: password
-        });
-
-        user.save(function (err) {
+        // Ensuring users move in with valid email and password submissions
+        if(!email || !password) {
+            return res.send(422).send({ err: "Please provide the valid email and password!" })
+        }
+    
+        // Checking for existing user
+        Users.findOne({ email: email }, function(err, userFound) {
+    
             if (err) {
                 return next(err);
-            }
-
-            // Successful creation, login
-            res.json({ token: tokenForUser(user) });
+            };
+    
+            // Returning error upon finding used account
+            if (userFound) {
+                return res.status(422).send({ err: "This email address is already in use." })
+            };
+    
+            // Saving new account
+            const user = new Users({
+                email: email,
+                password: password
+            });
+    
+            user.save(function (err) {
+                if (err) {
+                    return next(err);
+                }
+    
+                // Successful creation, login
+                res.json({ token: tokenForUser(user) });
+            });
+    
         });
 
-    });
 
 
 };

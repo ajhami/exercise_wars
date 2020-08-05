@@ -2,8 +2,10 @@ import React from "react";
 import { Button } from "reactstrap";
 import "./style.css";
 import Exercises from "../Exercises"
+import { Table } from "reactstrap";
 
-function Post(props) {
+function Workout(props) {
+    console.log(props.exercises)
     return (
         <div className="card">
             <div className="img-container">
@@ -12,20 +14,33 @@ function Post(props) {
             <div className="content">
                 <ul>
                     <li>
-                        <strong>ID:</strong> {props.id}
+                        <strong>{props.title}</strong>
+                        <p>{props.description}</p>
+                        <p className="userStyle">{props.user}</p>
                     </li>
                     <li>
-                        <strong>User:</strong> {props.user}
-                    </li>
-                    <li>
-                        <strong>Title:</strong> {props.title}
-                    </li>
-                    <li>
-                        <strong>Description:</strong> {props.description}
-                    </li>
-                    <li>
-                        <Exercises>
-                            <strong>Excercises:</strong> {props.exercises}</Exercises>
+                        <Table striped bordered hover className="exerciseTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>exercise</th>
+                                    <th>sets</th>
+                                    <th>reps</th>
+                                    <th>weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {props.exercises.map(exercise => (
+                                    <Exercises
+                                        key={exercise.id}
+                                        exerciseName={exercise.name}
+                                        reps={exercise.reps}
+                                        sets={exercise.sets}
+                                        weight={exercise.weight}
+                                    />
+                                ))}
+                            </tbody>
+                        </Table>
                     </li>
                     <li>
                         <Button>Likes: {props.likes}</Button>
@@ -40,4 +55,4 @@ function Post(props) {
     );
 }
 
-export default Post;
+export default Workout;
