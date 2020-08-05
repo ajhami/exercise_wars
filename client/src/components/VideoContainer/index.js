@@ -4,11 +4,19 @@ import './style.css'
 
 function VideoContainer() {
     return (
-        <div>
-            <div className="container"  style={{ color: "red", height: "250px", width: "250px", border: "3px solid black"  }}>
-                <h3> Add Video</h3>
-            </div>
-        </div>
+        <div className="img" >
+            {/* <img className="card-img-top" src={process.env.PUBLIC_URL +"/assets/images/group_demo_img.jpg"} alt="Card image cap" > */}
+            <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/second_pushup.jpg"} alt="Card image cap" >
+
+            </img>
+
+        </div> 
+
+
+
+
+
+
     );
 }
 

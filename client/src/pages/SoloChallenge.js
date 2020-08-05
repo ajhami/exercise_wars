@@ -1,24 +1,43 @@
 import React, { Component } from 'react';
-// import API from "../utils/API";
 import AddWorkout from "../components/AddWorkout"
+import ExerciseTable from "../components/ExerciseTable"
+import Works from "../components/Works"
+
 // import VideoContainer from "../components/VideoContainer"
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
 class SoloChallenge extends Component {
 
-  
-    render() {
-      return (
-        <div>
-          <NavBar />
-          <h1> Create a Workout</h1>
-          <AddWorkout />
-          <Footer />
+
+
+
+  render() {
+    return (
+      <div>
+        <NavBar />
+        <div class="card" style={{ width: "55%" }}>
+          <div class="card-body"></div>
+
+
+          <h3> Minute Challenge</h3>
+          <h4> Can You Move up a rank?</h4>
+
+          <div className="row">
+
+
+
+            < ExerciseTable />
+            <AddWorkout />
+            <Works />
+          </div>
+
         </div>
-  
-      );
-    };
+        <Footer />
+
+      </div>
+    );
   };
+};
 
 export default SoloChallenge;
