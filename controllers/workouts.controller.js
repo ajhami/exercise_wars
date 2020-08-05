@@ -18,15 +18,18 @@ module.exports = {
             .create({ 
                 id: req.body._id,
                 title: req.body.title,
+                workoutType: req.body.workoutType,
                 description: req.body.description,
                 user: req.body.user,
                 image: req.body.image,
                 date: req.body.date,
+                time: req.body.time,
                 exercises: [{
                     exerciseName: req.body.exerciseName,
                     sets: req.body.sets,
                     reps: req.body.reps,
-                    weight: req.body.weight
+                    weight: req.body.weight,
+                    distance: req.body.distance
                 }]
             })
             .then(data => {

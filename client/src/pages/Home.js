@@ -19,7 +19,9 @@ class Home extends Component {
         <NavBar />
         <Container>
           <Row>
-            <Col>1 of 3</Col>
+            <Col>
+              <NewWorkout />
+            </Col>
             <Col xs={5}>
               <h3> Friend Feed</h3>
               <FriendFeed />

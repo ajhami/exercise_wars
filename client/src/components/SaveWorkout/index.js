@@ -13,12 +13,15 @@ const SaveWorkout = props => {
   const [workoutInputs, setWorkoutInputs] = useState({
     title: "",
     description: "",
+    workoutType: "",
+    time: "",
     image: "",
     exercises: [{
       exerciseName: "",
       reps: "",
       sets: "",
-      weight: ""
+      weight: "",
+      distance: ""
     }]
   });
   const handleChange = (name, value) => {
@@ -64,6 +67,24 @@ const SaveWorkout = props => {
               handleChange("description", event.target.value);
             }}
             label="Description: "
+          />
+          <FormInput
+            id="workoutType"
+            value={workoutInputs.workoutType}
+            onChange={event => {
+              event.preventDefault();
+              handleChange("workoutType", event.target.value);
+            }}
+            label="WorkoutType: "
+          />
+                    <FormInput
+            id="time"
+            value={workoutInputs.time}
+            onChange={event => {
+              event.preventDefault();
+              handleChange("time", event.target.value);
+            }}
+            label="time: "
           />
 
           <AddPicture />
