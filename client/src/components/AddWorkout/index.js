@@ -5,7 +5,7 @@ import './style.css'
 function AddWorkout() {
   return (
 
-    <div className="card" style={{ backgroundColor: "blue" }}>
+    // <div className="card" style={{ backgroundColor: "blue" }}>
       <div className="container">
         <div className="dropdown" style = {{marginLeft: "22%"}}>
 
@@ -18,7 +18,7 @@ function AddWorkout() {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
 
