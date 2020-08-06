@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from "reactstrap";
 import Form from '../Form';
 import FormInput from '../Form/FormInput';
@@ -7,7 +7,6 @@ import FormSubmit from '../Form/FormSubmit';
 import AddPicture from "./AddPicture";
 import axios from "axios";
 import "./style.css";
-
 
 const SaveWorkout = props => {
   const [workoutInputs, setWorkoutInputs] = useState({
@@ -24,18 +23,37 @@ const SaveWorkout = props => {
       distance: ""
     }]
   });
-  const handleChange = (name, value) => {
-    // console.log(event.target.value)
-    setWorkoutInputs({ ...workoutInputs, [name]: value })
-  }
-  axios.get("/api/workouts")
+
+  useEffect(() => {
+    axios.get("/api/workouts")
     .then(function (response) {
       console.log(response);
     })
     .catch(error => console.log(error))
+  }, []);
+
+  const handleAddRow = () => {
+    const item = {
+        exerciseName: "",
+        reps: "",
+        sets: "",
+        weight: "",
+        distance: ""
+    };
+
+    handleChange("exercises", [...workoutInputs.exercises, item]);
+};
+
+  const handleChange = (name, value) => {
+    // console.log(event.target.value)
+      console.log(name, value);
+    setWorkoutInputs({ ...workoutInputs, [name]: value })
+  }
+
 
   const handleFormSubmit = event => {
     event.preventDefault();
+    console.log(workoutInputs);
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
         console.log(response);
@@ -88,7 +106,12 @@ const SaveWorkout = props => {
           />
 
           <AddPicture />
-          <SubForm
+          <SubForm 
+            exercises={workoutInputs.exercises}
+            onExerciseUpdate={exercises => {
+              handleChange("exercises", exercises);
+            }}
+            handleAddRow={handleAddRow}
 
           />
           <FormSubmit className="btn btn-info" text="Add Workout" />

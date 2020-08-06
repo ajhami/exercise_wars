@@ -1,31 +1,21 @@
 import React from "react";
 
 class SubForm extends React.Component {
-    state = {
-        rows: [{}]
-    };
+
     handleChange = idx => e => {
+        e.preventDefault();
         const { name, value } = e.target;
-        const rows = [...this.state.rows];
+
+        const rows = [...this.props.exercises];
+
         rows[idx] = {
+            ...rows[idx],
             [name]: value
         };
-        this.setState({
-            rows
-        });
+
+        this.props.onExerciseUpdate(rows)
     };
-    handleAddRow = () => {
-        const item = {
-            exerciseName: "",
-            reps: "",
-            sets: "",
-            weight: "",
-            distance: ""
-        };
-        this.setState({
-            rows: [...this.state.rows, item]
-        });
-    };
+
     handleRemoveRow = () => {
         this.setState({
             rows: this.state.rows.slice(0, -1)
@@ -58,14 +48,15 @@ class SubForm extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.state.rows.map((item, idx) => (
+                                    {this.props.exercises.map((item, idx) => {
+                                        return (
                                         <tr id="addr0" key={idx}>
                                             <td>{idx + 1}</td>
                                             <td>
                                                 <input
                                                     type="text"
-                                                    name="exercise"
-                                                    value={this.state.rows[idx].exerciseName}
+                                                    name="exerciseName"
+                                                    value={item.exerciseName}
                                                     onChange={this.handleChange(idx)}
                                                     className="form-control"
                                                 />
@@ -74,7 +65,7 @@ class SubForm extends React.Component {
                                                 <input
                                                     type="text"
                                                     name="reps"
-                                                    value={this.state.rows[idx].reps}
+                                                    value={item.reps}
                                                     onChange={this.handleChange(idx)}
                                                     className="form-control"
                                                 />
@@ -83,7 +74,7 @@ class SubForm extends React.Component {
                                                 <input
                                                     type="text"
                                                     name="sets"
-                                                    value={this.state.rows[idx].sets}
+                                                    value={item.sets}
                                                     onChange={this.handleChange(idx)}
                                                     className="form-control"
                                                 />
@@ -93,7 +84,7 @@ class SubForm extends React.Component {
                                                 <input
                                                     type="text"
                                                     name="weight"
-                                                    value={this.state.rows[idx].weight}
+                                                    value={item.weight}
                                                     onChange={this.handleChange(idx)}
                                                     className="form-control"
                                                 />
@@ -102,7 +93,7 @@ class SubForm extends React.Component {
                                                 <input
                                                     type="text"
                                                     name="distance"
-                                                    value={this.state.rows[idx].distance}
+                                                    value={item.distance}
                                                     onChange={this.handleChange(idx)}
                                                     className="form-control"
                                                 />
@@ -116,10 +107,10 @@ class SubForm extends React.Component {
                         </button>
                                             </td>
                                         </tr>
-                                    ))}
+                                    )})}
                                 </tbody>
                             </table>
-                            <button onClick={this.handleAddRow} className="btn btn-primary">
+                            <button onClick={this.props.handleAddRow} className="btn btn-primary">
                                 Add Row
                         </button>
                             <button
