@@ -46,7 +46,6 @@ const SaveWorkout = props => {
 const handleRemoveSpecificRow = (idx) => () => {
   const rows = workoutInputs.exercises
   rows.splice(idx, 1)
-  console.log(rows)
   handleChange("exercises", [...workoutInputs.exercises]);
 }
 
