@@ -28,7 +28,7 @@ class Signup extends Component {
 
 
                     <div className="signup_title_div">
-                        <h1 className="signup_title">Create Your Exersice Wars Account</h1>
+                        <h1 className="signup_title">Create Your Exercise Wars Account</h1>
                     </div>
 
                     <a className="signin_atag" href="/Login">Login</a>

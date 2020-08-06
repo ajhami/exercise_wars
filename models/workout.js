@@ -13,6 +13,9 @@ const workoutSchema = new mongoose.Schema({
   title: {
     type: String,
   },
+  workoutType: {
+    type: String,
+  },
   image: {
     type: Object,
   },
@@ -25,6 +28,10 @@ const workoutSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  time: {
+    type: String,
+  },
+
   exercises: [{
     exerciseName: {
       type: String,
@@ -37,6 +44,9 @@ const workoutSchema = new mongoose.Schema({
     },
     weight: {
       type: Number,
+    },
+    distance: {
+      type: String,
     }
   }],
   likes: {
