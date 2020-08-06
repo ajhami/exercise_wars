@@ -27,6 +27,7 @@ class Home extends Component {
               <FriendFeed />
             </Col>
             <Col>
+              <NewWorkout />
               <h3>Friend Suggestions</h3>
               <FriendSuggestions
                 id={1}

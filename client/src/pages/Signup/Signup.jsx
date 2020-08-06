@@ -31,6 +31,8 @@ class Signup extends Component {
                         <h1 className="signup_title">Create Your Exercise Wars Account</h1>
                     </div>
 
+                    <a className="signin_atag" href="/Login">Login</a>
+
                     <form className="signup_form" onSubmit={handleSubmit(this.onSubmit)}>
 
                         <label className="signup_field_labels top_label">First Name</label>
