@@ -19,12 +19,12 @@ class Home extends Component {
         <NavBar />
         <Container>
           <Row>
-            <Col>1 of 3</Col>
             <Col xs={5}>
               <h3> Friend Feed</h3>
               <FriendFeed />
             </Col>
             <Col>
+              <NewWorkout />
               <h3>Friend Suggestions</h3>
               <FriendSuggestions
                 id={1}

@@ -11,6 +11,26 @@
     text-align: center;
 }
 
+.signin_atag{
+    border: 2px #c51515 solid;
+    border-radius: 5px;
+    color: #c51515;
+    float: right;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.signin_atag:hover {
+    border: 2px #ff0000 solid;
+    color: #ff0000;
+    text-decoration: none;
+}
+
 .top_label {
     margin-top: 30px;
 }
@@ -51,7 +71,7 @@
 
 .signup_btn {
     float: left;
-    background-color: #ff0000;
+    background-color: #c51515;
     color: #ffffff;
     border: #f87b7b 2px solid;
     border-radius: 5px;
@@ -62,6 +82,7 @@
 }
 
 .signup_btn:hover {
+    background-color: #ff0000;
     color: #ffffff;
 }
 
