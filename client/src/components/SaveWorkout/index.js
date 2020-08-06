@@ -40,13 +40,17 @@ const SaveWorkout = props => {
         weight: "",
         distance: ""
     };
-
     handleChange("exercises", [...workoutInputs.exercises, item]);
 };
 
+const handleRemoveSpecificRow = (idx) => () => {
+  const rows = workoutInputs.exercises
+  rows.splice(idx, 1)
+  console.log(rows)
+  handleChange("exercises", [...workoutInputs.exercises]);
+}
+
   const handleChange = (name, value) => {
-    // console.log(event.target.value)
-      console.log(name, value);
     setWorkoutInputs({ ...workoutInputs, [name]: value })
   }
 
@@ -112,7 +116,7 @@ const SaveWorkout = props => {
               handleChange("exercises", exercises);
             }}
             handleAddRow={handleAddRow}
-
+            handleRemoveSpecificRow={handleRemoveSpecificRow }
           />
           <FormSubmit className="btn btn-info" text="Add Workout" />
         </Form>
