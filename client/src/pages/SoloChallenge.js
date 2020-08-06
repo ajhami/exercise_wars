@@ -24,7 +24,7 @@ class SoloChallenge extends Component {
             <div className="card" style={{ width: "100%", backgroundColor: "salmon", width: "25%", height: "350px", marginLeft: "5%" }}>
               <div className="challenge" style={{ marginLeft: "15%" }}>
                 <h3> Minute Challenge</h3>
-                <h5> Can You Move up a rank?</h5>
+                <h6> Choose a Minute Challenge</h6>
               </div>
               <div className="col-sm">
                 < ExerciseTable />
