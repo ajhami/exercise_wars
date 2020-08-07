@@ -1,34 +1,51 @@
-import React, { Component } from "react";
+import React, { useState, useEffect} from 'react';
+import axios from "axios";
 
 import Workout from "../Workout";
-import postsJSON from "../../posts.json";
+// import postsJSON from "../../posts.json";
 
-class FriendFeed extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            posts: postsJSON
-        }
+// class FriendFeed extends Component {
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             posts: postsJSON
+//         }
+//     }
+
+const FriendFeed = props => {
+
+    const [friendFeed, setfriendFeed] = useState();
+    // const [friendFeed, setfriendFeed] = useState([])
+    ;
+
+    useEffect(() => {
+        axios.get("/api/workouts")
+          .then(res => {
+            let friendFeed = res.data.results
+
+            console.log(friendFeed)
+        })
+          .catch(error => console.log(error))
+      }, []);
+
+
+return (
+    <div>
+        {friendFeed.map(post => (
+            <Workout
+                key={friendFeed.id}
+                id={friendFeed.id}
+                user={friendFeed.user}
+                title={friendFeed.title}
+                image={friendFeed.image}
+                description={friendFeed.description}
+                likes={friendFeed.likes}
+                commments={friendFeed.comments}
+                exercises={friendFeed.exercises}
+            />
+        ))}
+    </div>
+)
     }
-    render() {
-        return (
-            <div>
-                {this.state.posts.map(post => (
-                        <Workout 
-                        key = {post.id}
-                            id={post.id}
-                            user={post.user}
-                            title={post.title}
-                            image={post.image}
-                            description={post.description}
-                            likes={post.likes}
-                            commments={post.comments}
-                            exercises={post.exercises}
-                        />
-                ))}
-            </div>
-        )
-    }
-}
 
 export default FriendFeed;

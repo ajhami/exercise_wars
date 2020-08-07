@@ -29,7 +29,6 @@ const SaveWorkout = props => {
   useEffect(() => {
     axios.get("/api/workouts")
       .then(function (response) {
-        console.log(response);
       })
       .catch(error => console.log(error))
   }, []);
@@ -57,16 +56,12 @@ const SaveWorkout = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    console.log(workoutInputs);
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
-        console.log(response);
+        console.log("Successful saved workout!")
       })
       .catch(error => console.log(error))
   };
-
-
-
   return (
     <div>
       <Card>
@@ -102,10 +97,6 @@ const SaveWorkout = props => {
             type={"select"}
             label="Workout Type: "
           />
-
-
-
-
           <SubForm
             exercises={workoutInputs.exercises}
             onExerciseUpdate={exercises => {
@@ -114,7 +105,6 @@ const SaveWorkout = props => {
             handleAddRow={handleAddRow}
             handleRemoveSpecificRow={handleRemoveSpecificRow}
           />
-
           <FormInput
             id="time"
             value={workoutInputs.time}
@@ -125,7 +115,6 @@ const SaveWorkout = props => {
             label="Time: "
             placeholder={"h:mm:ss"}
           />
-
           <AddPicture />
           <FormSubmit className="btn btn-info" text="Save Workout" />
         </Form>
