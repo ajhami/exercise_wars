@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Card } from "reactstrap";
 import Form from '../Form';
 import FormInput from '../Form/FormInput';
+import SelectInput from '../Form/SelectInput';
 import SubForm from '../Form/SubForm';
 import FormSubmit from '../Form/FormSubmit';
 import AddPicture from "./AddPicture";
 import axios from "axios";
 import "./style.css";
+
 
 const SaveWorkout = props => {
   const [workoutInputs, setWorkoutInputs] = useState({
@@ -26,33 +28,32 @@ const SaveWorkout = props => {
 
   useEffect(() => {
     axios.get("/api/workouts")
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(error => console.log(error))
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(error => console.log(error))
   }, []);
 
   const handleAddRow = () => {
     const item = {
-        exerciseName: "",
-        reps: "",
-        sets: "",
-        weight: "",
-        distance: ""
+      exerciseName: "",
+      reps: "",
+      sets: "",
+      weight: "",
+      distance: ""
     };
     handleChange("exercises", [...workoutInputs.exercises, item]);
-};
+  };
 
-const handleRemoveSpecificRow = (idx) => () => {
-  const rows = workoutInputs.exercises
-  rows.splice(idx, 1)
-  handleChange("exercises", [...workoutInputs.exercises]);
-}
+  const handleRemoveSpecificRow = (idx) => () => {
+    const rows = workoutInputs.exercises
+    rows.splice(idx, 1)
+    handleChange("exercises", [...workoutInputs.exercises]);
+  }
 
   const handleChange = (name, value) => {
     setWorkoutInputs({ ...workoutInputs, [name]: value })
   }
-
 
   const handleFormSubmit = event => {
     event.preventDefault();
@@ -63,6 +64,8 @@ const handleRemoveSpecificRow = (idx) => () => {
       })
       .catch(error => console.log(error))
   };
+
+
 
   return (
     <div>
@@ -89,36 +92,44 @@ const handleRemoveSpecificRow = (idx) => () => {
             }}
             label="Description: "
           />
-          <FormInput
+          <SelectInput
             id="workoutType"
             value={workoutInputs.workoutType}
             onChange={event => {
               event.preventDefault();
               handleChange("workoutType", event.target.value);
             }}
-            label="WorkoutType: "
+            type={"select"}
+            label="Workout Type: "
           />
-                    <FormInput
+
+
+
+
+          <SubForm
+            exercises={workoutInputs.exercises}
+            onExerciseUpdate={exercises => {
+              handleChange("exercises", exercises);
+            }}
+            handleAddRow={handleAddRow}
+            handleRemoveSpecificRow={handleRemoveSpecificRow}
+          />
+
+          <FormInput
             id="time"
             value={workoutInputs.time}
             onChange={event => {
               event.preventDefault();
               handleChange("time", event.target.value);
             }}
-            label="time: "
+            label="Time: "
+            placeholder={"h:mm:ss"}
           />
 
           <AddPicture />
-          <SubForm 
-            exercises={workoutInputs.exercises}
-            onExerciseUpdate={exercises => {
-              handleChange("exercises", exercises);
-            }}
-            handleAddRow={handleAddRow}
-            handleRemoveSpecificRow={handleRemoveSpecificRow }
-          />
-          <FormSubmit className="btn btn-info" text="Add Workout" />
+          <FormSubmit className="btn btn-info" text="Save Workout" />
         </Form>
+
 
 
       </Card>
