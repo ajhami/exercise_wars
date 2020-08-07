@@ -5,7 +5,6 @@ import Exercises from "../Exercises"
 import { Table } from "reactstrap";
 
 function Workout(props) {
-    console.log(props.exercises)
     return (
         <div className="card">
             <div className="img-container">

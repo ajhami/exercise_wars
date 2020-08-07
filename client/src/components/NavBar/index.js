@@ -11,6 +11,17 @@ function NavBar() {
       </NavLink>
       <div>
         <ul className="navbar-nav">
+        <li className="nav-item">
+            <NavLink
+              to="/AddWorkout"
+              className="nav-link"
+              style={{ color: "darkGray" }}
+              activeStyle={{ color: "red" }}
+              exact
+            >
+              Add Workout
+            </NavLink>
+          </li>
           <li className="nav-item">
             <NavLink
               to="/ChallengeFriends"
