@@ -12,9 +12,9 @@ function AddWorkout() {
           <button className="dropbtn">Choose Workout</button>
           <div className="dropdown-content">
             <a href="/PushUps">Push Ups</a>
-            <a href="/Pushups">Squats</a>
-            <a href="/Pushups">Pull Ups</a>
-            <a href="/Pushups">Sit Ups</a>
+            <a href="/Squats">Squats</a>
+            <a href="/PullUps">Pull Ups</a>
+            <a href="/SitUps">Sit Ups</a>
           </div>
         </div>
       </div>

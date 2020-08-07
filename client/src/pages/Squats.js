@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import SoloCard from "../components/SoloCard"
 
-class PushUps extends Component {
+class Squats extends Component {
 
     render() {
         return (
 
-          <SoloCard name="Push Ups" imgsrc="assets/images/logo/pushup.png"     />
+          <SoloCard name="Squats" imgsrc="assets/images/logo/squats.png" />
         );
     };
 };
 
-export default PushUps
+export default Squats

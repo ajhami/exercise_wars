@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AddWorkout from "../components/AddWorkout"
 import ExerciseTable from "../components/ExerciseTable"
-import Works from "../components/Works"
 
 // import VideoContainer from "../components/VideoContainer"
 import NavBar from "../components/NavBar";
@@ -11,7 +10,7 @@ class SoloChallenge extends Component {
 
   render() {
     return (
-      <div className="container" style={{ border: "1px solid black", width: "50%px" }}>
+      <div className="container" style={{  width: "70%px", marginBottom: "25px" }}>
         <div className="row">
           <div class="col-sm">
             <div className="img" style = {{ height:"350px" }} >
