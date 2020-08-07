@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
 import NewWorkout from "../components/SaveWorkout";
+import FriendFeed from "../components/FriendFeed";
 
 
 class Home extends Component {
@@ -17,6 +18,9 @@ class Home extends Component {
           <Row>
             <Col>
               <NewWorkout />
+            </Col>
+            <Col xs={5}>
+              <FriendFeed />
             </Col>
           </Row>
         </Container>

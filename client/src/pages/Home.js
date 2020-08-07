@@ -19,7 +19,6 @@ class Home extends Component {
         <Container>
           <Row>
             <Col xs={5}>
-              <h3> Friend Feed</h3>
               <FriendFeed />
             </Col>
             <Col>
