@@ -1,10 +1,11 @@
 import React from 'react';
+import {Button} from "reactstrap"
 
 const FormSubmit = props => {
 
   return (
     <div className="FormSubmit">
-      <button className="FormSubmit-button">{props.text}</button>
+      <Button className="FormSubmit-button" style={{ margin: "5px", }}>{props.text}</Button>
     </div>
   );
 };

@@ -76,12 +76,11 @@ class NewWorkout extends Component {
                     {/* For Alert box*/}
                     <div id="oc-alert-container"></div>
                     {/* Single File Upload*/}
-
                     <div className="card-body">
                         <input type="file" onChange={this.singleFileChangedHandler} />
-                        <div className="mt-5">
+                        {/* <div className="mt-5">
                             <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload image</button>
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>
