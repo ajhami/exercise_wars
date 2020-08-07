@@ -19,6 +19,13 @@ import Signup from "./pages/Signup"
 import AuthSuccess from "./pages/AuthSuccess"
 import Logout from "./pages/Logout"
 import Welcome from "./pages/Welcome/index";
+import Squats from "./pages/Squats"
+import SitUps from "./pages/SitUps"
+import PullUps from "./pages/PullUps"
+
+
+
+
 
 const store = createStore(
   reducers,
@@ -46,6 +53,12 @@ function App() {
             <Route exact path="/LocalChallenge" component={LocalChallenge} />
             <Route exact path="/SoloChallenge" component={SoloChallenge} />
             <Route exact path="/PushUps" component={PushUps} />
+
+            <Route exact path="/Squats" component={Squats} />
+            <Route exact path="/SitUps" component={SitUps} />
+            <Route exact path="/PullUps" component={PullUps} />
+
+
             <Route exact path="/TestAuth" component={TestAuth} />
             <Route exact path="/Signup" component={Signup} />
             <Route exact path="/AuthSuccess" component={AuthSuccess} />
