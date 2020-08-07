@@ -4,13 +4,12 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
-// import NavBar from "./components/NavBar"
-// import Footer from "./components/Footer"
 import Wrapper from "./components/Wrapper"
 import PushUps from "./pages/PushUps";
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import CreateAccount from "./pages/CreateAccount"
+import AddWorkout from "./pages/AddWorkout"
 import Challengefriends from "./pages/ChallengeFriends"
 import GlobalChallenge from "./pages/GlobalChallenge"
 import LocalChallenge from "./pages/LocalChallenge"
@@ -41,6 +40,7 @@ function App() {
             <Route exact path="/Login" component={Login} />
             <Route exact path="/CreateAccount" component={CreateAccount} />
             <Route exact path="/Home" component={Home} />
+            <Route exact path="/AddWorkout" component={AddWorkout} />
             <Route exact path="/Challengefriends" component={Challengefriends} />
             <Route exact path="/GlobalChallenge" component={GlobalChallenge} />
             <Route exact path="/LocalChallenge" component={LocalChallenge} />
