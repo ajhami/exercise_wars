@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { Card, Button } from "reactstrap";
 import axios from "axios";
-
 import Workout from "../Workout";
-// import postsJSON from "../../posts.json";
+import postsJSON from "../../posts.json";
 
 // class FriendFeed extends Component {
 //     constructor(props) {
@@ -13,39 +13,50 @@ import Workout from "../Workout";
 //     }
 
 const FriendFeed = props => {
+    const [posts, setPosts] = useState(
+        []
+    );
 
-    const [friendFeed, setfriendFeed] = useState();
-    // const [friendFeed, setfriendFeed] = useState([])
-    ;
+    console.log(posts)
 
     useEffect(() => {
         axios.get("/api/workouts")
-          .then(res => {
-            let friendFeed = res.data.results
+            .then(res => {
+                    setPosts(res.data)
+            })
+            .catch(error => console.log(error))
+    }, []);
 
-            console.log(friendFeed)
-        })
-          .catch(error => console.log(error))
-      }, []);
-
-
-return (
-    <div>
-        {friendFeed.map(post => (
-            <Workout
-                key={friendFeed.id}
-                id={friendFeed.id}
-                user={friendFeed.user}
-                title={friendFeed.title}
-                image={friendFeed.image}
-                description={friendFeed.description}
-                likes={friendFeed.likes}
-                commments={friendFeed.comments}
-                exercises={friendFeed.exercises}
-            />
-        ))}
-    </div>
-)
+    const handleLikeButton = event => {
+        console.log(event)
+        posts.unshift()
+        console.log("like")
     }
+
+    return (
+        <div>
+            <Card>
+                <Button onClick={handleLikeButton}>Hi there</Button>
+                <div className="card-header">
+                    <h3 style={{ color: '#555', marginLeft: '12px' }}>Friend Feed</h3>
+                </div>
+                {posts.map(post => (
+                    <Workout
+                        key={post.id}
+                        id={post.id}
+                        user={post.user}
+                        title={post.title}
+                        image={post.image}
+                        description={post.description}
+                        likes={post.likes}
+                        commments={post.comments}
+                        exercises={post.exercises}
+                    />
+
+                ))}
+            </Card>
+        </div>
+    )
+}
 
 export default FriendFeed;

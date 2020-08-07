@@ -5,6 +5,7 @@ import Exercises from "../Exercises"
 import { Table } from "reactstrap";
 
 function Workout(props) {
+    console.log(props)
     return (
         <div className="card">
             <div className="img-container">
@@ -31,7 +32,7 @@ function Workout(props) {
                             <tbody>
                                 {props.exercises.map(exercise => (
                                     <Exercises
-                                        key={exercise.id}
+                                         key={exercise.id}
                                         exerciseName={exercise.name}
                                         reps={exercise.reps}
                                         sets={exercise.sets}
