@@ -6,7 +6,7 @@ import FriendSuggestions from "../components/FriendSuggestions";
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
-
+import MinuteChallenge from "../components/MinuteChallenge";
 
 class Home extends Component {
 
@@ -30,6 +30,7 @@ class Home extends Component {
                 profileImg="test_profile_img.jpg"
               />
             </Col>
+            < MinuteChallenge />
           </Row>
         </Container>
         <Footer />
