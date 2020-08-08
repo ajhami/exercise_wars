@@ -32,15 +32,15 @@ function Workout(props) {
                     <li>
                         <Table striped
                             className="table exerciseTable"
-                            >
+                        >
                             <thead>
                                 <tr>
-                                    <th style={{ width: "5px", }}>#</th>
-                                    <th style={{ width: "5px", }}>name</th>
-                                    <th style={{ width: "5px", }}>weight</th>
-                                    <th style={{ width: "5px", }}>dist.</th>
-                                    <th style={{ width: "5px", }}>reps</th>
-                                    <th style={{ width: "5px", }}>sets</th>
+                                    <th >#</th>
+                                    <th >name</th>
+                                    <th >weight</th>
+                                    <th >dist.</th>
+                                    <th >reps</th>
+                                    <th >sets</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,10 +67,15 @@ function Workout(props) {
                     </li>
                     <li>Time to complete: {props.time}</li>
                     <li>
-                        <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
-                    </li>
-                    <li>
-                        <Button>Comments: {props.comments}</Button>
+                        <Container><Row>
+                            <Col md={3}>
+                            <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
+                            </Col>
+                            <Col md={9}>
+                            <Button className="fa fa-comment" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.comments}
+                            </Col>
+                            </Row>
+                        </Container>
                     </li>
                 </ul>
             </div>
