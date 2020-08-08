@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 function Exercises(props) {
-     console.log(props)
+    //  console.log(props)
     return (
         <tr>
             <td> {props.exerciseNumber}</td>

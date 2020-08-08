@@ -23,10 +23,12 @@ const FriendFeed = (props) => {
             workouts.map(workout => {
                 return (
             <Workout
-                key={workout._id}
-                id={workout._id}
+                key={workout.id}
+                id={workout.id}
                 user={workout.user}
+                date={workout.date}
                 title={workout.title}
+                time={workout.time}
                 image={workout.image}
                 description={workout.description}
                 workoutType={workout.workoutType}

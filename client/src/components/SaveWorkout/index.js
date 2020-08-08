@@ -108,7 +108,7 @@ const SaveWorkout = props => {
               event.preventDefault();
               handleChange("time", event.target.value);
             }}
-            label="Time: "
+            label="Time to Complete: "
             placeholder={"h:mm:ss"}
           />
           <AddPicture />
