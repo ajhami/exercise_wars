@@ -28,7 +28,7 @@ mongoose.connect(URI, {
 });
 
 // routes
-app.use(routes);
+app.use(routes);n
 
 app.listen(PORT, () => {
   console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
