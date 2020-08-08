@@ -15,10 +15,6 @@ const FriendFeed = (props) => {
     }, []);
     return (
         <div>
-            <div className="card-header">
-                <h3 style={{ color: '#555', marginLeft: '12px' }}>Friend Feed</h3>
-            </div>
-
             {
             workouts.map(workout => {
                 return (

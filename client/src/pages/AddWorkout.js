@@ -7,19 +7,19 @@ import requireAuth from "../components/requireAuth";
 import NewWorkout from "../components/SaveWorkout";
 import FriendFeed from "../components/FriendFeed";
 
-
 class Home extends Component {
-
   render() {
     return (
       <div>
         <NavBar />
         <Container>
           <Row>
-            <Col>
+            <Col md={6}>
+            <h3>Add a Workout</h3>
               <NewWorkout />
             </Col>
-            <Col xs={5}>
+            <Col md={6}>
+            <h3>Feed</h3>
               <FriendFeed />
             </Col>
           </Row>

@@ -10,6 +10,7 @@ class SoloChallenge extends Component {
 
   render() {
     return (
+
       <div className="container" style={{ marginBottom: "25px", border: "1px solid black", maxWidth: "355px" }}>
 
 
@@ -18,7 +19,6 @@ class SoloChallenge extends Component {
               <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/second_pushup.jpg"} alt="Card image cap" >
               </img>
             </div>
-        </div>
 
         <div className="row">
               <div className="challenge" style={{ marginLeft: "20%" }}>

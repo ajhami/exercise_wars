@@ -4,8 +4,8 @@ import './style.css'
 function ChallengeDropDown() {
     return (
         <div>
-            <button type="button" class="btn btn-primary" style = {{marginRight: "15px"}}>Yes</button>
-            <button type="button" class="btn btn-secondary" style = {{backgroundColor: "red"}}>No</button>
+            <button type="button" className="btn btn-primary" style = {{marginRight: "15px"}}>Yes</button>
+            <button type="button" className="btn btn-secondary">No</button>
         </div>
     )
 };
