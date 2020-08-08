@@ -17,13 +17,9 @@ const SaveWorkout = props => {
     workoutType: "",
     time: "",
     image: "",
-    exercises: [{
-      exerciseName: "",
-      reps: "",
-      sets: "",
-      weight: "",
-      distance: ""
-    }]
+    likes: "",
+    comments: "",
+    exercises: []
   });
 
   useEffect(() => {
@@ -39,7 +35,7 @@ const SaveWorkout = props => {
       reps: "",
       sets: "",
       weight: "",
-      distance: ""
+      distance: "",
     };
     handleChange("exercises", [...workoutInputs.exercises, item]);
   };
@@ -58,7 +54,7 @@ const SaveWorkout = props => {
     event.preventDefault();
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
-        console.log("Successful saved workout!")
+         workoutInputs.id = response.data._id
       })
       .catch(error => console.log(error))
   };
@@ -118,9 +114,6 @@ const SaveWorkout = props => {
           <AddPicture />
           <FormSubmit className="btn btn-info" text="Save Workout" />
         </Form>
-
-
-
       </Card>
     </div>
   );

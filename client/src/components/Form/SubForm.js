@@ -9,13 +9,13 @@ function SubForm(props) {
         const rows = [...props.exercises];
         rows[idx] = {
             ...rows[idx],
-            [name]: value
+            [name]: value,
         };
-
         props.onExerciseUpdate(rows)
     };
 
     return (
+        
         <Container style={{ margin: "5px", }}>
         <div>          
             <div className="container">
@@ -39,7 +39,6 @@ function SubForm(props) {
                                                     value={item.exerciseName}
                                                     onChange={handleChange(idx)}
                                                     className="form-control"
-                                                
                                                 />
                                             </td>
                                             <td style={{ width: "80px", }}>

@@ -2,7 +2,6 @@ const { Workouts } = require('../models');
 
 module.exports = {
     getWorkouts: function (req, res) {
-        console.log("hi")
         Workouts
             .find()
             .then(data => {
@@ -13,28 +12,23 @@ module.exports = {
             });
     },
     createWorkout: function (req, res) {
-        console.log(req.body.title);
+        console.log("req.body");
+        console.log(req.body.exercises);
         Workouts
             .create({ 
-                id: req.body._id,
                 title: req.body.title,
                 workoutType: req.body.workoutType,
                 description: req.body.description,
                 user: req.body.user,
                 image: req.body.image,
-                date: req.body.date,
+                date: Date.now(),
                 time: req.body.time,
-                exercises: [{
-                    exerciseName: req.body.exerciseName,
-                    sets: req.body.sets,
-                    reps: req.body.reps,
-                    weight: req.body.weight,
-                    distance: req.body.distance
-                }]
+                exercises: req.body.exercises
             })
             .then(data => {
                 res.status(200).json(data);
-                console.log(data)
+                console.log("data")
+                console.log(data)  
             })
             .catch(error => {
                 console.log(error);
