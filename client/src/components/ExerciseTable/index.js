@@ -3,7 +3,7 @@ import React from 'react'
 import './style.css'
 function ExerciseTable() {
     return (
-<table class="table table-bordered" style = {{width: "35%", marginLeft: "5%"}}>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
