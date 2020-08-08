@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
 import MinuteChallenge from "../components/MinuteChallenge";
+import ProfileCard from '../components/ProfileCard/ProfileCard';
 
 class Home extends Component {
 
@@ -17,6 +18,13 @@ class Home extends Component {
       <div>
         <NavBar />
         <Container>
+          <ProfileCard
+            imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
+            username="test123"
+            location="Draper, UT"
+            followersCount={5}
+            followingCount={3}
+          />
           <Row>
             <Col xs={5}>
               <FriendFeed />
