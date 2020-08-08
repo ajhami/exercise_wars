@@ -1,26 +1,12 @@
 import React from 'react';
-import { Button } from "reactstrap";
+import Moment from "moment";
+import { Button, Container, Row, Col } from "reactstrap";
 import "./style.css";
 import Exercises from "../Exercises"
 import { Table } from "reactstrap";
 
 function Workout(props) {
-    // const [exercises, setExercises] = useState(
-    //     []
-    // );
-
-    // useEffect(() => {
-    //     axios.get("/api/workouts")
-    //         .then(res => {
-    //                 setExercises(res.data)
-    //                 console.log(res.data[0].exercises)
-    //         })
-    //         .catch(error => console.log(error))
-    // }, []);
-
     return (
-
-
 
         <div className="card">
             <div className="img-container">
@@ -29,9 +15,22 @@ function Workout(props) {
             <div className="content">
                 <ul>
                     <li>
-                        <strong>{props.title}</strong>
-                        <p>{props.description}</p>
-                        <p className="userStyle">{props.user}</p>
+                        <Container>
+                            <Row>
+                                <Col className="userStyle">
+                                    {props.user}
+                                </Col>
+                                <Col>{Moment(props.date).format("MMM D, YYYY")}</Col>
+                            </Row>
+                            <Row>
+                               <strong>{props.title}</strong>
+                              
+                               
+                            </Row>
+                            <Row>
+                                {props.description}
+                            </Row>
+                        </Container>
                     </li>
                     <li>
                         <Table striped bordered hover className="exerciseTable">
@@ -47,23 +46,28 @@ function Workout(props) {
                             </thead>
                             <tbody>
                                 {props.exercises
-                                    .map((exercise, idx) => (
+                                    .map((exercise, idx) => {
+                                        console.log(exercise)
+                                        return (
                                         <Exercises
                                             key={exercise._id}
                                             exerciseNumber={idx + 1}
-                                            exerciseName={exercise.name}
+                                            exerciseName={exercise.exerciseName}
                                             distance={exercise.distance}
                                             reps={exercise.reps}
                                             sets={exercise.sets}
                                             weight={exercise.weight}
                                         />
-                                    ))
+                                    )}
+                                    )
                                 }
                             </tbody>
                         </Table>
+
                     </li>
+                    <li>Time to complete: {props.time}</li>
                     <li>
-                        <Button>Likes: {props.likes}</Button>
+                        <Button className="fa fa-thumbs-up" style={{fontSize: "smaller"}}aria-hidden="true"></Button> {props.likes}
                     </li>
                     <li>
                         <Button>Comments: {props.comments}</Button>

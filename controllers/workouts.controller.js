@@ -21,7 +21,8 @@ module.exports = {
                 description: req.body.description,
                 user: req.body.user,
                 image: req.body.image,
-                date: Date.now(),
+                date: Date(Date.now()),
+                user: "Brent",
                 time: req.body.time,
                 exercises: req.body.exercises
             })
