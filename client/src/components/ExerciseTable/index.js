@@ -3,7 +3,7 @@ import React from 'react'
 import './style.css'
 function ExerciseTable() {
     return (
-<table className="table table-bordered">
+<table class="table-responsive table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>

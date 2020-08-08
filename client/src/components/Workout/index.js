@@ -26,7 +26,7 @@ function Workout(props) {
                             </Row>
                             <Row>
                                 {props.description}
-                            </Row>
+                            </Row>c
                         </Container>
                     </li>
                     <li>
