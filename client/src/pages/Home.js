@@ -18,10 +18,13 @@ class Home extends Component {
         <NavBar />
         <Container>
           <Row>
-            <Col xs={5}>
+            <Col md={4}>
+            < MinuteChallenge />
+            </Col>
+            <Col md={4}>
               <FriendFeed />
             </Col>
-            <Col>
+            <Col md={4}>
               <h3>Friend Suggestions</h3>
               <FriendSuggestions
                 id={1}
@@ -30,7 +33,7 @@ class Home extends Component {
                 profileImg="test_profile_img.jpg"
               />
             </Col>
-            < MinuteChallenge />
+
           </Row>
         </Container>
         <Footer />

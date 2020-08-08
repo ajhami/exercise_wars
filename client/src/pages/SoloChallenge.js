@@ -12,7 +12,7 @@ class SoloChallenge extends Component {
     return (
       <div className="container" style={{ width: "30%", marginBottom: "25px", border: "1px solid black"}}>
         <div className="row">
-          <div class="col-sm">
+          <div className="col-sm">
             <div className="img" style={{ height: "250px" }} >
               <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/second_pushup.jpg"} alt="Card image cap" >
               </img>
@@ -21,7 +21,7 @@ class SoloChallenge extends Component {
         </div>
        
         <div className="row" style = {{width:"100"}}>
-          <div class="col-sm">
+          <div className="col-sm">
             <div className="card" style={{ backgroundColor: "salmon", width: "95%", height: "250px", border: "1px solid black", marginRight: "75%" }}>
               <div className="challenge" style={{ marginLeft: "23%" }}>
                 <h3> Minute Challenge</h3>
@@ -41,7 +41,7 @@ class SoloChallenge extends Component {
         </div>
 
         <div className="row">
-          <div class="col-sm">
+          <div className="col-sm">
             <div className="img" style={{ height: "250px", marginBottom:"20px" }}>
               <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/pullups.png"} alt="Card image cap" >
               </img>
