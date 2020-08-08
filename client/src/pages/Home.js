@@ -19,9 +19,11 @@ class Home extends Component {
         <Container>
           <Row>
             <Col md={4}>
+            <h3>Minute Challenge</h3>
             < MinuteChallenge />
             </Col>
             <Col md={4}>
+            <h3>Feed</h3>
               <FriendFeed />
             </Col>
             <Col md={4}>
