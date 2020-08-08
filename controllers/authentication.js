@@ -9,47 +9,78 @@ function tokenForUser(user) {
 }
 
 // Checking created credentials and retrieving user token
-exports.signin = function(req, res, next) {
+exports.signin = function (req, res, next) {
     res.send({ token: tokenForUser(req.user) });
 }
 
-exports.signup = function(req, res, next) {
-    const email = req.body.email;
-    const password = req.body.password;
+exports.signup = function (req, res, next) {
 
-    // Ensuring users move in with valid email and password submissions
-    if(!email || !password) {
-        return res.send(422).send({ error: "Please provide the valid email and password!" })
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const username = req.body.username;
+    const password = req.body.password;
+    const birthday = `${req.body.dobMonth}/${req.body.dobDay}/${req.body.dobYear}`;
+
+    // Optional data
+    let location = "";
+    let height = 0;
+    let weight = 0;
+    if (req.body.locCity && req.body.locState) {
+        location = `${req.body.locCity}, ${req.body.locState}`;
+    };
+    if (req.body.height) {
+        height = req.body.height;
+    }
+    if (req.body.weight) {
+        weight = req.body.weight;
     }
 
-    // Checking for existing user
-    Users.findOne({ email: email }, function(err, userFound) {
-
+    Users.findOne({ username: username }, function (err, usernameFound) {
         if (err) {
             return next(err);
+        }
+
+        if (usernameFound) {
+            return res.status(422).send({ err: "⚠ An account already exist under this username and/or email address. Try new credentials." });
+        }
+        else {
+            // Checking for existing user
+            Users.findOne({ email: email }, function (err, userFound) {
+
+                if (err) {
+                    return next(err);
+                };
+
+                // Returning error upon finding used account
+                if (userFound) {
+                    return res.status(422).send({ err: "⚠ An account already exist under this username and/or email address. Try new credentials." });
+                };
+
+                // Saving new account
+                const user = new Users({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    username: username,
+                    password: password,
+                    birthday: birthday,
+                    location: location,
+                    height: height,
+                    weight: weight
+                });
+
+                user.save(function (err) {
+                    if (err) {
+                        return next(err);
+                    }
+
+                    // Successful creation, login
+                    res.json({ token: tokenForUser(user) });
+                });
+
+            });
         };
-
-        // Returning error upon finding used account
-        if (userFound) {
-            return res.status(422).send({ err: "This email address is already in use." })
-        };
-
-        // Saving new account
-        const user = new Users({
-            email: email,
-            password: password
-        });
-
-        user.save(function (err) {
-            if (err) {
-                return next(err);
-            }
-
-            // Successful creation, login
-            res.json({ token: tokenForUser(user) });
-        });
-
     });
-
 
 };

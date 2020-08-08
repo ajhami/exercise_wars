@@ -1,10 +1,13 @@
-import React from "react";
-import { Button } from "reactstrap";
+import React from 'react';
+import Moment from "moment";
+import { Button, Container, Row, Col } from "reactstrap";
 import "./style.css";
 import Exercises from "../Exercises"
+import { Table } from "reactstrap";
 
-function Post(props) {
+function Workout(props) {
     return (
+
         <div className="card">
             <div className="img-container">
                 <img alt={props.title} src={props.image} />
@@ -12,23 +15,59 @@ function Post(props) {
             <div className="content">
                 <ul>
                     <li>
-                        <strong>ID:</strong> {props.id}
+                        <Container>
+                            <Row>
+                                <Col className="userStyle">
+                                    {props.user}
+                                </Col>
+                                <Col>{Moment(props.date).format("MMM D, YYYY")}</Col>
+                            </Row>
+                            <Row>
+                               <strong>{props.title}</strong>
+                              
+                               
+                            </Row>
+                            <Row>
+                                {props.description}
+                            </Row>
+                        </Container>
                     </li>
                     <li>
-                        <strong>User:</strong> {props.user}
+                        <Table striped bordered hover className="exerciseTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>exercise</th>
+                                    <th>weight</th>
+                                    <th>dist.</th>
+                                    <th>reps</th>
+                                    <th>sets</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {props.exercises
+                                    .map((exercise, idx) => {
+                                        console.log(exercise)
+                                        return (
+                                        <Exercises
+                                            key={exercise._id}
+                                            exerciseNumber={idx + 1}
+                                            exerciseName={exercise.exerciseName}
+                                            distance={exercise.distance}
+                                            reps={exercise.reps}
+                                            sets={exercise.sets}
+                                            weight={exercise.weight}
+                                        />
+                                    )}
+                                    )
+                                }
+                            </tbody>
+                        </Table>
+
                     </li>
+                    <li>Time to complete: {props.time}</li>
                     <li>
-                        <strong>Title:</strong> {props.title}
-                    </li>
-                    <li>
-                        <strong>Description:</strong> {props.description}
-                    </li>
-                    <li>
-                        <Exercises>
-                            <strong>Excercises:</strong> {props.exercises}</Exercises>
-                    </li>
-                    <li>
-                        <Button>Likes: {props.likes}</Button>
+                        <Button className="fa fa-thumbs-up" style={{fontSize: "smaller"}}aria-hidden="true"></Button> {props.likes}
                     </li>
                     <li>
                         <Button>Comments: {props.comments}</Button>
@@ -36,8 +75,9 @@ function Post(props) {
                 </ul>
             </div>
         </div>
-
-    );
+    )
 }
 
-export default Post;
+
+
+export default Workout;

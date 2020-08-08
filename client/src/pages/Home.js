@@ -3,34 +3,39 @@ import React, { Component } from 'react';
 import FriendFeed from "../components/FriendFeed";
 import { Container, Row, Col } from "reactstrap";
 import FriendSuggestions from "../components/FriendSuggestions";
-import NewWorkout from "../components/SaveWorkout";
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import requireAuth from "../components/requireAuth";
+import MinuteChallenge from "../components/MinuteChallenge";
 
 class Home extends Component {
 
-
   render() {
-    return (
 
-      <Container>
-  <Row>
-    <Col><NewWorkout/></Col>
-    <Col xs={5}>
-      <h1> Friend Feed</h1>
-        <FriendFeed />
-        </Col>
-    <Col>
-    <h3>Friend Suggestions</h3>
-    <FriendSuggestions 
-          id={1}
-          name="Jack Edwards"
-          location="Folsom, CA"
-          profileImg="test_profile_img.jpg"
-        />
-        </Col>
-  </Row>
-</Container>
+
+    return (
+      <div>
+        <NavBar />
+        <Container>
+          <Row>
+            <Col xs={5}>
+              <FriendFeed />
+            </Col>
+            <Col>
+              <h3>Friend Suggestions</h3>
+              <FriendSuggestions
+                id={1}
+                name="Jack Edwards"
+                location="Folsom, CA"
+                profileImg="test_profile_img.jpg"
+              />
+            </Col>
+            < MinuteChallenge />
+          </Row>
+        </Container>
+        <Footer />
+      </div>
     );
   };
 };
-export default Home;
-
+export default requireAuth(Home);

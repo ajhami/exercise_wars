@@ -1,0 +1,84 @@
+.welcome_navbar {
+    margin-left: 0;
+}
+
+.welcome_navbrand_img {
+    float: left;
+    height: 80px;
+    width: 300px;
+}
+
+.welcome_nav_login_atag_section {
+    height: 100%;
+}
+
+.welcome_nav_login_atag {
+    background-color: #ffffff;
+    border: 2px #cc0000 solid;
+    border-radius: 5px;
+    color: #cc0000;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    float: right;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.exclaim_section {
+    background-image: url(/assets/images/welcomepage_md_edit2.jpg);
+    height: 800px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* filter: blur(2px)
+            brightness(0.6)
+            grayscale(80%); */
+    /* margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    height: 0; */
+}
+
+.exclaim_title {
+    color: #cc0000;
+    /* margin-top: 30px; */
+    font-size: 50px;
+    font-weight: bolder;
+    position: relative;
+    text-align: center;
+    top: 150px;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #2b2525;
+    /* margin-bottom: 100px; */
+}
+
+.exclaim_signup_atag_section {
+    text-align: center;
+    /* position: relative; */
+}
+
+.exclaim_signup_atag {
+    background-color: #4b4747af;
+    border: 2px #cc0000 solid;
+    border-radius: 5px;
+    color: #cc0000;
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    position: relative;
+    top: 200px;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #2b2525;
+}
+
+.welcome_nav_login_atag:hover, .exclaim_signup_atag:hover {
+    text-decoration: none;
+    color: #ff0000;
+    border: 3px #ff0000 solid;
+}

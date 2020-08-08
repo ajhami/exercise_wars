@@ -1,0 +1,20 @@
+#table_id {
+    display: block;
+  }
+  
+  #table_id td {
+    display: inline-block;
+    padding: .15rem;
+    margin: auto;
+  }
+
+
+  
+  td {
+
+    /* height: 60px; */
+    line-height: 33px;
+    padding: 0px;
+    margin: auto;
+  }
+

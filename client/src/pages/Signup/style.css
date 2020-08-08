@@ -1,0 +1,97 @@
+.alert_section {
+    width: 0;
+}
+
+.signup_title_div, .signup_form {
+    width: 75%;
+    margin: auto;
+}
+
+.signup_title {
+    text-align: center;
+}
+
+.signin_atag{
+    border: 2px #c51515 solid;
+    border-radius: 5px;
+    color: #c51515;
+    float: right;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.signin_atag:hover {
+    border: 2px #ff0000 solid;
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.top_label {
+    margin-top: 30px;
+}
+
+.signup_field_labels {
+    color: #c51515;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.signup_fieldset {
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.signup_general_field {
+    width: 50%;
+}
+
+
+.dob_field {
+    width: 58px;
+}
+
+.dob_field_year {
+    width: 66px;
+}
+
+.loc_city_field {
+    margin-right: 10px;
+}
+
+.birthday_forwardslashes {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bolder;
+}
+
+.signup_btn {
+    float: left;
+    background-color: #c51515;
+    color: #ffffff;
+    border: #f87b7b 2px solid;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.signup_btn:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.alert_text {
+    float: right;
+    color: #855600;
+}
+
+.signup_img {
+    height: 100%;
+    width: 100%;
+}

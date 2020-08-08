@@ -1,13 +1,30 @@
 import axios from 'axios';
-const APIURL = "some text"
 
-//not sure how this will work with our passport setup, we need to pull the users info from the database to update it when a new user is created,
-// also need to access db when logging in
+export default { 
+    fetchWorkouts:function() {
+        return axios
+        .get("/api/workouts")
+        .then(res => {
+            const workouts = res.data;
+            return workouts.map(workout => {
 
+                return {
+                    key: workout._id,
+                    id: workout._id,
+                    user: workout.user,
+                    date: workout.date,
+                    title: workout.title,
+                    time: workout.time,
+                    image: workout.image,
+                    description: workout.description,
+                    workoutType: workout.workoutType,
+                    likes: workout.likes,
+                    commments: workout.comments,
+                    exercises: workout.exercises
 
-// export default {
-//     getUsers: function() {
-//         return axios.get(APIURL)
-
-//     }
-// };
+                }
+            })
+        })
+        .catch(error => console.log(error))
+    }
+}

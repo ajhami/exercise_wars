@@ -3,6 +3,28 @@ import { AUTH_USER, AUTH_ERROR } from "./types";
 
 export const signup = (formProps, cb) => async dispatch => {
     try {
+        console.log(formProps.email);
+        console.log(formProps.password);
+        console.log(formProps.verifyPassword);
+        console.log(formProps);
+        if(!formProps.email) {
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Missing email address!" });
+        }
+        else if(!formProps.password) {
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Missing Password!" });
+        }
+        else if(formProps.password.length < 8) {
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Please adjust your password to include at least 8 characters!" });
+        }
+        else if(formProps.password !== formProps.verifyPassword) {
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Your password attempts don't match. Try again!" });
+        }
+        else if(!formProps.dobMonth || !formProps.dobDay || !formProps.dobYear) {
+            return dispatch({ type: AUTH_ERROR, payload: "⚠ Please enter a valid birthday." });
+        }
+
+
+
         const response = await axios.post("http://localhost:3001/signup", formProps);
         dispatch({ type: AUTH_USER, payload: response.data.token });
         localStorage.setItem("token", response.data.token);
@@ -10,7 +32,7 @@ export const signup = (formProps, cb) => async dispatch => {
     }
 
     catch(err) {
-        dispatch({ type: AUTH_ERROR, payload: "This email address is already in use." })
+        dispatch({ type: AUTH_ERROR, payload: "⚠ This email address is already in use." })
     };
 };
 
@@ -32,6 +54,6 @@ export const signin = (formProps, cb) => async dispatch => {
     }
 
     catch(err) {
-        dispatch({ type: AUTH_ERROR, payload: "Invalid Login. Try again!" })
+        dispatch({ type: AUTH_ERROR, payload: "⚠ Invalid Login. Try again!" })
     };
 };

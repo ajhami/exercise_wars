@@ -50,3 +50,9 @@ body {
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
+.soloImage {
+  height: 90%;
+  width: 97%;
+  margin-top: 20px;
+  margin-left: 3%;
+}

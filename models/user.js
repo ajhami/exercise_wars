@@ -3,12 +3,39 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt-nodejs");
 
 const userSchema = new Schema({
+    firstName: String,
+    lastName: String,
     email: {
         type: String,
         unique: true,
         lowercase: true
     },
-    password: String
+    username: {
+        type: String,
+        unique: true,
+        lowercase: true
+    },
+    password: String,
+    birthday: Date,
+    location: String,
+    height: Number,
+    weight: Number,
+    memberSince: {
+        type: Date,
+        default: Date.now
+    },
+    following: {
+        type: Array,
+        default: []
+    },
+    followers: {
+        type: Array,
+        default: []
+    },
+    workouts: {
+        type: Array,
+        default: []
+    }
 });
 
 // Encrypting password using bcryprt-nodejs
