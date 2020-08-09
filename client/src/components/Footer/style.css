@@ -1,1 +1,7 @@
- 
+ .footerLinks {
+     width: 35px;
+     margin-left: 80px;
+ }
+ .footer {
+     margin-top: 15px;
+ }
