@@ -4,7 +4,7 @@ import ChallengeDropDown from "../ChallengeDropDown"
 
 function SoloCard(props) {
     return (
-        <div className="card" style={{ height: "530px", backgroundColor: "aquamarine", width: "25%", border: "1px solid black" }}>
+        <div className="card" style={{ height: "480px", backgroundColor: "aquamarine", width: "25%", border: "1px solid black", marginLeft: "7%" }}>
             <div className="row">
                 <div className="col-sm" style={{ marginLeft: "30%", marginBottom: "25px", marginTop: "15px" }} >
                     <h2> {props.name}</h2>
