@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 require ('dotenv').config();
-require ("./aws/index.js");
-=======
->>>>>>> master
-=======
->>>>>>> master
+
+
 const express = require("express");
 const http = require("http");
 const mongoose = require("mongoose");
@@ -16,13 +12,10 @@ const morgan = require("morgan");
 const db = require("./models");
 const routes = require("./routes");
 const cors = require("cors");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 const uuid = require('uuid');
-=======
->>>>>>> master
-=======
->>>>>>> master
+
 
 const PORT = process.env.PORT || 3001;
 // const profile = require( './routes/api/profile' );
