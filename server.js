@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 require ('dotenv').config();
 require ("./aws/index.js");
+=======
+>>>>>>> master
 =======
 >>>>>>> master
 const express = require("express");
@@ -14,7 +17,10 @@ const db = require("./models");
 const routes = require("./routes");
 const cors = require("cors");
 <<<<<<< HEAD
+<<<<<<< HEAD
 const uuid = require('uuid');
+=======
+>>>>>>> master
 =======
 >>>>>>> master
 
