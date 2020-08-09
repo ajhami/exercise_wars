@@ -20,7 +20,7 @@ class NewWorkout extends Component {
         // If file selected
         if (this.state.selectedFile) {
             data.append('profileImage', this.state.selectedFile, this.state.selectedFile.name);
-            axios.post('/api/profile/profile-img-upload', data, {
+            axios.post('/api/profile/upload', data, {
                 headers: {
                     'accept': 'application/json',
                     'Accept-Language': 'en-US,en;q=0.8',
@@ -78,9 +78,9 @@ class NewWorkout extends Component {
                     {/* Single File Upload*/}
                     <div className="card-body">
                         <input type="file" onChange={this.singleFileChangedHandler} />
-                        {/* <div className="mt-5">
+                        <div className="mt-5">
                             <button className="btn btn-info" onClick={this.singleFileUploadHandler}>Upload image</button>
-                        </div> */}
+                        </div>
                     </div>
 
                 </div>
