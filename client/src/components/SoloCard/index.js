@@ -6,7 +6,7 @@ function SoloCard(props) {
     return (
         <div className="card" style={{ height: "530px", backgroundColor: "aquamarine", width: "25%", border: "1px solid black" }}>
             <div className="row">
-                <div class="col-sm" style={{ marginLeft: "30%", marginBottom: "25px", marginTop: "15px" }} >
+                <div className="col-sm" style={{ marginLeft: "30%", marginBottom: "25px", marginTop: "15px" }} >
                     <h2> {props.name}</h2>
                     <h4>Desired Goal</h4>
                     <ChallengeForm />

@@ -8,11 +8,28 @@ import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
 import MinuteChallenge from "../components/MinuteChallenge";
 import ProfileCard from '../components/ProfileCard/ProfileCard';
+import * as actions from "./../actions";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
 class Home extends Component {
 
+  componentDidMount = () => {
+    // let followers = ["fadsnkjlfwemfe1w", "wemm134345"]
+    // let following = [];
+    this.props.getProfileData();
+    // console.log("BEFORE");
+    // console.log(followers);
+  }
+
   render() {
 
+    // console.log("AFTER");
+    console.log(this.props.user.followers);
+    // console.log(this.props);
+
+
+    // console.log(this.props.user.followers);
 
     return (
       <div>
@@ -20,10 +37,10 @@ class Home extends Component {
         <Container>
           <ProfileCard
             imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
-            username="test123"
-            location="Draper, UT"
-            followersCount={5}
-            followingCount={3}
+            username={this.props.user.username}
+            location={this.props.user.location}
+            followers={this.props.user.followers.length}
+            following={this.props.user.following.length}
           />
           <Row>
             <Col xs={5}>
@@ -46,4 +63,19 @@ class Home extends Component {
     );
   };
 };
-export default requireAuth(Home);
+
+
+function mapStateToProps(state) {
+  // return { errorMessage: state.auth.errorMessage };
+  return { 
+    user: state.user.user
+    // followersCount: state.user.user.followers.length,
+    // followingCount: state.user.user.following.length
+  };
+}
+
+export default requireAuth(compose(
+  connect(mapStateToProps, actions)
+)(Home));
+
+// export default requireAuth(Home);

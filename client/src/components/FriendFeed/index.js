@@ -17,7 +17,7 @@ const FriendFeed = props => {
         []
     );
 
-    console.log(posts)
+    // console.log(posts)
 
     useEffect(() => {
         axios.get("/api/workouts")

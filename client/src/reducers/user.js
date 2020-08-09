@@ -1,20 +1,21 @@
 import { USER_PROFILE } from "../actions/types";
 
 const USER_STATE = {
-    user: {}
-    // id: "",
-    // username: "",
-    // firstName: "",
-    // lastName: "",
-    // email: "",
-    // birthday: "",
-    // location: "",
-    // height: "",
-    // weight: "",
-    // memberSince: "",
-    // following: [],
-    // followers: [],
-    // workouts: []
+    user: {
+        id: "",
+        username: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        birthday: "",
+        location: "",
+        height: "",
+        weight: "",
+        memberSince: "",
+        following: [],
+        followers: [],
+        workouts: []
+    }
 };
 
 export default function(state = USER_STATE, action) {

@@ -6,7 +6,7 @@ function AddWorkout() {
   return (
 
 <div className="list-group">
-  <a href="#" class="list-group-item list-group-item-action active">
+  <a href="#" className="list-group-item list-group-item-action active">
     <h4>Pick Your Challenge</h4>
   </a>
   <a href="/PushUps" className="list-group-item list-group-item-action">Push Ups</a>
