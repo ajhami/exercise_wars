@@ -1,37 +1,41 @@
-// const express = require("express");
-// const http = require("http");
-// const mongoose = require("mongoose");
-// const compression = require("compression");
-// const bodyParser = require("body-parser");
-// const morgan = require("morgan");
-// const db = require("./models");
-// const routes = require("./routes");
-// const cors = require("cors");
 
-// const PORT = process.env.PORT || 3001;
-// // const profile = require( './routes/api/profile' );
-// const app = express();
+require ('dotenv').config();
+require ("./aws/index.js");
+const express = require("express");
+const http = require("http");
+const mongoose = require("mongoose");
+const compression = require("compression");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
+const db = require("./models");
+const routes = require("./routes");
+const cors = require("cors");
+const uuid = require('uuid');
 
-// app.use(cors()); // You will need to figure out how to limit cors access 
-// app.use(compression());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// // app.use( '/api/profile', profile );
+const PORT = process.env.PORT || 3001;
+// const profile = require( './routes/api/profile' );
+const app = express();
 
-// app.use(express.static("public"));
+app.use(cors()); // You will need to figure out how to limit cors access 
+app.use(compression());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// app.use( '/api/profile', profile );
 
-// const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
+app.use(express.static("public"));
 
-// mongoose.connect(URI, {
-//   useNewUrlParser: true,
-//   useFindAndModify: false
-// });
+const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
 
-// // routes
-// app.use(routes);
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
-// app.listen(PORT, () => {
-//   console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
-// });
+// routes
+app.use(routes);
+
+app.listen(PORT, () => {
+  console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
+});
 
 
