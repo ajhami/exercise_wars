@@ -10,45 +10,43 @@ class SoloChallenge extends Component {
 
   render() {
     return (
-      <div className="container" style={{ width: "30%", marginBottom: "25px", border: "1px solid black"}}>
-        <div className="row">
-          <div className="col-sm">
-            <div className="img" style={{ height: "250px" }} >
+
+      <div>
+        <NavBar />
+        <div className="container" style={{ marginBottom: "5px", border: "1px solid black", maxWidth: "400px" }}>
+          <div className="row" style={{}}>
+            <div className="img" style={{ height: "250px", width: "400px" }} >
               <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/second_pushup.jpg"} alt="Card image cap" >
               </img>
             </div>
-          </div>
-        </div>
-       
-        <div className="row" style = {{width:"100"}}>
-          <div className="col-sm">
-            <div className="card" style={{ backgroundColor: "salmon", width: "95%", height: "250px", border: "1px solid black", marginRight: "75%" }}>
-              <div className="challenge" style={{ marginLeft: "23%" }}>
+            <div className="row">
+              <div className="challenge" style={{ marginLeft: "25%" }}>
                 <h3> Minute Challenge</h3>
                 <h6> Choose a Minute Challenge</h6>
               </div>
-              <div className="col-sm">
+              <div className="table" style={{ marginLeft: "8%", width: "400px" }}>
                 < ExerciseTable />
+
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="row" style= {{width: "107%"}}>
-          <div className="col-sm" style={{ height: "250px", marginLeft: "3%", width: "100%"}}>
-            <AddWorkout />
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-sm">
-            <div className="img" style={{ height: "250px", marginBottom:"20px" }}>
-              <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/pullups.png"} alt="Card image cap" >
-              </img>
+            <div className="row" >
+              <div className="addWorkOut" style={{ width: "400px", marginLeft: "15px" }}>
+                <AddWorkout />
+              </div>
             </div>
-          </div>
+
+
+            <div className="row">
+              <div className="img" style={{ height: "250px", width: "400px", marginLeft: "15px" }}>
+                <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/pullups.png"} alt="Card image cap" >
+                </img>
+              </div>
+            </div>
+          </div >
         </div>
-      </div >
+        <Footer />
+      </div>
     );
   };
 };

@@ -1,11 +1,11 @@
-import React from "react";
-import { Button } from "reactstrap";
-import "./style.css";
+import React from 'react';
+import Moment from "moment";
+import { Button, Container, Row, Col } from "reactstrap";
 import Exercises from "../Exercises"
+import "./style.css";
 import { Table } from "reactstrap";
 
 function Workout(props) {
-    console.log(props)
     return (
         <div className="card">
             <div className="img-container">
@@ -14,45 +14,76 @@ function Workout(props) {
             <div className="content">
                 <ul>
                     <li>
-                        <strong>{props.title}</strong>
-                        <p>{props.description}</p>
-                        <p className="userStyle">{props.user}</p>
+                        <Container>
+                            <Row>
+                                <strong>{props.title}</strong>
+                            </Row>
+                            <Row>
+                                <Col style={{ padding: "0px" }}>
+                                    {props.user}
+                                </Col>
+                                <Col className="userStyle" style={{ fontSize: "smaller", textAlign: "right" }}>{Moment(props.date).format("MMM D, YYYY")}</Col>
+                            </Row>
+
+                            <Row className="userStyle" style={{ fontSize: "smaller"}}>
+                                {props.description}
+                            </Row>
+                        </Container>
                     </li>
                     <li>
-                        <Table striped bordered hover className="exerciseTable">
+                        <Table striped
+                            className="table exerciseTable"
+                        >
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>exercise</th>
-                                    <th>sets</th>
-                                    <th>reps</th>
-                                    <th>weight</th>
+                                    <th >#</th>
+                                    <th >name</th>
+                                    <th >weight</th>
+                                    <th >dist.</th>
+                                    <th >reps</th>
+                                    <th >sets</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {props.exercises.map(exercise => (
-                                    <Exercises
-                                         key={exercise.id}
-                                        exerciseName={exercise.name}
-                                        reps={exercise.reps}
-                                        sets={exercise.sets}
-                                        weight={exercise.weight}
-                                    />
-                                ))}
+                                {props.exercises
+                                    .map((exercise, idx) => {
+                                        return (
+                                            <Exercises
+                                                key={exercise._id}
+                                                exerciseNumber={idx + 1}
+                                                exerciseName={exercise.exerciseName}
+                                                distance={exercise.distance}
+                                                reps={exercise.reps}
+                                                sets={exercise.sets}
+                                                weight={exercise.weight}
+                                            />
+                                        )
+                                    }
+                                    )
+                                }
                             </tbody>
+
                         </Table>
+
                     </li>
+                    <li>Time to complete: {props.time}</li>
                     <li>
-                        <Button>Likes: {props.likes}</Button>
-                    </li>
-                    <li>
-                        <Button>Comments: {props.comments}</Button>
+                        <Container><Row>
+                            <Col md={3}>
+                                <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
+                            </Col>
+                            <Col md={9}>
+                                <Button className="fa fa-comment" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.comments}
+                            </Col>
+                        </Row>
+                        </Container>
                     </li>
                 </ul>
             </div>
         </div>
-
-    );
+    )
 }
+
+
 
 export default Workout;

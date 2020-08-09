@@ -43,10 +43,15 @@ class Home extends Component {
             following={this.props.user.following.length}
           />
           <Row>
-            <Col xs={5}>
+            <Col md={4}>
+            <h3>Minute Challenge</h3>
+            < MinuteChallenge />
+            </Col>
+            <Col md={4}>
+            <h3>Feed</h3>
               <FriendFeed />
             </Col>
-            <Col>
+            <Col md={4}>
               <h3>Friend Suggestions</h3>
               <FriendSuggestions
                 id={1}
@@ -55,7 +60,7 @@ class Home extends Component {
                 profileImg="test_profile_img.jpg"
               />
             </Col>
-            < MinuteChallenge />
+
           </Row>
         </Container>
         <Footer />
