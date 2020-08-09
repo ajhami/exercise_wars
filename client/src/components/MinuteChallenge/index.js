@@ -8,6 +8,7 @@ function MinuteChallenge() {
             <div className="img">
                 <img className="img" id="minute" src={process.env.PUBLIC_URL + "/assets/images/logo/pushup.png"} alt="Card image cap" >
                 </img>
+
                 <a href="/SoloChallenge" className="btn btn-primary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px", marginLeft: "23%"}}>Minute Challenge</a>
             </div>
         </div>

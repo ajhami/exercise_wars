@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AUTH_USER, AUTH_ERROR } from "./types";
+import { AUTH_USER, AUTH_ERROR, USER_PROFILE } from "./types";
 
 export const signup = (formProps, cb) => async dispatch => {
     try {
@@ -57,3 +57,23 @@ export const signin = (formProps, cb) => async dispatch => {
         dispatch({ type: AUTH_ERROR, payload: "⚠ Invalid Login. Try again!" })
     };
 };
+
+export const getProfileData = (cb) => async dispatch => {
+    try {
+        const token = localStorage.token;
+        console.log("___________________________");
+        console.log("Token:");
+        console.log(token);
+
+        if(token) {
+            const response = await axios.post("http://localhost:3001/getuser", { token: token });
+            console.log(response.data.user);
+            dispatch({ type: USER_PROFILE, payload: response.data.user });
+            cb();
+        }
+    }
+
+    catch(err) {
+        dispatch({ type: AUTH_ERROR, payload: "⚠ Invalid Login. Try again!" });
+    }
+}

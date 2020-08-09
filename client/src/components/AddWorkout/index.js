@@ -4,7 +4,6 @@ import './style.css'
 
 function AddWorkout() {
   return (
-
     <div className="list-group list-responsive" style={{}}>
       <a href="#" className="list-group-item list-group-item-action active">
         <h4>Pick Your Challenge</h4>
@@ -16,7 +15,6 @@ function AddWorkout() {
         <a href="SitUps" className="list-group-item list-group-item-action disabled"><p>Sit Ups</p></a>
       </div>
     </div>
-
   );
 }
 
