@@ -111,7 +111,11 @@ const SaveWorkout = props => {
             label="Time to Complete: "
             placeholder={"h:mm:ss"}
           />
-          <AddPicture />
+          <AddPicture>
+          <form action="/profile" method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+        </form>
+        </AddPicture>
           <FormSubmit className="btn btn-info" text="Save Workout" />
         </Form>
       </Card>
