@@ -4,6 +4,9 @@ const db = require("../models");
 require("../services/passport");
 const passport = require("passport");
 const apiRoutes = require('./api');
+const { ExtractJwt } = require("passport-jwt");
+const jwt = require("jwt-simple");
+const config = require("../config");
 // const path = require("path")
 
 const requireAuth = passport.authenticate("jwt", { session: false });
@@ -17,5 +20,32 @@ router.use('/api', apiRoutes);
 // router.get("*",(req, res)=>{
 //     res.sendFile(path.join(__dirname,"../client/public/index.html"))
 // }) 
+
+// Path for grabbing user data
+router.post("/getuser", function (req, res) {
+    console.log("req.body going to backend api call:");
+    const token = req.body.token;
+    console.log(token);
+
+    const decoded = jwt.decode(token, config.secret);
+
+    console.log("Decoded:");
+    console.log(decoded.sub);
+    
+    db.Users.findOne({ _id: decoded.sub }, function (err, userFound) {
+        if(err) {
+            throw err;
+        };
+
+        if(userFound) {
+            console.log("User found:");
+            console.log(userFound);
+            res.send({ user: userFound });
+        }
+
+    })
+    
+
+});
 
 module.exports = router;
