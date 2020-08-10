@@ -10,7 +10,4 @@ function ChallengeDropDown() {
     )
 };
 
-
-
-
 export default ChallengeDropDown
