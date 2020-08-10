@@ -143,70 +143,143 @@
 // module.exports = router;
 
 
-const express = require ('express');
-const multer = require ('multer');
-const AWS = require ('aws-sdk');
-const { v4: uuidv4 } = require('uuid');
 
-const app = express();
-const router = express.Router();
+// const express = require('express');
+// const multer = require('multer');
+// const AWS = require('aws-sdk');
+// const { v4: uuidv4 } = require('uuid');
 
 
-const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ID,
-    secretAccessKey:process.env.AWS_SECRET_KEY
-})
+// const app = express();
 
-const storage =multer.memoryStorage({
-    destinatation: function  (req, file, callback) {
-        callback(null,'')
-    }
-})
-//key value to upload file the image is the key
-const upload = multer({storage}).single('image')
+// const router = express.Router();
 
-router.post('/upload', upload,(req,res) => {
 
-    let myFile = req.file.originalname.split(".")
+// const s3 = new AWS.S3({
+//   accessKeyId: process.env.AWS_ID,
+//   secretAccessKey: process.env.AWS_SECRET_KEY
+// })
 
-    console.log(myFile)
-    //whatver the file is called, we remove past the . 
-    const fileType = myFile[myFile.length -1] 
-    console.log("hi")
+// const storage = multer.memoryStorage({
+//   destinatation: function (req, file, callback) {
+//     callback(null, '')
+//   }
+// })
+// //key value to upload file the image is the key
+// const upload = multer({ storage }).single('image')
+
+// router.post('/upload', upload, (req, res) => {
+
+//     let myFile = req.file.originalname.split(".")
+
+//     console.log(myFile)
+//     //whatver the file is called, we remove past the . 
+//     const fileType = myFile[myFile.length - 1]
+//     console.log("hi")
     
-    console.log(req.file);
-    // if (err) {
-    //   next(err) // Pass errors to Express.
-    // } else {
-    //   res.send(data)
-    // }
 
-const params ={
-    Bucket: process.env.AWS_BUCKET_NAME,
-    Key: `${uuidv4()}.${fileType}`,
-    Body: req.file.buffer,
-    Region: process.env.AWS_REGION 
-}
+//     console.log(req.file);
+  
 
-s3.upload(params, (error, data) => {
-    if(error){
-        res.status(500);
-    }
-    console.log(error)
-    res.status(200).send(data);
-    console.log("success!")
-    console.log(data)
-    console.log(process.env)
-    AWS.config.credentials  = new AWS.CognitoIdentityCredentials({});
-AWS.config.region = 'us-west-1';
- 
-AWS.config.credentials.get(function(err) {
-  if (err) console.log(err);
-  else console.log(AWS.config.credentials);
-});
-})
-})
+//     const params = {
+//       Bucket: process.env.AWS_BUCKET_NAME,
+//       Key: `${uuidv4()}.${fileType}`,
+//       Body: req.file.buffer,
+//       Region: process.env.AWS_REGION,
 
-module.exports = router;
+//     }
 
+//     s3.upload(params, (error, data) => {
+//       if (error) {
+//         res.status(500);
+//         console.log(error, "error on upload")
+//       }
+//       res.status(200).send(data);
+//       console.log("success!")
+//       console.log(data)
+//       // console.log(process.env)
+//       // AWS.config.credentials = new AWS.CognitoIdentityCredentials({});
+//       // AWS.config.region = 'us-west-1';
 
+//       // AWS.config.credentials.get(function (err) {
+//       //   if (err) console.log(err);
+//       //   else console.log(AWS.config.credentials);
+//       // });
+//     })
+//   })
+
+// //code to fetch from buckets
+// /* <button onclick="clickThis()">Click this</button>
+// async function clickThis() {
+//   const url = "https://twisker-s3-files.s3.us-east-2.amazonaws.com/files/-GxfyX_dZ-6313383.jpg";
+  
+//   const option = {
+//     method: "HEAD"
+//   }
+  
+//   fetch(url, option).then(response => {
+//     console.log(response);
+//   }).catch(err => {
+//     console.log(err.message);
+//   });
+//    */
+  // module.exports = router;
+  const config = require("../../config")
+  const express = require( 'express' );
+  const aws = require( 'aws-sdk' );
+  const multerS3 = require( 'multer-s3' );
+  const multer = require('multer');
+  const path = require( 'path' );
+  
+  const router = express.Router();
+  
+  
+   console.log(config.AWS_BUCKET_NAME)
+  const s3 = new aws.S3({
+    accessKeyId: config.AWS_ID,
+    secretAccessKey: config.AWS_SECRET_KEY,
+    Bucket: config.AWS_BUCKET_NAME
+  });
+  
+  const profileImgUpload = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: config.AWS_BUCKET_NAME,
+      contentType: multerS3.AUTO_CONTENT_TYPE,
+      acl: 'public-read',
+      key: function (req, file, cb) {
+        cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
+      }
+    }),
+    limits:{ fileSize: 200000000 }, // In bytes: 200000000 bytes = 200 MB
+  
+  }).single('profileImage');
+  
+  router.post( '/profile-img-upload', ( req, res ) => {
+    profileImgUpload( req, res, ( error ) => {
+      console.log( 'requestOkokok', req.file );
+      console.log( 'error', error );
+      if( error ){
+        console.log( 'errors', error );
+        res.json( { error: error } );
+      } else {
+        // If File not found
+        if( req.file === undefined ){
+          console.log( 'Error: No File Selected!' );
+          res.json( 'Error: No File Selected' );
+        } else {
+          // If Success
+          const imageName = req.file.key;
+          const imageLocation = req.file.location;
+  // Save the file name into database into profile model
+          res.json( {
+            image: imageName,
+            location: imageLocation
+          } );
+        }
+      }
+    });
+  });
+  
+  
+  module.exports = router;
