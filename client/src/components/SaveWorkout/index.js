@@ -47,14 +47,17 @@ const SaveWorkout = props => {
   }
 
   const handleChange = (name, value) => {
+    console.log(value)
+    console.log(name)
     setWorkoutInputs({ ...workoutInputs, [name]: value })
+    console.log(workoutInputs)
   }
 
   const handleFormSubmit = event => {
     event.preventDefault();
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
-         workoutInputs.id = response.data._id
+        workoutInputs.id = response.data._id
       })
       .catch(error => console.log(error))
   };
@@ -111,11 +114,29 @@ const SaveWorkout = props => {
             label="Time to Complete: "
             placeholder={"h:mm:ss"}
           />
-          <AddPicture>
-          <form action="/profile" method="post" enctype="multipart/form-data">
-          <input type="file" name="avatar" />
-        </form>
-        </AddPicture>
+
+          <AddPicture
+          id="image"
+            value={workoutInputs.image}
+            onImageChange={image => {
+              // return function(e) {
+                // e.preventDefault();
+                // console.log(image)
+                handleChange("image", image);
+                console.log(image)
+              // };
+           }
+          }
+            >
+            <form
+              action="/profile"
+              method="post"
+              enctype="multipart/form-data">
+              <input
+                type="file"
+                name="avatar"/>
+            </form>
+          </AddPicture>
           <FormSubmit className="btn btn-info" text="Save Workout" />
         </Form>
       </Card>

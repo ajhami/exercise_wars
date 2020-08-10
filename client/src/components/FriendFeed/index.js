@@ -21,9 +21,9 @@ const FriendFeed = (props) => {
             {
                 workouts
                     .map(workout => {
-                        console.log(workouts)
+            
                         return (
-
+                            
                             <Workout
                                 key={workout.id}
                                 id={workout.id}
