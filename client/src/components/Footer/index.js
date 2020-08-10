@@ -17,6 +17,7 @@ function Footer() {
                     <h6>345 Exercise Ln.</h6>
                     <h6>Salt Lake City, Ut  84109</h6>
                 </div>
+                <div>
 
                         <h4>Email:</h4>
                     <div className="footerLinks">
@@ -24,6 +25,7 @@ function Footer() {
 
                     </div>
                 </div>
+                <div>
 
                     <a href="https://secure.humanesociety.org/site/SPageServer?pagename=splash&s_src=ad_bing_nonbranded_donate%20to%20animals&msclkid=039581d32e1e185ab2f7dee3ae364709&utm_source=bing&utm_medium=cpc&utm_campaign=Non%20Branded%20-%20Animal%20Charities&utm_term=donate%20to%20animals&utm_content=Animal%20Charities%20-%20Donations" className="btn btn-secondary btn-lg" role="button" aria-disabled="true" style = {{marginTop: "25px"}}>Donate</a>
 
