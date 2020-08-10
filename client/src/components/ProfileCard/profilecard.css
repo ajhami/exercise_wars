@@ -1,0 +1,16 @@
+/* .profile_card {
+    width: 2%;
+} */
+
+.profile_card_img {
+    margin: auto;
+    width: 50%;
+    border: solid 1px #353434;
+    border-radius: 50%;
+}
+
+.username_title {
+    display: block;
+    margin: auto;
+    font-weight: bold;
+}

@@ -10,30 +10,38 @@ const FriendFeed = (props) => {
     useEffect(() => {
         API.fetchWorkouts()
             .then(res => {
-                setWorkouts(res)
+                const sortedWorkouts = [].concat(res)
+                    .sort((a, b) => a.date < b.date ? 1 : -1)
+                setWorkouts(sortedWorkouts)
             })
     }, []);
+
     return (
         <div>
             {
-            workouts.map(workout => {
-                return (
-            <Workout
-                key={workout.id}
-                id={workout.id}
-                user={workout.user}
-                date={workout.date}
-                title={workout.title}
-                time={workout.time}
-                image={workout.image}
-                description={workout.description}
-                workoutType={workout.workoutType}
-                likes={workout.likes}
-                commments={workout.comments}
-                exercises={workout.exercises}
-            />
-)}
-)}
+                workouts
+                    .map(workout => {
+                        console.log(workouts)
+                        return (
+
+                            <Workout
+                                key={workout.id}
+                                id={workout.id}
+                                user={workout.user}
+                                date={workout.date}
+                                title={workout.title}
+                                time={workout.time}
+                                image={workout.image}
+                                description={workout.description}
+                                workoutType={workout.workoutType}
+                                likes={workout.likes}
+                                commments={workout.comments}
+                                exercises={workout.exercises}
+                            />
+                        )
+                    }
+                    )
+            }
         </div>
     )
 }
