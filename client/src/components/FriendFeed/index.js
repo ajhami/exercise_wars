@@ -11,7 +11,7 @@ const FriendFeed = (props) => {
         API.fetchWorkouts()
             .then(res => {
                 const sortedWorkouts = [].concat(res)
-                    .sort((a, b) => a.date < b.date ? 1 : -1)
+                    .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
                 setWorkouts(sortedWorkouts)
             })
     }, []);

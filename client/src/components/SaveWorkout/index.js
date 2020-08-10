@@ -22,6 +22,10 @@ const SaveWorkout = props => {
     exercises: []
   });
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   useEffect(() => {
     axios.get("/api/workouts")
       .then(function (response) {
@@ -47,10 +51,10 @@ const SaveWorkout = props => {
   }
 
   const handleChange = (name, value) => {
-    console.log(value)
-    console.log(name)
+    // console.log(value)
+    // console.log(name)
     setWorkoutInputs({ ...workoutInputs, [name]: value })
-    console.log(workoutInputs)
+    // console.log(workoutInputs)
   }
 
   const handleFormSubmit = event => {
@@ -58,6 +62,7 @@ const SaveWorkout = props => {
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
         workoutInputs.id = response.data._id
+        // refreshPage()
       })
       .catch(error => console.log(error))
   };
@@ -116,28 +121,25 @@ const SaveWorkout = props => {
           />
 
           <AddPicture
-          id="image"
+            id="image"
             value={workoutInputs.image}
-            onImageChange={image => {
-              // return function(e) {
-                // e.preventDefault();
-                // console.log(image)
-                handleChange("image", image);
-                console.log(image)
-              // };
-           }
-          }
-            >
+            onImageChange={(image)  => {
+            
+              handleChange("image", image);
+            }
+            }
+          >
             <form
               action="/profile"
               method="post"
               enctype="multipart/form-data">
               <input
                 type="file"
-                name="avatar"/>
+                name="avatar" />
             </form>
           </AddPicture>
           <FormSubmit className="btn btn-info" text="Save Workout" />
+
         </Form>
       </Card>
     </div>
