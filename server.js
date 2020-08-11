@@ -54,5 +54,3 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
 });
-
-
