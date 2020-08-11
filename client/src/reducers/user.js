@@ -6,7 +6,6 @@ const USER_STATE = {
         username: "",
         firstName: "",
         lastName: "",
-        email: "",
         birthday: "",
         location: "",
         height: "",
