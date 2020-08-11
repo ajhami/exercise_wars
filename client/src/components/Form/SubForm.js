@@ -13,7 +13,6 @@ function SubForm(props) {
         };
         props.onExerciseUpdate(rows)
     };
-console.log(props);
     return (
 
         <Container style={{ margin: "5px", }}>
@@ -26,7 +25,7 @@ console.log(props);
                                 className="table table-hover"
                                 id="table_id"
                             >
-                                {/* <tbody>
+                                <tbody>
                                     {props.exercises.map((item, idx) => {
                                         return (
                                             <tr id="addr0" key={idx}>
@@ -94,7 +93,7 @@ console.log(props);
                                             </tr>
                                         )
                                     })}
-                                </tbody> */}
+                                </tbody>
                             </Table>
                             <Button
                                 className="btn btn-outline-danger btn-sm"

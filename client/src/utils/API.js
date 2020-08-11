@@ -34,5 +34,13 @@ export default {
 
             })
             .catch(error => console.log(error));
-    }
+    },
+
+    fetchWorkoutInputs: function () {
+        return axios
+        .get("/api/workouts")
+        .then(function (response) {
+        })
+        .catch(error => console.log(error))
+    },
 }
