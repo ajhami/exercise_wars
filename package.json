@@ -29,9 +29,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm install && node server.js",
+    "start": "node server.js",
     "server": "nodemon server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build",
+    "heroku-postbuild": "cd client && npm run build",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
