@@ -45,15 +45,12 @@ class Home extends Component {
                 followers={this.props.user.followers.length}
                 following={this.props.user.following.length}
               />
-              <h3>Minute Challenge</h3>
+ 
+            </Col>
+            <Col md={4}>
               < MinuteChallenge />
             </Col>
             <Col md={4}>
-              <h3>Feed</h3>
-              <FriendFeed />
-            </Col>
-            <Col md={4}>
-              <h3>Friend Suggestions</h3>
               <FriendSuggestions
                 id={1}
                 name="Jack Edwards"
