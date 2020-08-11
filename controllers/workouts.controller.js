@@ -14,6 +14,7 @@ module.exports = {
             });
     },
     createWorkout: function (req, res) {
+
         // console.log("req.body");
         // console.log(req.body.exercises);
 
@@ -36,12 +37,6 @@ module.exports = {
             if (foundUser) {
                 let userName = foundUser.username;
                 
-                
-                
-                
-                
-                
-                
                 Workouts
                 .create({
                     title: title,
@@ -62,13 +57,10 @@ module.exports = {
                     console.log(error);
                 });
                 
-                
                 // res.send({ user: foundUser });
             }
 
-
-
-
         })
+
     }
 };

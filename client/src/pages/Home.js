@@ -35,20 +35,21 @@ class Home extends Component {
       <div>
         <NavBar />
         <Container>
-          <ProfileCard
-            imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
-            username={this.props.user.username}
-            location={this.props.user.location}
-            followers={this.props.user.followers.length}
-            following={this.props.user.following.length}
-          />
+
           <Row>
             <Col md={4}>
-            <h3>Minute Challenge</h3>
-            < MinuteChallenge />
+              <ProfileCard
+                imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
+                username={this.props.user.username}
+                location={this.props.user.location}
+                followers={this.props.user.followers.length}
+                following={this.props.user.following.length}
+              />
+              <h3>Minute Challenge</h3>
+              < MinuteChallenge />
             </Col>
             <Col md={4}>
-            <h3>Feed</h3>
+              <h3>Feed</h3>
               <FriendFeed />
             </Col>
             <Col md={4}>
@@ -76,7 +77,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
   // return { errorMessage: state.auth.errorMessage };
-  return { 
+  return {
     user: state.user.user
     // followersCount: state.user.user.followers.length,
     // followingCount: state.user.user.following.length

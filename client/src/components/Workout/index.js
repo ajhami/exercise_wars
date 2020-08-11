@@ -16,16 +16,15 @@ function Workout(props) {
                     <li>
                         <Container>
                             <Row>
+                                <Col className="userStyle">
+                                    {props.user}
+                                </Col>
+                                <Col>{Moment(props.date).format("MMM D, YYYY")}</Col>
+                            </Row>
+                            <Row>
                                 <strong>{props.title}</strong>
                             </Row>
                             <Row>
-                                <Col style={{ padding: "0px" }}>
-                                    {props.user}
-                                </Col>
-                                <Col className="userStyle" style={{ fontSize: "smaller", textAlign: "right" }}>{Moment(props.date).format("MMM D, YYYY")}</Col>
-                            </Row>
-
-                            <Row className="userStyle" style={{ fontSize: "smaller"}}>
                                 {props.description}
                             </Row>
                         </Container>
@@ -70,12 +69,12 @@ function Workout(props) {
                     <li>
                         <Container><Row>
                             <Col md={3}>
-                                <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
+                            <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
                             </Col>
                             <Col md={9}>
-                                <Button className="fa fa-comment" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.comments}
+                            <Button className="fa fa-comment" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.comments}
                             </Col>
-                        </Row>
+                            </Row>
                         </Container>
                     </li>
                 </ul>

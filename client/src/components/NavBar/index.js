@@ -117,7 +117,7 @@ function NavBar() {
                       activeStyle={{ color: "red" }}
                       exact
                     >
-                      Solo Challenge
+                      Minute Challenge
             </NavLink>
                   </DropdownItem>
                 </DropdownMenu>

@@ -4,34 +4,39 @@ import './style.css'
 function Footer() {
     return (
 
-        <div className="footer" style={{ border: "1px solid black" }}>
+        <div className="footer" style={{ height: "120px", backgroundColor:"grey"}}>
             <div className="row">
                 <div className="col-sm">
-                    <img className="welcome_navbrand_img" src={process.env.PUBLIC_URL + "/assets/images/logo/apple-touch-icon.png"} alt="EW icon"
-                        style={{ width: "100px", height: "100px", marginLeft: "35px" }} />
+                    <img className="img" id="minute" src={process.env.PUBLIC_URL + "/assets/images/logo/exercise_wars_title.png"} alt="Card image cap"
+                        style={{ height: "120px", marginLeft: "85px" }}>
+                    </img>
+                </div>
+
+                <div className="col-sm" style={{ marginTop: "5px", marginLeft: "75px" }}>
+                    <div className="info" style={{ marginLeft: "125px" }}>
+                        <h5>Contact Exercise Wars:</h5>
+                        <h6>Corporate Office</h6>
+                        <h6>345 Exercise Ln.</h6>
+                        <h6>Salt Lake City, Ut  84109</h6>
+                    </div>
                 </div>
 
 
-
-
                 <div className="col-sm">
-                    <h5>Contact Exercise Wars</h5>
-                    <h6>Corporate Office</h6>
-                    <h6>345 Exercise Ln.</h6>
-                    <h6>Salt Lake City, Ut  84109</h6>
-                </div>
-
-                <div className="col-sm">
-                    <div className="footer">
-                        <p>Email:</p>
-                        <div className="footerLinks">
-                            <a href="mailto:hege@example.com">exercisewars@gmail.com</a>
+                    <div className="email" style={{ marginTop: "5px", marginLeft: "65px"}}>
+                        <h5>Email:</h5>
+                        <div className="link" style = {{fontSize: "25px"}}>
+                        <a href="mailto:hege@example.com">exercisewars@gmail.com</a>
                         </div>
                     </div>
                 </div>
+
                 <div className="col-sm">
-                    <a href="https://secure.humanesociety.org/site/SPageServer?pagename=splash&s_src=ad_bing_nonbranded_donate%20to%20animals&msclkid=89e8385453cc1d3227a6676467517204&utm_source=bing&utm_medium=cpc&utm_campaign=Non%20Branded%20-%20Animal%20Charities&utm_term=donate%20to%20animals&utm_content=Animal%20Charities%20-%20Donations" className="btn btn-secondary btn-lg" role="button" aria-disabled="true" style={{ marginTop: "30px", marginLeft: "75px" }}>Donate</a>
+
+                    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px"}}>Donate</a>
                 </div>
+
+
             </div>
         </div>
     )
