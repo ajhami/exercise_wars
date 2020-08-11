@@ -31,13 +31,17 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(express.static(path.join(__dirname, "../client/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+}
 
 
-const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
+// const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
+const URI = process.env.MONGODB_URI || "mongodb://exercisewars:tigersharkblue7@ds127173.mlab.com:27173/heroku_4jddjplw";
+
 
 mongoose.connect(URI, {
   useNewUrlParser: true,
