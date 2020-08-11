@@ -52,6 +52,9 @@ const SaveWorkout = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
+    console.log(workoutInputs);
+    workoutInputs.token = localStorage.token;
+    console.log(workoutInputs);
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
          workoutInputs.id = response.data._id

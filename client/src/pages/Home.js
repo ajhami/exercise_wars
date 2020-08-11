@@ -62,6 +62,10 @@ class Home extends Component {
             </Col>
 
           </Row>
+          <img src="https://exercisewarsbuckets.s3-us-west-2.amazonaws.com/street+view-1597032447301.jpg" alt="Test AWS"></img>
+          <video width="480" height="320" controls="controls">
+            <source src="https://exercisewarsbuckets.s3-us-west-2.amazonaws.com/US+Tops+5+Million+Coronavirus+Cases++Sunday+TODAY-1597034787088.mp4" type="video/mp4" />
+          </video>
         </Container>
         <Footer />
       </div>
