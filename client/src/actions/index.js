@@ -3,10 +3,7 @@ import { AUTH_USER, AUTH_ERROR, USER_PROFILE } from "./types";
 
 export const signup = (formProps, cb) => async dispatch => {
     try {
-        console.log(formProps.email);
-        console.log(formProps.password);
-        console.log(formProps.verifyPassword);
-        console.log(formProps);
+
         if(!formProps.email) {
             return dispatch({ type: AUTH_ERROR, payload: "⚠ Missing email address!" });
         }
@@ -25,7 +22,8 @@ export const signup = (formProps, cb) => async dispatch => {
 
 
 
-        const response = await axios.post("http://localhost:3001/signup", formProps);
+        // const response = await axios.post("http://localhost:3001/signup", formProps);
+        const response = await axios.post("/signup", formProps);
         dispatch({ type: AUTH_USER, payload: response.data.token });
         localStorage.setItem("token", response.data.token);
         cb();
@@ -47,7 +45,8 @@ export const signout = () => {
 
 export const signin = (formProps, cb) => async dispatch => {
     try {
-        const response = await axios.post("http://localhost:3001/signin", formProps);
+        // const response = await axios.post("http://localhost:3001/signin", formProps);
+        const response = await axios.post("/signin", formProps);
         dispatch({ type: AUTH_USER, payload: response.data.token });
         localStorage.setItem("token", response.data.token);
         cb();
@@ -61,12 +60,13 @@ export const signin = (formProps, cb) => async dispatch => {
 export const getProfileData = (cb) => async dispatch => {
     try {
         const token = localStorage.token;
-        console.log("___________________________");
-        console.log("Token:");
-        console.log(token);
+        // console.log("___________________________");
+        // console.log("Token:");
+        // console.log(token);
 
         if(token) {
-            const response = await axios.post("http://localhost:3001/getuser", { token: token });
+            // const response = await axios.post("http://localhost:3001/getuser", { token: token });
+            const response = await axios.post("/getuser", { token: token });
             console.log(response.data.user);
             dispatch({ type: USER_PROFILE, payload: response.data.user });
             cb();
