@@ -39,8 +39,8 @@ if(process.env.NODE_ENV === "production") {
 }
 
 
-// const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
-const URI = process.env.MONGODB_URI || "mongodb://exercisewars:tigersharkblue7@ds127173.mlab.com:27173/heroku_4jddjplw";
+const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
+// const URI = process.env.MONGODB_URI || "mongodb://exercisewars:tigersharkblue7@ds127173.mlab.com:27173/heroku_4jddjplw";
 
 
 mongoose.connect(URI, {

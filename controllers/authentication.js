@@ -3,9 +3,11 @@ const Users = db.Users;
 const jwt = require("jwt-simple");
 const config = require("../config");
 
+const secret = herokuAuthSecret || config.secret;
+
 function tokenForUser(user) {
     const timestamp = new Date().getTime();
-    return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+    return jwt.encode({ sub: user.id, iat: timestamp }, secret);
 }
 
 // Checking created credentials and retrieving user token

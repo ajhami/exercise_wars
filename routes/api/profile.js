@@ -9,17 +9,22 @@
   const router = express.Router();
   
   
-   console.log(config.AWS_BUCKET_NAME)
+  //  console.log(config.AWS_BUCKET_NAME)
+
+  const AWS_ID = herokuAWSID || config.AWS_ID;
+  const AWS_SECRET_KEY = herokuAWSSECRETKEY || config.AWS_SECRET_KEY;
+  const AWS_BUCKET_NAME = herokuBUCKETNAME || config.AWS_BUCKET_NAME;
+
   const s3 = new aws.S3({
-    accessKeyId: config.AWS_ID,
-    secretAccessKey: config.AWS_SECRET_KEY,
-    Bucket: config.AWS_BUCKET_NAME
+    accessKeyId: AWS_ID,
+    secretAccessKey: AWS_SECRET_KEY,
+    Bucket: AWS_BUCKET_NAME
   });
   
   const profileImgUpload = multer({
     storage: multerS3({
       s3: s3,
-      bucket: config.AWS_BUCKET_NAME,
+      bucket: AWS_BUCKET_NAME,
       contentType: multerS3.AUTO_CONTENT_TYPE,
       acl: 'public-read',
       key: function (req, file, cb) {

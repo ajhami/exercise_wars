@@ -9,6 +9,8 @@ const jwt = require("jwt-simple");
 const config = require("../config");
 // const path = require("path")
 
+const secret = herokuAuthSecret || config.secret;
+
 const requireAuth = passport.authenticate("jwt", { session: false });
 const requireSignin = passport.authenticate("local", { session: false });
 
@@ -27,7 +29,7 @@ router.post("/getuser", function (req, res) {
     const token = req.body.token;
     console.log(token);
 
-    const decoded = jwt.decode(token, config.secret);
+    const decoded = jwt.decode(token, secret);
 
     console.log("Decoded:");
     console.log(decoded.sub);
