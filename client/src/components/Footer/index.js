@@ -4,7 +4,7 @@ import './style.css'
 function Footer() {
     return (
 
-        <div className="footer" style={{ height: "auto", backgroundColor:"grey"}}>
+        <div className="footer" style={{ height: "140px", backgroundColor:"grey"}}>
             <div className="row">
                
                 <div className="col-sm" style = {{width: "60%"}}>
@@ -33,8 +33,7 @@ function Footer() {
                 </div>
 
                 <div className="col-sm" style = {{}}>
-
-                    <a href="https://www.theroadhome.org/give/in-kind-donations/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px", marginLeft:"125px"}}>Donate</a>
+                    <a href="https://www.theroadhome.org/give/in-kind-donations/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px"}}>Donate</a>
                 </div>
 
 
