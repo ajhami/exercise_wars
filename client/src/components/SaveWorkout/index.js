@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card } from "reactstrap";
+import { Card, Button } from "reactstrap";
 import Form from '../Form';
 import FormInput from '../Form/FormInput';
 import SelectInput from '../Form/SelectInput';
@@ -8,7 +8,7 @@ import FormSubmit from '../Form/FormSubmit';
 import AddPicture from "./AddPicture";
 import axios from "axios";
 import "./style.css";
-
+import $ from 'jquery';
 
 const SaveWorkout = props => {
   const [workoutInputs, setWorkoutInputs] = useState({
@@ -52,19 +52,29 @@ const SaveWorkout = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
+    event.stopPropagation();
     axios.post("/api/workouts", workoutInputs)
       .then(function (response) {
-         workoutInputs.id = response.data._id
+        workoutInputs.id = response.data._id;
+        window.location.reload();
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
   };
+
+  const runWorkout = () => {
+   document.getElementById("workoutForm").dispatchEvent(new Event('submit'));
+   
+  }
+
   return (
     <div>
       <Card>
         <div className="card-header">
           <h3 style={{ color: '#555', marginLeft: '12px' }}>Add a Workout</h3>
         </div>
-        <Form handleFormSubmit={handleFormSubmit}>
+        <Form idName="workoutForm"
+          handleFormSubmit={handleFormSubmit}
+        >
           <FormInput
             id="workoutTitle"
             value={workoutInputs.title}
@@ -111,13 +121,32 @@ const SaveWorkout = props => {
             label="Time to Complete: "
             placeholder={"h:mm:ss"}
           />
-          <AddPicture>
-          <form action="/profile" method="post" enctype="multipart/form-data">
-          <input type="file" name="avatar" />
-        </form>
-        </AddPicture>
-          <FormSubmit className="btn btn-info" text="Save Workout" />
+
+
         </Form>
+
+        <AddPicture
+          id="image"
+          value={workoutInputs.image}
+          onImageChange={(image) => {
+            handleChange("image", image);
+          }
+          }
+        >
+          <form
+            action="/profile"
+            method="post"
+            enctype="multipart/form-data">
+            <input
+              type="file"
+              name="avatar" />
+          </form>
+        </AddPicture>
+
+        <Button
+          className="btn btn-info FormSubmit-button"
+          onClick={runWorkout}
+          style={{ margin: "5px", }}> Save Workout</Button>
       </Card>
     </div>
   );

@@ -12,8 +12,6 @@ module.exports = {
             });
     },
     createWorkout: function (req, res) {
-        console.log("req.body");
-        console.log(req.body.exercises);
         Workouts
             .create({ 
                 title: req.body.title,
@@ -28,8 +26,6 @@ module.exports = {
             })
             .then(data => {
                 res.status(200).json(data);
-                console.log("data")
-                console.log(data)  
             })
             .catch(error => {
                 console.log(error);
