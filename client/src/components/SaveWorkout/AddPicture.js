@@ -4,12 +4,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import $ from 'jquery';
 
+
 class AddPicture extends Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
 			selectedFile: null,
 		}
+		this.singleFileUploadHandler = this.singleFileUploadHandler.bind(this);
 	}
 
 	singleFileChangedHandler = ( event ) => {
@@ -19,6 +21,7 @@ class AddPicture extends Component {
 	};
 
 	singleFileUploadHandler = ( event ) => {
+		event.stopPropagation();
 		const data = new FormData();
 // If file selected
 		if ( this.state.selectedFile ) {
@@ -51,6 +54,7 @@ class AddPicture extends Component {
 					}
 				}).catch( ( error ) => {
 				// If another error
+				console.log(error)
 				this.ocShowAlert( error, 'red' );
 			});
 		} else {
@@ -96,7 +100,9 @@ class AddPicture extends Component {
 								</Col>
 								<Col xs={6}>
 									<div className="">
-										<button className="btn btn-info float-right" 
+										<button 
+										className="btn btn-info float-right"
+										id="imageUploadButton" 
 										onClick={this.singleFileUploadHandler}>Upload!</button>
 									</div>
 								</Col>
