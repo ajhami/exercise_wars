@@ -4,22 +4,23 @@ import API from "../../utils/API"
 import Workout from "../Workout";
 
 const FriendFeed = (props) => {
-    const [workouts, setWorkouts] = useState([]);
+    // const [workouts, setWorkouts] = useState([]);
 
-    //set the workout to the resturn of the API
-    useEffect(() => {
-        API.fetchWorkouts()
-            .then(res => {
-                const sortedWorkouts = [].concat(res)
-                    .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
-                setWorkouts(sortedWorkouts)
-            })
-    }, []);
+    // //set the workout to the resturn of the API
+    // useEffect(() => {
+    //     API.fetchWorkouts()
+    //         .then(res => {
+    //             const sortedWorkouts = [].concat(res)
+    //                 .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
+    //             setWorkouts(sortedWorkouts)
+    //         })
+    // }, []);
+    console.log(props.workouts)
 
     return (
         <div>
-            {
-                workouts
+            {/* {
+                props.workouts
                     .map(workout => {
             
                         return (
@@ -41,7 +42,7 @@ const FriendFeed = (props) => {
                         )
                     }
                     )
-            }
+            } */}
         </div>
     )
 }

@@ -8,64 +8,60 @@ import FormSubmit from '../Form/FormSubmit';
 import AddPicture from "./AddPicture";
 import axios from "axios";
 import "./style.css";
-import $ from 'jquery';
+import API from '../../utils/API';
 
 const SaveWorkout = props => {
-  const [workoutInputs, setWorkoutInputs] = useState({
-    title: "",
-    description: "",
-    workoutType: "",
-    time: "",
-    image: "",
-    likes: "",
-    comments: "",
-    exercises: []
-  });
+  // const [props.workouts, setWorkoutInputs] = useState({
+  //   title: "",
+  //   description: "",
+  //   workoutType: "",
+  //   time: "",
+  //   image: "",
+  //   likes: "",
+  //   comments: "",
+  //   exercises: []
+  // });
 
-  useEffect(() => {
-    axios.get("/api/workouts")
-      .then(function (response) {
-      })
-      .catch(error => console.log(error))
-  }, []);
+  // useEffect(() => {
+  //   axios.get("/api/workouts")
+  //     .then(function (response) {
+  //     })
+  //     .catch(error => console.log(error))
+  // }, []);
 
-  const handleAddRow = () => {
+  const handleAddRow = (event) => {
+    event.preventDefault();
     const item = {
-      exerciseName: "",
       reps: "",
       sets: "",
       weight: "",
       distance: "",
     };
-    handleChange("exercises", [...workoutInputs.exercises, item]);
+    handleChange("exercises", [...props.workouts.exercises, item]);
+    console.log("handleAddRow")
   };
 
   const handleRemoveSpecificRow = (idx) => () => {
-    const rows = workoutInputs.exercises
+    const rows = props.workouts.exercises
     rows.splice(idx, 1)
-    handleChange("exercises", [...workoutInputs.exercises]);
+    handleChange("exercises", [...props.workouts.exercises]);
   }
 
   const handleChange = (name, value) => {
-    setWorkoutInputs({ ...workoutInputs, [name]: value })
+    props.setWorkouts({ ...props.workouts, [name]: value })
   }
 
   const handleFormSubmit = event => {
     event.preventDefault();
     event.stopPropagation();
-    axios.post("/api/workouts", workoutInputs)
-      .then(function (response) {
-        workoutInputs.id = response.data._id;
-        window.location.reload();
-      })
-      .catch(error => console.log(error));
+    API.postWorkouts();
   };
 
   const runWorkout = () => {
-   document.getElementById("workoutForm").dispatchEvent(new Event('submit'));
-   
-  }
+    document.getElementById("workoutForm").dispatchEvent(new Event('submit'));
 
+  }
+console.log(props)
   return (
     <div>
       <Card>
@@ -77,16 +73,17 @@ const SaveWorkout = props => {
         >
           <FormInput
             id="workoutTitle"
-            value={workoutInputs.title}
+            value={props.workouts.title}
             onChange={event => {
               event.preventDefault();
               handleChange("title", event.target.value);
             }}
             label="Title: "
           />
+
           <FormInput
             id="workoutDescription"
-            value={workoutInputs.description}
+            value={props.workouts.description}
             onChange={event => {
               event.preventDefault();
               handleChange("description", event.target.value);
@@ -95,7 +92,7 @@ const SaveWorkout = props => {
           />
           <SelectInput
             id="workoutType"
-            value={workoutInputs.workoutType}
+            value={props.workouts.workoutType}
             onChange={event => {
               event.preventDefault();
               handleChange("workoutType", event.target.value);
@@ -104,7 +101,7 @@ const SaveWorkout = props => {
             label="Workout Type: "
           />
           <SubForm
-            exercises={workoutInputs.exercises}
+            exercises={props.workouts.exercises}
             onExerciseUpdate={exercises => {
               handleChange("exercises", exercises);
             }}
@@ -113,7 +110,7 @@ const SaveWorkout = props => {
           />
           <FormInput
             id="time"
-            value={workoutInputs.time}
+            value={props.workouts.time}
             onChange={event => {
               event.preventDefault();
               handleChange("time", event.target.value);
@@ -121,13 +118,11 @@ const SaveWorkout = props => {
             label="Time to Complete: "
             placeholder={"h:mm:ss"}
           />
-
-
         </Form>
 
         <AddPicture
           id="image"
-          value={workoutInputs.image}
+          value={props.workouts.image}
           onImageChange={(image) => {
             handleChange("image", image);
           }
@@ -144,9 +139,12 @@ const SaveWorkout = props => {
         </AddPicture>
 
         <Button
-          className="btn btn-info FormSubmit-button"
+          className="btn btn-danger FormSubmit-button"
           onClick={runWorkout}
-          style={{ margin: "5px", }}> Save Workout</Button>
+          // outline color="secondary"
+          style={{ color: "white", borderColor: "#D90429", margin: "5px" }}
+
+        > Save Workout</Button>
       </Card>
     </div>
   );
