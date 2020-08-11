@@ -15,6 +15,8 @@ const cors = require("cors");
 
 
 const uuid = require('uuid');
+const { patch } = require('./routes');
+const { ApiGatewayManagementApi } = require('aws-sdk');
 
 
 const PORT = process.env.PORT || 3001;
@@ -28,6 +30,12 @@ app.use(express.json());
 // app.use( '/api/profile', profile );
 
 app.use(express.static("public"));
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+
 
 const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
 
