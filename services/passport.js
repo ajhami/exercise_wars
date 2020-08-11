@@ -6,6 +6,8 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const LocalStrategy = require("passport-local");
 
+const secret = herokuAuthSecret || config.secret;
+
 // Local strategy
 const localLogin = new LocalStrategy({ usernameField: "email" }, function(email, password, done) {
     // Verifying the username and password
@@ -38,7 +40,7 @@ const localLogin = new LocalStrategy({ usernameField: "email" }, function(email,
 // JWT Strategy options
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-    secretOrKey: config.secret
+    secretOrKey: secret
 };
 
 // Creating JWT strategy

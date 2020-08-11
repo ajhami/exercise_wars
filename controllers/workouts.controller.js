@@ -2,6 +2,8 @@ const { Workouts, Users } = require('../models');
 const jwt = require("jwt-simple");
 const config = require("../config");
 
+const secret = herokuAuthSecret || config.secret;
+
 module.exports = {
     getWorkouts: function (req, res) {
         Workouts
@@ -19,7 +21,7 @@ module.exports = {
         // console.log(req.body.exercises);
 
         const token = req.body.token;
-        const decoded = jwt.decode(token, config.secret);
+        const decoded = jwt.decode(token, secret);
 
         let title = req.body.title;
         let workoutType = req.body.workoutType;
