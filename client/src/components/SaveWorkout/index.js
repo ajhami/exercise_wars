@@ -95,7 +95,7 @@ const SaveWorkout = props => {
               event.preventDefault();
               handleChange("time", event.target.value);
             }}
-            label="Time to Complete: "
+            label="Completion time: "
             placeholder={"h:mm:ss"}
           />
         </Form>

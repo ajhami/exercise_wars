@@ -4,6 +4,7 @@ import { Button, Container, Row, Col } from "reactstrap";
 import Exercises from "../Exercises"
 import "./style.css";
 import { Table } from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Workout(props) {
     return (
@@ -65,14 +66,16 @@ function Workout(props) {
                         </Table>
 
                     </li>
-                    <li>Time to complete: {props.time}</li>
+                    <li>Completion time: {props.time}</li>
                     <li>
+
+                    
                         <Container><Row>
                             <Col md={3}>
-                            <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
+                            <Button style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}
                             </Col>
                             <Col md={9}>
-                            <Button className="fa fa-comment" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.comments}
+                            <Button style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="comment" /></Button> {props.comments}
                             </Col>
                             </Row>
                         </Container>

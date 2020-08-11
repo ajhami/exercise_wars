@@ -81,7 +81,7 @@ function NavBar() {
                   caret
                   >
                  <FontAwesomeIcon icon="trophy" />
-                  <span className="d-block d-sm-none"></span>
+                  <span className="d-inline d-sm-none"></span>
                 <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenges</span>
                 
         </DropdownToggle>
