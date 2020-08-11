@@ -5,7 +5,7 @@ function ChallengeDropDown() {
     return (
         <div>
             <button type="button" className="btn btn-primary" style = {{marginRight: "15px"}}>Yes</button>
-            <button type="button" className="btn btn-secondary">No</button>
+            <button type="button" className="btn btn-secondary" style = {{backgroundColor:"red"}}>No</button>
         </div>
     )
 };

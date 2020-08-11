@@ -7,7 +7,7 @@ function SoloCard(props) {
         <div>
             < NavBar />
 
-            <div className="card" style={{ height: "480px", backgroundColor: "aquamarine", width: "25%", border: "1px solid black", marginLeft:"15px" }}>
+            <div className="card" style={{ height: "480px", backgroundColor: "grey", width: "25%", border: "1px solid black", marginLeft:"15px" }}>
                 <div className="row">
                     <div className="col-sm" style={{ marginLeft: "125px", marginBottom: "25px", marginTop: "15px" }} >
                         <h2> {props.name}</h2>
