@@ -142,7 +142,12 @@ function NavBar() {
                 
             </NavLink>
 
-            <li className="nav-item">
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              </li>
+
+              <li>
               <NavLink
                 to="/Logout"
                 className="nav-link"
@@ -150,16 +155,10 @@ function NavBar() {
                 activeStyle={{ color: "red" }}
                 exact
               >
-                  <FontAwesomeIcon icon="users" />
                 <span className="d-inline">Logout</span>
               
                 
               </NavLink>
-            </li>
-
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
 
 
             </li>
