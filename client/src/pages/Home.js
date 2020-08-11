@@ -50,7 +50,7 @@ class Home extends Component {
             </Col>
             <Col md={4}>
               <h3>Feed</h3>
-              <FriendFeed />
+              {/* <FriendFeed /> */}
             </Col>
             <Col md={4}>
               <h3>Friend Suggestions</h3>

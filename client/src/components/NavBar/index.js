@@ -17,7 +17,7 @@ function NavBar() {
       <nav className="navbar navbar-expand navbar-light bg-light"
         style={{ margin: "0px" }}>
         <NavLink className="navbar-brand"
-          to="/"
+          to="/Home"
           style={{ paddingRight: "20px" }}
           activeStyle={{ color: "red" }}
           exact>
@@ -141,6 +141,22 @@ function NavBar() {
                 <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Minute Challenge</span>
                 
             </NavLink>
+
+            <li className="nav-item">
+              <NavLink
+                to="/Logout"
+                className="nav-link"
+                style={{ color: "darkGray", paddingBottom: "0px" }}
+                activeStyle={{ color: "red" }}
+                exact
+              >
+                  <FontAwesomeIcon icon="users" />
+                <span className="d-inline">Logout</span>
+              
+                
+              </NavLink>
+            </li>
+
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>

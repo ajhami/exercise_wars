@@ -33,6 +33,7 @@ const SaveWorkout = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
+    workoutInputs.token = localStorage.token;
     API.postWorkouts(props.workoutInputs);
  
   };
