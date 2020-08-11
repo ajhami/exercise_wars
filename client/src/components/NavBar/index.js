@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
 import './style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//faUsers, faPlus,faTrophy, faStopwatch
 // import { Card } from "reactstrap"
 
 function NavBar() {
@@ -19,7 +21,7 @@ function NavBar() {
           style={{ paddingRight: "20px" }}
           activeStyle={{ color: "red" }}
           exact>
-          <img className="welcome_navbrand_img" src={process.env.PUBLIC_URL + "/assets/images/logo/apple-touch-icon.png"} alt="EW icon"
+          <img className="welcome_navbrand_img mr-1" src={process.env.PUBLIC_URL + "/assets/images/logo/apple-touch-icon.png"} alt="EW icon"
             style={{ width: "30px", height: "30px" }} />
           <span className="d-none d-sm-block">Home</span>
         </NavLink>
@@ -46,8 +48,11 @@ function NavBar() {
                 activeStyle={{ color: "red" }}
                 exact
               >
-                <span className="d-block d-sm-none fa fa-users"></span>
-                <span className="d-none d-sm-block"><i className="d-none d-sm-inline fa fa-users"></i>Profiles</span>
+                  <FontAwesomeIcon icon="users" />
+                 <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Profiles</span>
+              
+                
               </NavLink>
             </li>
 
@@ -60,8 +65,10 @@ function NavBar() {
                 activeStyle={{ color: "red" }}
                 exact
               >
-                <span className="d-block d-sm-none fa fa-plus"></span>
-                <span className="d-none d-sm-block"><i className="d-none d-sm-inline fa fa-plus"></i>Add Workout</span>
+                <FontAwesomeIcon icon="plus" />
+                 <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Add Workout</span>
+                
               </NavLink>
             </li>
             <li>
@@ -72,7 +79,11 @@ function NavBar() {
                   activeStyle={{ color: "red" }}
                   outline color="none"
                   caret
-                  className="nav-link">Challenges
+                  >
+                 <FontAwesomeIcon icon="trophy" />
+                  <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenges</span>
+                
         </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
@@ -83,7 +94,10 @@ function NavBar() {
                       activeStyle={{ color: "red" }}
                       exact
                     >
-                      Challenge Friends
+                        <FontAwesomeIcon icon="user-friends" />
+                        <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenge Friends</span>
+              
             </NavLink>
                   </DropdownItem>
 
@@ -95,7 +109,10 @@ function NavBar() {
                       activeStyle={{ color: "red" }}
                       exact
                     >
-                      Global Challenge
+                      <FontAwesomeIcon icon="globe" />
+                           <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Global Challenge</span>
+                
             </NavLink>
                   </DropdownItem>
                   <DropdownItem>
@@ -106,7 +123,9 @@ function NavBar() {
                       activeStyle={{ color: "red" }}
                       exact
                     >
-                      Local Challenge
+                       <FontAwesomeIcon icon="map-marker-alt" />
+                         <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Local Challenge</span>
             </NavLink>
                   </DropdownItem>
                   <DropdownItem>
@@ -117,7 +136,10 @@ function NavBar() {
                       activeStyle={{ color: "red" }}
                       exact
                     >
-                      Minute Challenge
+                      <FontAwesomeIcon icon="stopwatch" />
+                         <span className="d-block d-sm-none"></span>
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Minute Challenge</span>
+                
             </NavLink>
                   </DropdownItem>
                 </DropdownMenu>

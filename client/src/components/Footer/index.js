@@ -4,7 +4,7 @@ import './style.css'
 function Footer() {
     return (
 
-        <div className="footer" style={{ height: "120px", backgroundColor:"grey"}}>
+        <div className="footer" style={{ height: "140px", backgroundColor:"grey"}}>
             <div className="row">
                 <div className="col-sm">
                     <img className="img" id="minute" src={process.env.PUBLIC_URL + "/assets/images/logo/exercise_wars_title.png"} alt="Card image cap"
@@ -33,7 +33,7 @@ function Footer() {
 
                 <div className="col-sm">
 
-                    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px"}}>Donate</a>
+                    <a href="#" className="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px"}}>Donate</a>
                 </div>
 
 
