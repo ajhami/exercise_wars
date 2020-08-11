@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
-// import { Card, Button } from "reactstrap";
-import API from "../../utils/API"
+import React from 'react';
 import Workout from "../Workout";
 
 const FriendFeed = (props) => {
-    const [workouts, setWorkouts] = useState([]);
-
-    //set the workout to the resturn of the API
-    useEffect(() => {
-        API.fetchWorkouts()
-            .then(res => {
-                const sortedWorkouts = [].concat(res)
-                    .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
-                setWorkouts(sortedWorkouts)
-            })
-    }, []);
 
     return (
         <div>
             {
-                workouts
+                props.workouts
                     .map(workout => {
-            
                         return (
-                            
                             <Workout
                                 key={workout.id}
                                 id={workout.id}
