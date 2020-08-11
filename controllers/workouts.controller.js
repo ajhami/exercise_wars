@@ -1,8 +1,6 @@
 const { Workouts, Users } = require('../models');
 const jwt = require("jwt-simple");
-const config = require("../config");
-
-const secret = herokuAuthSecret || config.secret;
+const secret = process.env.herokuAuthSecret || require("../config").secret;
 
 module.exports = {
     getWorkouts: function (req, res) {

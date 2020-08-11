@@ -6,10 +6,9 @@ const passport = require("passport");
 const apiRoutes = require('./api');
 const { ExtractJwt } = require("passport-jwt");
 const jwt = require("jwt-simple");
-const config = require("../config");
+const secret = process.env.herokuAuthSecret || require("../config").secret;
 // const path = require("path")
 
-const secret = herokuAuthSecret || config.secret;
 
 const requireAuth = passport.authenticate("jwt", { session: false });
 const requireSignin = passport.authenticate("local", { session: false });
