@@ -1,7 +1,7 @@
 
-const AWS_ID = process.env.herokuAWSID || require("../config").AWS_ID;
-const AWS_SECRET_KEY = process.env.herokuAWSSECRETKEY || require("../config").AWS_SECRET_KEY;
-const AWS_BUCKET_NAME = process.env.herokuAWSBUCKETNAME || require("../config").AWS_BUCKET_NAME;
+const AWS_ID = process.env.herokuAWSID || require("../../config").AWS_ID;
+const AWS_SECRET_KEY = process.env.herokuAWSSECRETKEY || require("../../config").AWS_SECRET_KEY;
+const AWS_BUCKET_NAME = process.env.herokuAWSBUCKETNAME || require("../../config").AWS_BUCKET_NAME;
 const express = require( 'express' );
   const aws = require( 'aws-sdk' );
   const multerS3 = require( 'multer-s3' );
@@ -10,8 +10,6 @@ const express = require( 'express' );
   
   const router = express.Router();
   
-  
-  //  console.log(config.AWS_BUCKET_NAME)
 
   const s3 = new aws.S3({
     accessKeyId: AWS_ID,
