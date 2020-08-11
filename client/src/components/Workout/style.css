@@ -15,19 +15,33 @@
   }
   .card > .img-container {
     height: 60%;
+    border: none;
     overflow: hidden;
     text-align: center;
-    background:darkgray
+    background:white
   }
+
+
+  .button {
+    background-color: #495057;
+  }
+
+  .button:hover {
+    background-color: #212529;
+  }
+
+
+
   .card > .img-container > img {
     width: 100%
   }
-  
-  /* .card > .content {
 
-    padding-right: 1rem;
-    font-size: 15px;
-  } */
+
+  .card > .img-container > img [src=""] {
+    display: none;
+  }
+
+
   
   .card > .content > ul {
     list-style-type: none;

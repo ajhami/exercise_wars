@@ -23,9 +23,9 @@ import Squats from "./pages/Squats"
 import SitUps from "./pages/SitUps"
 import PullUps from "./pages/PullUps"
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUsers,faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUsers,faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUsers, faPlus,faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt)
+library.add(faUsers, faPlus,faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment)
 
 
 

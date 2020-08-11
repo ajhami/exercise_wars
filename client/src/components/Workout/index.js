@@ -4,12 +4,14 @@ import { Button, Container, Row, Col } from "reactstrap";
 import Exercises from "../Exercises"
 import "./style.css";
 import { Table } from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Workout(props) {
+
     return (
         <div className="card">
             <div className="img-container">
-                <img alt={props.title} src={props.image} />
+                <img src={props.image} />
             </div>
             <div className="content">
                 <ul>
@@ -65,15 +67,22 @@ function Workout(props) {
                         </Table>
 
                     </li>
-                    <li>Time to complete: {props.time}</li>
+                    <li>Completion time: {props.time}</li>
                     <li>
-                        <Container><Row>
-                            <Col md={3}>
-                            <Button className="fa fa-thumbs-up" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.likes}
-                            </Col>
-                            <Col md={9}>
-                            <Button className="fa fa-comment" style={{ fontSize: "smaller" }} aria-hidden="true"></Button> {props.comments}
-                            </Col>
+
+
+                        <Container>
+                            <Row>
+                                <Col xs={3}>
+                                    <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}
+                                </Col>
+                                <Col xs={3}>
+                                    <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="comment" /></Button> {props.comments}
+                                </Col>
+
+                                <Col xs={3}>
+                                    <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true">Do this workout</Button> {props.comments}
+                                </Col>
                             </Row>
                         </Container>
                     </li>
