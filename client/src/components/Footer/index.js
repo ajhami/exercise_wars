@@ -9,11 +9,11 @@ function Footer() {
                
                 <div className="col-sm" style = {{width: "60%"}}>
                     <img className="img" id="minute" src={process.env.PUBLIC_URL + "/assets/images/logo/exercise_wars_title.png"} alt="Card image cap"
-                        style={{ height: "140px", marginLeft: "95px" }}>
+                        style={{ height: "140px", marginLeft: "80px" }}>
                     </img>
                 </div>
 
-                <div className="col-sm" style={{ marginTop: "5px"}}>
+                <div className="col-sm" style={{ marginTop: "0px"}}>
                     <div className="info" style={{ marginLeft: "125px", width: "45%", marginBottom: "15px" }}>
                         <h6>Contact:</h6>
                         <h7>Corporate Office</h7>
@@ -24,10 +24,10 @@ function Footer() {
 
 
                 <div className="col-sm" >
-                    <div className="email" style={{ marginTop: "5px", marginLeft: "90px", width: "80%"}}>
+                    <div className="email" style={{ marginTop: "5px", marginLeft: "50px", width: "100%"}}>
                         <h5>Email:</h5>
-                        <div className="link" style = {{fontSize: "25px"}}>
-                        <a href="mailto:hege@example.com">exercisewars@gmail.com</a>
+                        <div className="link" style = {{fontSize: "25px", marginLeft: "25px" }}>
+                        <a href="mailto:hege@example.com">ewars@gmail.com</a>
                         </div>
                     </div>
                 </div>
