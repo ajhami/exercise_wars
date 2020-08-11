@@ -1,9 +1,8 @@
 const db = require("../models");
 const Users = db.Users;
 const jwt = require("jwt-simple");
-const config = require("../config");
+const secret = process.env.herokuAuthSecret || require("../config").secret;
 
-const secret = herokuAuthSecret || config.secret;
 
 function tokenForUser(user) {
     const timestamp = new Date().getTime();

@@ -1,12 +1,11 @@
 const passport = require("passport");
 const db = require("../models");
 const Users = db.Users;
-const config = require("../config");
+const secret = process.env.herokuAuthSecret || require("../config").secret;
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const LocalStrategy = require("passport-local");
 
-const secret = herokuAuthSecret || config.secret;
 
 // Local strategy
 const localLogin = new LocalStrategy({ usernameField: "email" }, function(email, password, done) {
