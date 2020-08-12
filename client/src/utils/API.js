@@ -21,7 +21,7 @@ export default {
                         description: workout.description,
                         workoutType: workout.workoutType,
                         likes: workout.likes,
-                        commments: workout.comments,
+                        comments: workout.comments,
                         exercises: workout.exercises
                     }
                 })
@@ -32,11 +32,7 @@ export default {
     postWorkouts: function (workouts) {
         return axios
             .post("/api/workouts", workouts)
-            .then(function (response) {
-                return response.data;
-
-            })
-            .catch(error => console.log(error));
+ 
     },
 
     fetchWorkoutInputs: function () {

@@ -7,7 +7,6 @@ import requireAuth from "../components/requireAuth";
 import SaveWorkout from "../components/SaveWorkout";
 import FriendFeed from "../components/FriendFeed";
 import API from "../utils/API";
-import axios from "axios";
 
 const AddWorkout = (props) => {
   const [workouts, setWorkouts] = useState([]);
@@ -24,6 +23,36 @@ const AddWorkout = (props) => {
     comments: "",
     exercises: []
   })
+
+  const clickDoWorkout = (doThisWorkout) => {
+    let newDoThisWorkout = Object.assign({}, workoutInputs)
+    newDoThisWorkout.title = doThisWorkout.title
+    newDoThisWorkout.timeHours = doThisWorkout.timeHours ? doThisWorkout.timeHours : ""
+    newDoThisWorkout.timeMinutes = doThisWorkout.timeMinutes ? doThisWorkout.timeMinutes : ""
+    newDoThisWorkout.timeSeconds = doThisWorkout.timeSeconds ? doThisWorkout.timeSeconds : ""
+    newDoThisWorkout.workoutType = doThisWorkout.workoutType ? doThisWorkout.workoutType : ""
+    newDoThisWorkout.image = doThisWorkout.image ? doThisWorkout.image : ""
+    newDoThisWorkout.exercises = doThisWorkout.exercises 
+    newDoThisWorkout.exercises.exerciseName = doThisWorkout.exercises.exerciseName ? doThisWorkout.exercises.exerciseName : ""
+    newDoThisWorkout.exercises.sets = doThisWorkout.exercises.sets ? doThisWorkout.exercises.sets : ""
+    newDoThisWorkout.exercises.weight = doThisWorkout.exercises.weight ? doThisWorkout.exercises.weight : ""
+    newDoThisWorkout.exercises.distance = doThisWorkout.exercises.distance ? doThisWorkout.exercises.distance : ""
+    newDoThisWorkout.exercises.reps = doThisWorkout.exercises.reps ? doThisWorkout.exercises.reps : ""
+
+    console.log(doThisWorkout, newDoThisWorkout)
+    setWorkoutInputs(newDoThisWorkout)
+  }
+
+  const callWorkoutAPI = () => {
+    workoutInputs.token = localStorage.token;
+    API.postWorkouts(workoutInputs)
+      .then(function (response) {
+        let newFeed = [workoutInputs, ...workouts]
+        setWorkouts(newFeed)
+        // return response.data;
+      })
+      .catch(error => console.log(error));
+  };
 
   //set the workout to the resturn of the API
   useEffect(() => {
@@ -46,12 +75,14 @@ const AddWorkout = (props) => {
             <SaveWorkout
               workoutInputs={workoutInputs}
               setWorkoutInputs={setWorkoutInputs}
+              callWorkoutAPI={callWorkoutAPI}
             />
           </Col>
           <Col md={6}>
             <FriendFeed
               workouts={workouts}
               setWorkouts={setWorkouts}
+              clickDoWorkout={clickDoWorkout}
             />
           </Col>
         </Row>

@@ -2,14 +2,19 @@ import React from 'react';
 import Workout from "../Workout";
 
 const FriendFeed = (props) => {
+    let i=0;
+    const clickDoWorkout = (workout) => {
+        props.clickDoWorkout(workout)
+    }
     return (
         <div>
             {
                 props.workouts
                     .map(workout => {
+                        
                         return (
                             <Workout
-                                key={workout.id}
+                                key={i++}
                                 id={workout.id}
                                 user={workout.user}
                                 date={workout.date}
@@ -22,8 +27,9 @@ const FriendFeed = (props) => {
                                 description={workout.description}
                                 workoutType={workout.workoutType}
                                 likes={workout.likes}
-                                commments={workout.comments}
+                                comments={workout.comments}
                                 exercises={workout.exercises}
+                                clickDoWorkout={clickDoWorkout}
                             />
                         )
                     }

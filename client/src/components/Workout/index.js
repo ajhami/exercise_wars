@@ -67,21 +67,21 @@ function Workout(props) {
                         </Table>
 
                     </li>
-                    <li> 
+                    <li>
                         <Table
-                        className="timeTable">
-                        <thead style={{border: "none"}}>
-                            <tr>
-                                <th>
-                                    hours
+                            className="timeTable">
+                            <thead style={{ border: "none" }}>
+                                <tr>
+                                    <th>
+                                        hours
                                 </th>
-                                <th>
-                                    minutes
+                                    <th>
+                                        minutes
                                 </th>
-                                <th>
-                                    seconds
+                                    <th>
+                                        seconds
                                 </th>
-                            </tr>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -89,23 +89,28 @@ function Workout(props) {
                                     <td>{props.timeMinutes} </td>
                                     <td>{props.timeSeconds} </td>
                                 </tr>
-                                </tbody></Table>
+                            </tbody></Table>
 
-                        
-                        </li>
+
+                    </li>
                     <li>
 
                         <Container>
                             <Row>
+                            <Col xs={3}>
+                                    <Button
+                                        className="button"
+                                        style={{ fontSize: "smaller", margin: "1px" }}
+                                        aria-hidden="true"
+                                        onClick={() => props.clickDoWorkout(props)}>Do this workout</Button> {props.comments}
+                                </Col>
                                 <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}
                                 </Col>
                                 <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="comment" /></Button> {props.comments}
                                 </Col>
-                                <Col xs={3}>
-                                    <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true">Do this workout</Button> {props.comments}
-                                </Col>
+
                             </Row>
                         </Container>
                     </li>
