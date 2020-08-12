@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import AddPicture from "../../components/SaveWorkout/AddPicture";
+import checkAuth from "../../components/checkAuth";
 // import { Alert } from "reactstrap";
 import * as actions from "../../actions";
 import "./style.css";
@@ -35,7 +37,7 @@ class Signup extends Component {
 
                     <form className="signup_form" onSubmit={handleSubmit(this.onSubmit)}>
 
-                        <label className="signup_field_labels top_label">First Name</label>
+                        <label className="signup_field_labels top_label">* First Name</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="firstName"
@@ -47,7 +49,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">Last Name</label>
+                        <label className="signup_field_labels">* Last Name</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="lastName"
@@ -59,7 +61,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">Email</label>
+                        <label className="signup_field_labels">* Email</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="email"
@@ -71,7 +73,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">Set Your Username</label>
+                        <label className="signup_field_labels">* Set Your Username</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="username"
@@ -83,7 +85,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">Password</label>
+                        <label className="signup_field_labels">* Password</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="password"
@@ -94,7 +96,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">Verify Password</label>
+                        <label className="signup_field_labels">* Verify Password</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="verifyPassword"
@@ -105,7 +107,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">Birthday</label>
+                        <label className="signup_field_labels">* Birthday</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="dobMonth"
@@ -141,7 +143,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">* Location</label>
+                        <label className="signup_field_labels">Location</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="locCity"
@@ -156,7 +158,7 @@ class Signup extends Component {
                                 component="select"
                                 className="loc_state_field"
                             >
-                                <option value="">Select a State</option>
+                                <option key="usStateNotSelected" value="">Select a State</option>
                                 {stateInits.map(state => (
                                     <option key={state} value={state}>
                                         {state}
@@ -165,7 +167,7 @@ class Signup extends Component {
                             </Field>
                         </fieldset>
 
-                        <label className="signup_field_labels">* height (in.)</label>
+                        <label className="signup_field_labels">Height (in.)</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="height"
@@ -177,7 +179,7 @@ class Signup extends Component {
                             />
                         </fieldset>
 
-                        <label className="signup_field_labels">* weight (lbs)</label>
+                        <label className="signup_field_labels">Weight (lbs)</label>
                         <fieldset className="signup_fieldset">
                             <Field
                                 name="weight"
@@ -199,6 +201,25 @@ class Signup extends Component {
                         </div>
 
                     </form>
+
+                    {/* <AddPicture
+                        id="image"
+                        // value={props.workoutInputs.image}
+                        // onImageChange={(image) => {
+                        //         handleChange("image", image);
+                        //     }
+                        // }
+                    >
+                        <form
+                            action="/profile"
+                            method="post"
+                            enctype="multipart/form-data">
+                            <input
+                                type="file"
+                                name="avatar" />
+                        </form>
+                    </AddPicture> */}
+
                 </div>
 
                 <div className="col-md-5 d-none d-md-block signup_img_div">
@@ -216,7 +237,7 @@ function mapStateToProps(state) {
     return { errorMessage: state.auth.errorMessage };
 }
 
-export default compose(
+export default checkAuth(compose(
     connect(mapStateToProps, actions),
     reduxForm({ form: "signup" })
-)(Signup);
+)(Signup));

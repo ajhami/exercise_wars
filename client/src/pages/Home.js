@@ -39,7 +39,8 @@ class Home extends Component {
           <Row>
             <Col md={4}>
               <ProfileCard
-                imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
+                // imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
+                imageURL={"https://bucketforexercisewars.s3.amazonaws.com/profile_placeholder-1597201894326.png"}
                 username={this.props.user.username}
                 location={this.props.user.location}
                 followers={this.props.user.followers.length}

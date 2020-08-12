@@ -5,6 +5,7 @@ import {
     NavbarBrand,
     NavItem
 } from "reactstrap";
+import checkAuth from "../../components/checkAuth";
 
 
 function Welcome() {
@@ -41,4 +42,4 @@ function Welcome() {
     )
 }
 
-export default Welcome;
+export default checkAuth(Welcome);

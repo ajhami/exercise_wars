@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import checkAuth from "../components/checkAuth";
 import * as actions from "../actions";
 import "./login.css";
 
@@ -72,7 +73,7 @@ function mapStateToProps(state) {
 }
 
 
-export default compose(
+export default checkAuth(compose(
     connect(mapStateToProps, actions),
     reduxForm({ form: "signin" })
-)(Login);
+)(Login));

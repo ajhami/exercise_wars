@@ -9,6 +9,7 @@ function SoloCard(props) {
     return (
         <div>
             < NavBar />
+
             <div className="container">
                 <div className="row">
                     <div class="col-sm">
@@ -37,6 +38,7 @@ function SoloCard(props) {
                         </div>
 
                     </div>
+
                     <div class="col-sm">
                         <div className="img">
                             <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate3.png"} alt="Card cap" style={{ height: "495px", width: "100%", marginBottom: "10px", marginTop: "15px" }}                    >
