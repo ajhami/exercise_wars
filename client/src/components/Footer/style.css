@@ -1,8 +1,18 @@
 
-a { 
-    color: red;
+.emailanchor { 
+    color: #be0707;
+    
 }
 h5 {
     margin-left: 75px;
     font-size: 15px;
+}
+.emailanchor:hover{
+    text-decoration: none; 
+    color:#be0707;
+    
+}
+
+.emailheader {
+    text-align: center;
 }
