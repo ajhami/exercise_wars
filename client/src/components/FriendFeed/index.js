@@ -15,6 +15,9 @@ const FriendFeed = (props) => {
                                 date={workout.date}
                                 title={workout.title}
                                 time={workout.time}
+                                timeHours={workout.timeHours}
+                                timeMinutes={workout.timeMinutes}
+                                timeSeconds={workout.timeSeconds}
                                 image={workout.image}
                                 description={workout.description}
                                 workoutType={workout.workoutType}

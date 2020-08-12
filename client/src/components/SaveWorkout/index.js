@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, Button } from "reactstrap";
+import { Card, Button, Row, Col, Container } from "reactstrap";
 import Form from '../Form';
 import FormInput from '../Form/FormInput';
+import FormTime from '../Form/FormTime';
 import FormTextArea from '../Form/FormTextArea';
 import SelectInput from '../Form/SelectInput';
 import SubForm from '../Form/SubForm';
@@ -36,7 +37,7 @@ const SaveWorkout = props => {
     event.preventDefault();
     props.workoutInputs.token = localStorage.token;
     API.postWorkouts(props.workoutInputs);
- 
+
   };
 
   const runWorkout = () => {
@@ -91,16 +92,48 @@ const SaveWorkout = props => {
             handleAddRow={handleAddRow}
             handleRemoveSpecificRow={handleRemoveSpecificRow}
           />
-          <FormInput
-            id="time"
-            value={props.workoutInputs.time}
-            onChange={event => {
-              event.preventDefault();
-              handleChange("time", event.target.value);
-            }}
-            label="Completion time: "
-            placeholder={"h:mm:ss"}
-          />
+
+          <Container>
+            <Row>
+              <Col xs={4}>Time: </Col>
+              <Col xs={8}>
+                <div id="timeContainer">
+                <FormTime
+                  id="timeHours"
+                  type="Number"
+                  value={props.workoutInputs.timeHours}
+                  onChange={event => {
+                    event.preventDefault();
+                    handleChange("timeHours", event.target.value);
+                  }}
+                  placeholder={"hh"}
+                />
+                <FormTime
+                  id="timeMinutes"
+                  type="Number"
+                  value={props.workoutInputs.timeMinutes}
+                  onChange={event => {
+                    event.preventDefault();
+                    handleChange("timeMinutes", event.target.value);
+                  }}
+                  label=":"
+                  placeholder={"mm"}
+                />
+                <FormTime
+                  id="timeSeconds"
+                  type="Number"
+                  value={props.workoutInputs.timeSeconds}
+                  onChange={event => {
+                    event.preventDefault();
+                    handleChange("timeSeconds", event.target.value);
+                  }}
+                  label=": "
+                  placeholder={"ss"}
+                />
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </Form>
 
         <AddPicture

@@ -8,3 +8,35 @@ word-wrap: break-word;
 word-break: break-all;
 
 }
+
+#timeHours.form-control {
+    width: 60px
+}
+
+#timeContainer {
+position: absolute;
+  right: 0px;
+  padding: 10px;
+
+}
+
+#timeMinutes.form-control {
+    width: 60px
+}
+#timeSeconds.form-control {
+    width: 60px
+}
+
+#timeHours {
+    display: inline
+}
+
+#timeMinutes {
+    display: inline
+}
+#timeSeconds {
+    display: inline
+}
+
+
+

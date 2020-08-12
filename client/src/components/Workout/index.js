@@ -7,7 +7,6 @@ import { Table } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Workout(props) {
-    console.log(props)
     return (
         <div className="card">
             <Container>
@@ -31,7 +30,6 @@ function Workout(props) {
             <div className="content">
                 <ul>
                     <li>
-
                     </li>
                     <li>
                         <Table striped
@@ -69,9 +67,33 @@ function Workout(props) {
                         </Table>
 
                     </li>
-                    <li><strong>Completion time: {props.time}</strong></li>
-                    <li>
+                    <li> 
+                        <Table
+                        className="timeTable">
+                        <thead style={{border: "none"}}>
+                            <tr>
+                                <th>
+                                    hours
+                                </th>
+                                <th>
+                                    minutes
+                                </th>
+                                <th>
+                                    seconds
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{props.timeHours}</td>
+                                    <td>{props.timeMinutes} </td>
+                                    <td>{props.timeSeconds} </td>
+                                </tr>
+                                </tbody></Table>
 
+                        
+                        </li>
+                    <li>
 
                         <Container>
                             <Row>
