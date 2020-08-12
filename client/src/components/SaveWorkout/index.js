@@ -35,8 +35,7 @@ const SaveWorkout = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    props.workoutInputs.token = localStorage.token;
-    API.postWorkouts(props.workoutInputs);
+    props.callWorkoutAPI();
 
   };
 
@@ -98,38 +97,38 @@ const SaveWorkout = props => {
               <Col xs={4}>Time: </Col>
               <Col xs={8}>
                 <div id="timeContainer">
-                <FormTime
-                  id="timeHours"
-                  type="Number"
-                  value={props.workoutInputs.timeHours}
-                  onChange={event => {
-                    event.preventDefault();
-                    handleChange("timeHours", event.target.value);
-                  }}
-                  placeholder={"hh"}
-                />
-                <FormTime
-                  id="timeMinutes"
-                  type="Number"
-                  value={props.workoutInputs.timeMinutes}
-                  onChange={event => {
-                    event.preventDefault();
-                    handleChange("timeMinutes", event.target.value);
-                  }}
-                  label=":"
-                  placeholder={"mm"}
-                />
-                <FormTime
-                  id="timeSeconds"
-                  type="Number"
-                  value={props.workoutInputs.timeSeconds}
-                  onChange={event => {
-                    event.preventDefault();
-                    handleChange("timeSeconds", event.target.value);
-                  }}
-                  label=": "
-                  placeholder={"ss"}
-                />
+                  <FormTime
+                    id="timeHours"
+                    type="Number"
+                    value={props.workoutInputs.timeHours}
+                    onChange={event => {
+                      event.preventDefault();
+                      handleChange("timeHours", event.target.value);
+                    }}
+                    placeholder={"hh"}
+                  />
+                  <FormTime
+                    id="timeMinutes"
+                    type="Number"
+                    value={props.workoutInputs.timeMinutes}
+                    onChange={event => {
+                      event.preventDefault();
+                      handleChange("timeMinutes", event.target.value);
+                    }}
+                    label=":"
+                    placeholder={"mm"}
+                  />
+                  <FormTime
+                    id="timeSeconds"
+                    type="Number"
+                    value={props.workoutInputs.timeSeconds}
+                    onChange={event => {
+                      event.preventDefault();
+                      handleChange("timeSeconds", event.target.value);
+                    }}
+                    label=": "
+                    placeholder={"ss"}
+                  />
                 </div>
               </Col>
             </Row>
