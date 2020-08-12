@@ -22,7 +22,7 @@ function ProfileCard(props) {
 
     return (
         <Card className="profile_card col-md-4">
-            <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img" />
+            <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img mt-4" />
             <CardBody>
                 <CardTitle className="username_title">{props.username}</CardTitle>
                 <CardSubtitle className="user_location_text">{props.location}</CardSubtitle>

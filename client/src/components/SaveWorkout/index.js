@@ -72,13 +72,14 @@ const SaveWorkout = props => {
           />
           <SelectInput
             id="workoutType"
+            className="workoutTypeDrop"
             value={props.workoutInputs.workoutType}
             onChange={event => {
               event.preventDefault();
               handleChange("workoutType", event.target.value);
             }}
             type={"select"}
-            label="Workout Type: "
+            label={"Workout Type: "}
           />
           <SubForm
             exercises={props.workoutInputs.exercises}
