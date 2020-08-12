@@ -1,8 +1,14 @@
 
 a { 
-    color: red;
+    color: rgb(184, 14, 14);
+    
 }
 h5 {
     margin-left: 75px;
     font-size: 15px;
+}
+a:hover{
+    text-decoration: none !important;
+    text-decoration-color:rgb(184, 14, 14);
+    
 }
