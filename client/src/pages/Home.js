@@ -34,7 +34,7 @@ class Home extends Component {
     return (
       <div>
         <NavBar />
-        <Container>
+        <Container className="mb-5">
 
           <Row>
             <Col md={4}>
