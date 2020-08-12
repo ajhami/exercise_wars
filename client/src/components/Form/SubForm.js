@@ -14,13 +14,11 @@ function SubForm(props) {
         props.onExerciseUpdate(rows)
     };
     return (
-
         <Container style={{ margin: "5px", }}>
             <div>
                 <div className="container">
                     <div className="row clearfix">
                         <div className="col-md-12 column">
-                            <h3>Exercises</h3>
                             <Table striped
                                 className="table table-hover"
                                 id="table_id"
@@ -30,7 +28,7 @@ function SubForm(props) {
                                         return (
                                             <tr id="addr0" key={idx}>
                                                 <td>{idx + 1}</td>
-                                                <td style={{ width: "150px", }}>
+                                                <td style={{ width: "125px", }}>
                                                     <input
                                                         type="text"
                                                         name="exerciseName"
@@ -100,7 +98,7 @@ function SubForm(props) {
                                 outline color="secondary"
                                 style={{ color: "#D90429", borderColor: "#D90429", marginBottom: "10px" }}
                                 onClick={props.handleAddRow}
-                                >
+                            >
                                 + Exercise
                         </Button>
                         </div>

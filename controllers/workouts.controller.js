@@ -27,7 +27,10 @@ module.exports = {
         let description = req.body.description;
         let image = req.body.image;
         let date = Date(Date.now());
-        let time = req.body.time;
+        let time = req.body.timeHours*3600 + req.body.timeMinutes*60 + req.body.timeSeconds;
+        let timeHours = req.body.timeHours;
+        let timeMinutes = req.body.timeMinutes;
+        let timeSeconds = req.body.timeSeconds;
         let exercises = req.body.exercises;
 
         Users.findOne({ _id: decoded.sub }, function (err, foundUser) {
@@ -47,6 +50,9 @@ module.exports = {
                     image: image,
                     date: date,
                     time: time,
+                    timeHours: timeHours,
+                    timeMinutes: timeMinutes,
+                    timeSeconds: timeSeconds,
                     exercises: exercises
                 })
                 .then(data => {

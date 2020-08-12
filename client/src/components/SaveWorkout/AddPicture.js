@@ -87,6 +87,7 @@ class AddPicture extends Component {
 				<div className="card border-light mb-3 mt-5"
 					style={{
 						minHeight: "100px",
+						minWidth: "200px",
 						boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)'
 					}}>
 					<div className="card-header">
@@ -95,14 +96,14 @@ class AddPicture extends Component {
 					<Container>
 						<div className="card-body">
 							<Row>
-								<Col xs={6}>
+								<Col sm={6}>
 									<input
 										type="file"
 										onChange={this.singleFileChangedHandler}
 										/*outline */color="secondary"
 										style={{ color: "#D90429", borderColor: "#D90429", padding: "4px 8px", fontSize: "14px" }} />
 								</Col>
-								<Col xs={6}>
+								<Col sm={6}>
 									<div className="">
 										<Button
 											className="btn btn-info float-right"
