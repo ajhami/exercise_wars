@@ -41,12 +41,56 @@ router.post("/getuser", function (req, res) {
         if(userFound) {
             console.log("User found:");
             console.log(userFound);
-            res.send({ user: userFound });
+            let userToSend = {};
+            userToSend.firstName = userFound.firstName;
+            userToSend.lastName = userFound.lastName;
+            userToSend.username = userFound.username;
+            userToSend.location = userFound.location;
+            userToSend.birthday = userFound.birthday;
+            userToSend.height = userFound.height;
+            userToSend.weight = userFound.weight;
+            userToSend.followers = userFound.followers;
+            userToSend.following = userFound.following;
+            userToSend.imageURL = userFound.imageURL;
+
+            res.send({ user: userToSend });
         }
 
     })
     
 
 });
+
+
+router.post("/searchProfiles", function (req, res) {
+    console.log("searchedProfiles req.body:");
+    console.log(req.body);
+    const searchedUsername = req.body.searchedUsername;
+
+    db.Users.find({ username: { $regex: searchedUsername } }, function(err, matchedUsers) {
+
+        if(err) {
+            throw err;
+        }
+
+        if(matchedUsers) {
+            let matchedUsersArray = [];
+    
+            matchedUsers.map(match => {
+                matchedUsersArray.push({ username: match.username, imageURL: match.imageURL });
+            });
+    
+            res.send({ matchedUsers: matchedUsersArray });
+        }
+
+        else {
+            res.send({ matchedUsers: [{ username: "", imageURL: ""}] })
+        }
+
+    });
+})
+
+
+
 
 module.exports = router;

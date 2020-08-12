@@ -12,7 +12,7 @@ function SoloCard(props) {
 
             <div className="container">
                 <div className="row">
-                    <div class="col-sm">
+                    <div className="col-sm">
                         <div className="img">
                             <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate2.png"} alt="Card cap" style={{ height: "495px", width: "100%", marginTop: "15px" }}                    >
                             </img>
@@ -39,7 +39,7 @@ function SoloCard(props) {
 
                     </div>
 
-                    <div class="col-sm">
+                    <div className="col-sm">
                         <div className="img">
                             <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate3.png"} alt="Card cap" style={{ height: "495px", width: "100%", marginBottom: "10px", marginTop: "15px" }}                    >
                             </img>

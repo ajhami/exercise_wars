@@ -23,15 +23,11 @@ function ProfileCard(props) {
     return (
         <Card className="profile_card col-md-4">
             <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img mt-4" />
-            <CardBody>
+            <CardBody className="profile_card" style={{alignText: "center"}}>
                 <CardTitle className="username_title">{props.username}</CardTitle>
                 <CardSubtitle className="user_location_text">{props.location}</CardSubtitle>
                 <div className="row">
-                        <CardText><Link to="#">Followers:</Link> {props.followers}</CardText>
-                    <p>|</p>
-                    {/* <Link to="#"> */}
-                        <CardText><Link to="#">Following:</Link> {props.following}</CardText>
-                    {/* </Link> */}
+                        <CardText style={{marginLeft: "15px"}}>Followers: {props.followers} | Following: {props.following}</CardText>
                 </div>
             </CardBody>
         </Card>

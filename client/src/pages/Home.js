@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import API from "../utils/API";
-import FriendFeed from "../components/FriendFeed";
 import { Container, Row, Col } from "reactstrap";
 import FriendSuggestions from "../components/FriendSuggestions";
 import NavBar from '../components/NavBar';
@@ -15,11 +13,7 @@ import { connect } from "react-redux";
 class Home extends Component {
 
   componentDidMount = () => {
-    // let followers = ["fadsnkjlfwemfe1w", "wemm134345"]
-    // let following = [];
     this.props.getProfileData();
-    // console.log("BEFORE");
-    // console.log(followers);
   }
 
   render() {
@@ -40,7 +34,7 @@ class Home extends Component {
             <Col md={4}>
               <ProfileCard
                 // imageURL={process.env.PUBLIC_URL + "/assets/images/profile_placeholder.png"}
-                imageURL={"https://bucketforexercisewars.s3.amazonaws.com/profile_placeholder-1597201894326.png"}
+                imageURL={this.props.user.imageURL}
                 username={this.props.user.username}
                 location={this.props.user.location}
                 followers={this.props.user.followers.length}

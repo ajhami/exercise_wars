@@ -24,6 +24,10 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    imageURL: {
+        type: String,
+        default: "https://bucketforexercisewars.s3.amazonaws.com/profile_placeholder-1597201894326.png"
+    },
     following: {
         type: Array,
         default: []
