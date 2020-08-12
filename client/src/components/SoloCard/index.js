@@ -13,13 +13,13 @@ function SoloCard(props) {
             <div className="row">
                 <div class="col-sm">
                     <div className="img">
-                        <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate2.png"} alt="Card image cap" style={{ height: "495px", width: "90%", marginTop: "15px" }}                    >
+                        <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate2.png"} alt="Card image cap" style={{ height: "495px", width: "100%", marginTop: "15px" }}                    >
                         </img>
                     </div>
                 </div>
 
-                <div className="card" style={{ height: "495px", backgroundColor: "grey", width: "25%", border: "1px solid black", marginRight: "40px", marginBottom: "" }}>
-                    <div className="col-sm" style={{ marginLeft: "35%", marginBottom: "25px", marginTop: "15px" }} >
+                <div className="card" style={{ height: "495px", backgroundColor: "grey", width: "25%", border: "1px solid black", marginRight: "40px", marginLeft: "2%" }}>
+                    <div className="col-sm" style={{ marginLeft: "35%", marginBottom: "25px", marginTop: "15px"}} >
                         <h2> {props.name}</h2>
                         <ChallengeForm />
                     </div>
@@ -39,7 +39,7 @@ function SoloCard(props) {
                 </div>
                     <div class="col-sm">
                         <div className="img">
-                            <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate3.png"} alt="Card image cap" style={{ height: "495px", width: "100%", marginBottom: "px", marginTop:"4%" }}                    >
+                            <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate3.png"} alt="Card image cap" style={{ height: "495px", width: "100%", marginBottom: "10px", marginTop:"4%" }}                    >
                             </img>
                         </div>
                     </div>
