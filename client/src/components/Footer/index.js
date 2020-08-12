@@ -4,7 +4,7 @@ import './style.css'
 function Footer() {
     return (
 
-        <div className="footer" style={{  backgroundColor:"grey"}}>
+        <div className="footer" style={{  backgroundColor:"grey", marginTop: "15px"}}>
             <div className="row">
                
                 <div className="col-sm" style = {{width: "60%"}}>
