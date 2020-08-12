@@ -1,3 +1,19 @@
+.timeTable {
+  padding: .25rem;
+  width:80%;
+  margin: auto;
+}
+
+.timeTable td {
+  padding: .25rem;
+  text-align: center;
+
+}
+.timeTable th {
+  padding: .25rem;
+  text-align: center;
+
+}
 .card {
     background: #fff;
     border-radius: 2px;
@@ -42,6 +58,10 @@
   }
 
 
+span:empty {
+  display: none;
+}
+
   
   .card > .content > ul {
     list-style-type: none;
@@ -59,4 +79,3 @@
     table-layout: auto;
     max-width: 100% 
   }
-

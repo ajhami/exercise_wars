@@ -7,29 +7,29 @@ import { Table } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Workout(props) {
-
     return (
         <div className="card">
+            <Container>
+                <Row>
+                    <Col xs={7}>
+                        {props.user}
+                    </Col>
+                    <Col xs={5} style={{ textAlign: "right" }}>{Moment(props.date).format("MMM D, YYYY")}</Col>
+                </Row>
+                <Row>
+                    <Col xs={7}><strong>{props.title}</strong></Col>
+                    <Col xs={5} style={{ textAlign: "right" }}> {props.workoutType}</Col>
+                </Row>
+                <Row className="userStyle">
+                    {props.description}
+                </Row>
+            </Container>
             <div className="img-container">
                 <img src={props.image} />
             </div>
             <div className="content">
                 <ul>
                     <li>
-                        <Container>
-                            <Row>
-                                <Col className="userStyle">
-                                    {props.user}
-                                </Col>
-                                <Col>{Moment(props.date).format("MMM D, YYYY")}</Col>
-                            </Row>
-                            <Row>
-                                <strong>{props.title}</strong>
-                            </Row>
-                            <Row>
-                                {props.description}
-                            </Row>
-                        </Container>
                     </li>
                     <li>
                         <Table striped
@@ -67,9 +67,33 @@ function Workout(props) {
                         </Table>
 
                     </li>
-                    <li>Completion time: {props.time}</li>
-                    <li>
+                    <li> 
+                        <Table
+                        className="timeTable">
+                        <thead style={{border: "none"}}>
+                            <tr>
+                                <th>
+                                    hours
+                                </th>
+                                <th>
+                                    minutes
+                                </th>
+                                <th>
+                                    seconds
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{props.timeHours}</td>
+                                    <td>{props.timeMinutes} </td>
+                                    <td>{props.timeSeconds} </td>
+                                </tr>
+                                </tbody></Table>
 
+                        
+                        </li>
+                    <li>
 
                         <Container>
                             <Row>
@@ -79,7 +103,6 @@ function Workout(props) {
                                 <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="comment" /></Button> {props.comments}
                                 </Col>
-
                                 <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true">Do this workout</Button> {props.comments}
                                 </Col>

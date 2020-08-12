@@ -31,6 +31,15 @@ const workoutSchema = new mongoose.Schema({
   time: {
     type: String,
   },
+  timeHours: {
+    type: Number,
+  },
+  timeMinutes: {
+    type: Number,
+  },
+  timeSeconds: {
+    type: Number,
+  },
 
   exercises: [{
     exerciseName: {
