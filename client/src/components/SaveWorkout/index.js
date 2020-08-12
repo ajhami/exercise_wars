@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button } from "reactstrap";
 import Form from '../Form';
 import FormInput from '../Form/FormInput';
+import FormTextArea from '../Form/FormTextArea';
 import SelectInput from '../Form/SelectInput';
 import SubForm from '../Form/SubForm';
 import AddPicture from "./AddPicture";
@@ -61,7 +62,7 @@ const SaveWorkout = props => {
             label="Title: "
           />
 
-          <FormInput
+          <FormTextArea
             id="workoutDescription"
             value={props.workoutInputs.description}
             onChange={event => {
@@ -69,6 +70,7 @@ const SaveWorkout = props => {
               handleChange("description", event.target.value);
             }}
             label="Description: "
+
           />
           <SelectInput
             id="workoutType"

@@ -1,3 +1,10 @@
 #workoutType {
     margin-left: 4.3px;
 }
+
+#workoutDescription {       
+height: 100px;
+word-wrap: break-word;
+word-break: break-all;
+
+}
