@@ -19,7 +19,7 @@ function NavBar() {
         <NavLink className="navbar-brand"
           to="/Home"
           style={{ paddingRight: "20px" }}
-          activeStyle={{ color: "red" }}
+          activestyle={{ color: "red" }}
           exact>
           <img className="welcome_navbrand_img mr-1" src={process.env.PUBLIC_URL + "/assets/images/logo/apple-touch-icon.png"} alt="EW icon"
             style={{ width: "30px", height: "30px" }} />
@@ -33,7 +33,7 @@ function NavBar() {
                 to="/"
                 className="nav-link"
                 style={{ color: "darkGray" }}
-                activeStyle={{ color: "red" }}
+                activestyle={{ color: "red" }}
                 exact
               >
                 Home
@@ -76,7 +76,7 @@ function NavBar() {
                 isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle
                   style={{ color: "darkGray", backgroundColor: "#F8F9FA" }}
-                  activeStyle={{ color: "red" }}
+                  activestyle={{ color: "red" }}
                   outline color="none"
                   caret
                   >

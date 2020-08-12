@@ -33,7 +33,7 @@ function Footer() {
                 </div>
 
                 <div className="col-sm" style = {{}}>
-                    <a href="https://www.theroadhome.org/give/in-kind-donations/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px", marginLeft:"30%", marginBottom: "15px"}}>Donate</a>
+                    <a href="https://www.theroadhome.org/give/in-kind-donations/" className="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style = {{marginTop: "25px", marginLeft:"30%", marginBottom: "15px"}}>Donate</a>
                 </div>
 
 

@@ -99,7 +99,7 @@ class AddPicture extends Component {
 									<input
 										type="file"
 										onChange={this.singleFileChangedHandler}
-										outline color="secondary"
+										/*outline */color="secondary"
 										style={{ color: "#D90429", borderColor: "#D90429", padding: "4px 8px", fontSize: "14px" }} />
 								</Col>
 								<Col xs={6}>

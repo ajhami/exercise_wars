@@ -11,7 +11,7 @@ function SoloCard(props) {
             < NavBar />
 
             <div className="row">
-                <div class="col-sm">
+                <div className="col-sm">
                     <div className="img">
                         <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate2.png"} alt="Card image cap" style={{ height: "480px", width: "90%", marginLeft: "15px", marginTop: "15px" }}                    >
                         </img>
@@ -39,8 +39,8 @@ function SoloCard(props) {
                         < ChallengeDropDown />
                     </div>
                 </div>
-                <div class="col-sm">
-                    <div class="col-sm">
+                <div className="col-sm">
+                    <div className="col-sm">
                         <div className="img">
                             <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/celebrate3.png"} alt="Card image cap" style={{ height: "480px", width: "100%", marginBottom: "15px", marginTop: "15px" }}                    >
                             </img>
