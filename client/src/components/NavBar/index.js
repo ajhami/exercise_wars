@@ -42,7 +42,7 @@ function NavBar() {
 
             <li className="nav-item">
               <NavLink
-                to="/Search"
+                to="/SearchProfiles"
                 className="nav-link"
                 style={{ color: "darkGray", paddingBottom: "0px" }}
                 activeStyle={{ color: "red" }}

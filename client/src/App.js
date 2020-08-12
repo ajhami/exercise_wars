@@ -14,14 +14,13 @@ import Challengefriends from "./pages/ChallengeFriends"
 import GlobalChallenge from "./pages/GlobalChallenge"
 import LocalChallenge from "./pages/LocalChallenge"
 import SoloChallenge from "./pages/SoloChallenge"
-import TestAuth from "./pages/TestAuth"
 import Signup from "./pages/Signup"
-import AuthSuccess from "./pages/AuthSuccess"
 import Logout from "./pages/Logout"
 import Welcome from "./pages/Welcome/index";
 import Squats from "./pages/Squats"
 import SitUps from "./pages/SitUps"
 import PullUps from "./pages/PullUps"
+import SearchProfiles from './pages/Profiles';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUsers,faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons'
 
@@ -57,15 +56,14 @@ function App() {
             <Route exact path="/LocalChallenge" component={LocalChallenge} />
             <Route exact path="/SoloChallenge" component={SoloChallenge} />
             <Route exact path="/PushUps" component={PushUps} />
+            <Route exact path="/SearchProfiles" component={SearchProfiles}/> 
 
             <Route exact path="/Squats" component={Squats} />
             <Route exact path="/SitUps" component={SitUps} />
             <Route exact path="/PullUps" component={PullUps} />
 
 
-            <Route exact path="/TestAuth" component={TestAuth} />
             <Route exact path="/Signup" component={Signup} />
-            <Route exact path="/AuthSuccess" component={AuthSuccess} />
             <Route exact path="/Logout" component={Logout} />
           </Wrapper>
           {/* <Footer /> */}

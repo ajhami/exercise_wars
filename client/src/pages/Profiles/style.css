@@ -1,0 +1,111 @@
+.your_friends_card_title {
+    text-align: center;
+    background-color: #6c757d;
+    color: #d90429;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.your_friends_hr {
+    background-color: #000000;
+    height: 2px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.your_friends_col {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.your_friends_card {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.your_friend_miniprofile_row {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    /* border: #b9acac solid 1px; */
+    /* border-bottom: #b9acac solid 1px; */
+}
+
+.your_friend_miniprofile_row:hover {
+    background-color: #ff95952f;
+}
+
+.your_friend_miniprofile_pic {
+    width: 12%;
+    height: 35px;
+    border: solid 1px #353434;
+    border-radius: 50%;
+}
+
+.your_friend_name_label {
+    margin: auto 0 auto 0;
+    padding-left: 10px;
+    width: 78%;
+}
+
+.find_friends_title {
+    text-align: center;
+}
+
+.friend_searchbar_row {
+    justify-content: center;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.friend_searchbar {
+    /* float: left; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.search_friends_btn {
+    width: 20%;
+    background-color: #d90429;
+}
+
+.searched_friend_rows {
+    margin-top: 20px;
+    height: 70px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid #353434 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.searched_friend_miniprofile_pic {
+    width: 12%;
+    height: 100%;
+    border: solid 1px #353434;
+    border-radius: 50%;
+}
+
+.searched_friend_name_label {
+    margin: auto 0 auto 0;
+    padding-left: 20px;
+    width: 58%;
+}
+
+.follow_user_btn {
+    float: right;
+    width: 20%;
+    height: 50%;
+    margin: auto;
+    border-radius: 10%;
+    background-color: #d90429;
+    color: #ffffff;
+    font-weight: bold;
+}
