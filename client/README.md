@@ -1,5 +1,5 @@
 
-![titlepage](../client/public/assets/images/titlescreen.png)
+![titlepage](../public/assets/images/titlescreen.png)
 ## User Story
 With Covid and social Distancing measures in place, it became difficult to workout, many people rely on others for motivation to get to the gym each day
 Our app directly engages friends in head to head exercise challenges, post photos and (eventually) videos of your accomplishments, and then challenge your friends 
@@ -15,12 +15,12 @@ Setup an account and begin inputting exercise data, post to the feed, follow you
 - ajhami [View Alex's Github](https://github.com/ajhami)
 - Jahugawugasuga [View James' Github](https://github.com/jahugawugasuga)
 ---
-![titlepage](../client/public/assets/images/minutechallenge.png)
+![titlepage](../public/assets/images/minutechallenge.png)
 ## Links
 - [View Github Repo Here](https://github.com/ajhami/exercise_wars) 
 - [ View Deployed App Here](https://morning-cove-98782.herokuapp.com/) 
 ---
-![titlepage](../client/public/assets/images/addworkout.png)![titlepage](../client/public/assets/images/addedworkout.png)
+![titlepage](../public/assets/images/addworkout.png)![titlepage](../client/public/assets/images/addedworkout.png)
 ---
 
 ## Technology 
@@ -59,8 +59,8 @@ Setup an account and begin inputting exercise data, post to the feed, follow you
 - JWT Simple
 - JSON Web Token
 ---
-![titlepage](../client/public/assets/images/homepage.png)
-![titlepage](../client/public/assets/images/friendpage.png)
+![titlepage](../public/assets/images/homepage.png)
+![titlepage](../public/assets/images/friendpage.png)
 ## Future Development
 - Additional Security Features
 - Ability to Post and View Videos
