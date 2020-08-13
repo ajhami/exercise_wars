@@ -17,7 +17,7 @@ const express = require( 'express' );
     Bucket: AWS_BUCKET_NAME
   });
   
-  const profileImgUpload = multer({
+  const imgUpload = multer({
     storage: multerS3({
       s3: s3,
       bucket: AWS_BUCKET_NAME,
@@ -27,13 +27,13 @@ const express = require( 'express' );
         cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
       }
     }),
-    limits:{ fileSize: 200000000 }, // In bytes: 200000000 bytes = 200 MB
+    limits:{ fileSize: 20000000 }, // In bytes: 20000000 bytes = 20 MB
   
   }).single('profileImage');
   
   router.post( '/profile-img-upload', ( req, res ) => {
-    profileImgUpload( req, res, ( error ) => {
-      console.log( 'requestOkokok', req.file );
+    imgUpload( req, res, ( error ) => {
+      console.log( 'success', req.file );
       console.log( 'error', error );
       if( error ){
         console.log( 'errors', error );
@@ -59,3 +59,5 @@ const express = require( 'express' );
   
   
   module.exports = router;
+
+  //reference Imran Sayed for AWS post validation and adapted https://medium.com/@imranhsayed/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65

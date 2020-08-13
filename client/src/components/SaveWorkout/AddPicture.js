@@ -38,37 +38,37 @@ class AddPicture extends Component {
 						// If file size is larger than expected.
 						if (response.data.error) {
 							if ('LIMIT_FILE_SIZE' === response.data.error.code) {
-								this.ocShowAlert('Max size: 200MB', 'red');
+								this.uploadAlert('Max size: 200MB', 'red');
 							} else {
 								console.log(response.data);
 								// If not the given file type
-								this.ocShowAlert(response.data.error, 'red');
+								this.uploadAlert(response.data.error, 'red');
 							}
 						} else {
 							// Success
 							let fileName = response.data;
 							console.log('filedata', fileName);
 							this.props.onImageChange(fileName.location)
-							this.ocShowAlert('File Uploaded', '#3089cf');
+							this.uploadAlert('File Uploaded', '#3089cf');
 						}
 					}
 				}).catch((error) => {
 					// If another error
 					console.log(error)
-					this.ocShowAlert(error, 'red');
+					this.uploadAlert(error, 'red');
 				});
 		} else {
 			// if file not selected throw error
-			this.ocShowAlert('Please upload file', 'red');
+			this.uploadAlert('Please upload file', 'red');
 		}
 	};
 
 	// ShowAlert Function
-	ocShowAlert = (message, background = '#3089cf') => {
-		let alertContainer = document.querySelector('#oc-alert-container'),
+	uploadAlert = (message, background = '#3089cf') => {
+		let alertContainer = document.querySelector('#alert-container'),
 			alertEl = document.createElement('div'),
 			textNode = document.createTextNode(message);
-		alertEl.setAttribute('class', 'oc-alert-pop-up');
+		alertEl.setAttribute('class', 'alert-pop-up');
 		$(alertEl).css('background', background);
 		alertEl.appendChild(textNode);
 		alertContainer.appendChild(alertEl);
@@ -82,7 +82,7 @@ class AddPicture extends Component {
 		return (
 			<div className="container">
 				{/* For Alert box*/}
-				<div id="oc-alert-container"></div>
+				<div id="alert-container"></div>
 				{/* Single File Upload*/}
 				<div className="card border-light mb-3 mt-5"
 					style={{
@@ -123,3 +123,5 @@ class AddPicture extends Component {
 }
 
 export default AddPicture;
+
+//reference Imran Sayed for AWS post validation and adapted https://medium.com/@imranhsayed/how-to-create-a-user-and-bucket-amazon-web-services-aws-40631416e65
