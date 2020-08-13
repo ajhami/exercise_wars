@@ -11,7 +11,6 @@ const FriendFeed = (props) => {
             {
                 props.workouts
                     .map(workout => {
-                        
                         return (
                             <Workout
                                 key={i++}
