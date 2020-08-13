@@ -17,23 +17,8 @@ class SoloChallenge extends Component {
           <div className="row" >
 
             <div class="col-sm">
-{/* 
-            <div className="img" >
-            <img className="img" src={process.env.PUBLIC_URL + "/assets/images/logo/nightsky.png"} alt="Card image cap" style= {{height:""}} >
-
-            </img>
-
-        </div> 
- */}
-
-
-
-
 
            </div>
-
-
-
             <div class="col-sm" style = {{border: "1px solid black"}}>
               
               <div className="img" style={{ height: "250px", width: "100%" }} >
@@ -51,8 +36,6 @@ class SoloChallenge extends Component {
               <div className="addWorkOut" style={{ width: "400px", marginLeft: "%" }}>
                 <AddWorkout />
               </div>
-
-
               <div className="img" style={{ height: "250px", width: "100%" }}>
                 <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/pullups.png"} alt="Card image cap" >
                 </img>
@@ -60,18 +43,11 @@ class SoloChallenge extends Component {
             </div>
 
             <div class="col-sm">
-
-
-              
             </div>
-
-
-
           </div>
         </div>
+         <Footer />
       </div >
-      // <Footer />
-      // </div >
     );
   };
 };

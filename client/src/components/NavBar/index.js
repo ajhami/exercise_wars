@@ -83,8 +83,8 @@ function NavBar() {
                  <FontAwesomeIcon icon="trophy" />
                   <span className="d-inline d-sm-none"></span>
                 <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenges</span>
-                
-        </DropdownToggle>
+                 
+         </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem>
                     <NavLink
@@ -96,8 +96,8 @@ function NavBar() {
                     >
                         <FontAwesomeIcon icon="user-friends" />
                         <span className="d-block d-sm-none"></span>
-                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenge Friends</span>
-              
+                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenge Friends</span> 
+               
             </NavLink>
                   </DropdownItem>
 
