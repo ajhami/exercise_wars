@@ -86,14 +86,11 @@ return (
           />
         </Col>
         <Col md={6}>
-          {/* {if(workouts.length > 0) { */}
-            <FriendFeed
+            {/* <FriendFeed
               workouts={workouts}
               setWorkouts={setWorkouts}
               clickDoWorkout={clickDoWorkout}
-            />
-
-          {/* }} */}
+            /> */}
         </Col>
       </Row>
     </Container>
