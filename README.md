@@ -15,12 +15,12 @@ Setup an account and begin inputting exercise data, post to the feed, follow you
 - ajhami [View Alex's Github](https://github.com/ajhami)
 - Jahugawugasuga [View James' Github](https://github.com/jahugawugasuga)
 ---
-![titlepage](../assets/images/minutechallenge.png)
+![titlepage](./client/public/assets/images/minutechallenge.png)
 ## Links
 - [View Github Repo Here](https://github.com/ajhami/exercise_wars) 
 - [ View Deployed App Here](https://morning-cove-98782.herokuapp.com/) 
 ---
-![titlepage](../assets/images/addworkout.png)![titlepage](../client/public/assets/images/addedworkout.png)
+![titlepage](./client/public/assets/images/addworkout.png)![titlepage](./client/public/assets/images/addedworkout.png)
 ---
 
 ## Technology 
@@ -59,8 +59,8 @@ Setup an account and begin inputting exercise data, post to the feed, follow you
 - JWT Simple
 - JSON Web Token
 ---
-![titlepage](../assets/images/homepage.png)
-![titlepage](../assets/images/friendpage.png)
+![titlepage](.client/public/assets/images/homepage.png)
+![titlepage](.client/public/assets/images/friendpage.png)
 ## Future Development
 - Additional Security Features
 - Ability to Post and View Videos
