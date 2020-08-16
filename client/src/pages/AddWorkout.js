@@ -12,6 +12,7 @@ import axios from "axios";
 const AddWorkout = (props) => {
   const [workouts, setWorkouts] = useState([]);
   const [workoutInputs, setWorkoutInputs] = useState({
+    id: "",
     title: "",
     description: "",
     workoutType: "",
