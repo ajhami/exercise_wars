@@ -1,12 +1,16 @@
 import React from 'react';
 import Workout from "../Workout";
 
+
+
 const FriendFeed = (props) => {
-    let i=0;
+    let i = 0;
     const clickDoWorkout = (workout) => {
         props.clickDoWorkout(workout)
     }
     return (
+
+
         <div>
             {
                 props.workouts
@@ -14,7 +18,7 @@ const FriendFeed = (props) => {
                         return (
                             <Workout
                                 key={i++}
-                                // id={workout.id}
+                                id={workout.id}
                                 user={workout.user}
                                 date={workout.date}
                                 title={workout.title}
@@ -35,7 +39,8 @@ const FriendFeed = (props) => {
                     )
             }
         </div>
-    )
+
+)
 }
 
 export default FriendFeed;
