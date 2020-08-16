@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, NavItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//faUsers, faPlus,faTrophy, faStopwatch
-// import { Card } from "reactstrap"
+
 
 function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);

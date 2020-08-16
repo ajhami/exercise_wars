@@ -1,41 +1,6 @@
 import React from 'react';
 import Workout from "../Workout";
 
-// let workoutFeed;
-
-// if (props.workouts > 0) {
-//     return (
-//         props.workouts
-//             .map(workout => {
-
-//                 return (
-//                     <Workout
-//                         key={i++}
-//                         id={workout.id}
-//                         user={workout.user}
-//                         date={workout.date}
-//                         title={workout.title}
-//                         time={workout.time}
-//                         timeHours={workout.timeHours}
-//                         timeMinutes={workout.timeMinutes}
-//                         timeSeconds={workout.timeSeconds}
-//                         image={workout.image}
-//                         description={workout.description}
-//                         workoutType={workout.workoutType}
-//                         likes={workout.likes}
-//                         comments={workout.comments}
-//                         exercises={workout.exercises}
-//                         clickDoWorkout={clickDoWorkout}
-//                     />
-//                 )
-//             }
-//             )
-//     )
-// }
-
-// else {
-//     return null;
-// }
 
 
 const FriendFeed = (props) => {
@@ -50,24 +15,23 @@ const FriendFeed = (props) => {
             {
                 props.workouts
                     .map(workout => {
-
                         return (
                             <Workout
                                 key={i++}
-                                id={workout?.id}
-                                user={workout?.user}
-                                date={workout?.date}
-                                title={workout?.title}
-                                time={workout?.time}
-                                timeHours={workout?.timeHours}
-                                timeMinutes={workout?.timeMinutes}
-                                timeSeconds={workout?.timeSeconds}
-                                image={workout?.image}
-                                description={workout?.description}
-                                workoutType={workout?.workoutType}
-                                likes={workout?.likes}
-                                comments={workout?.comments}
-                                exercises={workout?.exercises}
+                                id={workout.id}
+                                user={workout.user}
+                                date={workout.date}
+                                title={workout.title}
+                                time={workout.time}
+                                timeHours={workout.timeHours}
+                                timeMinutes={workout.timeMinutes}
+                                timeSeconds={workout.timeSeconds}
+                                image={workout.image}
+                                description={workout.description}
+                                workoutType={workout.workoutType}
+                                likes={workout.likes}
+                                comments={workout.comments}
+                                exercises={workout.exercises}
                                 clickDoWorkout={clickDoWorkout}
                             />
                         )
