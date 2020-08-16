@@ -8,7 +8,6 @@ import SelectInput from '../Form/SelectInput';
 import SubForm from '../Form/SubForm';
 import AddPicture from "./AddPicture";
 import "./style.css";
-import API from '../../utils/API';
 
 const SaveWorkout = props => {
 
