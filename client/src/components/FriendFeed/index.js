@@ -18,7 +18,7 @@ const FriendFeed = (props) => {
                         return (
                             <Workout
                                 key={i++}
-                                id={workout.id}
+                                // id={workout.id}
                                 user={workout.user}
                                 date={workout.date}
                                 title={workout.title}
