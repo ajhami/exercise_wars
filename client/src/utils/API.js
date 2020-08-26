@@ -8,8 +8,8 @@ export default {
                 const workouts = res.data;
                 return workouts.map(workout => {
                     return {
-                        key: workout._id,
-                        id: workout._id,
+                        key: workout._id || workout._id.$oid,
+                        id: workout._id || workout._id.$oid,
                         user: workout.user,
                         date: workout.date,
                         title: workout.title,
