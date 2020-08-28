@@ -4,15 +4,29 @@
     
 }
 h5 {
-    margin-left: 45%;
+    margin: auto;
     font-size: 15px;
 }
 .emailanchor:hover{
     text-decoration: none; 
-    color:#be0707;
+    /* color:#be0707; */
     
 }
 
 .emailheader {
     margin-left: 38%;
+}
+
+.logoImage {
+    margin: auto;
+    width: 75%;
+    max-width: 400px;
+    padding: 10px;
+    height: auto
+
+}
+
+.contactLabel {
+    display: inline;
+    margin-right: 10px;
 }
