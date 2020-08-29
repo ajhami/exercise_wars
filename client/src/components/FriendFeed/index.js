@@ -8,13 +8,12 @@ const FriendFeed = (props) => {
     const clickDoWorkout = (workout) => {
         props.clickDoWorkout(workout)
     }
-    console.log(props)
     return (
         <div>
             {
                 props.workouts
                     .map(workout => {
-                        console.log(workout)
+
                         return (
                             <Workout
                                 key={i++}

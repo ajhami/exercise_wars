@@ -18,13 +18,6 @@ class Home extends Component {
 
   render() {
 
-    // console.log("AFTER");
-    console.log(this.props.user.followers);
-    // console.log(this.props);
-
-
-    // console.log(this.props.user.followers);
-
     return (
       <div>
         <NavBar />
