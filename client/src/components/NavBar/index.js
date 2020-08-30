@@ -114,7 +114,7 @@ function NavBar() {
                 
             </NavLink>
                   </DropdownItem>
-                  <DropdownItem>
+                  {/* <DropdownItem>
                     <NavLink
                       to="/LocalChallenge"
                       className="nav-link"
@@ -126,7 +126,7 @@ function NavBar() {
                          <span className="d-block d-sm-none"></span>
                 <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Local Challenge</span>
             </NavLink>
-                  </DropdownItem>
+                  </DropdownItem> */}
                   <DropdownItem>
                     <NavLink
                       to="/SoloChallenge"

@@ -63,7 +63,7 @@ export const getProfileData = (cb) => async dispatch => {
 
         if (token) {
             const response = await axios.post("/getuser", { token: token });
-            console.log(response.data.user);
+            // console.log(response.data.user);
             dispatch({ type: USER_PROFILE, payload: response.data.user });
             cb();
         }

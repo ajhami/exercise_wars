@@ -6,7 +6,6 @@ export default {
             .get("/api/workouts")
             .then(res => {
                 const workouts = res.data;
-                console.log(workouts);
                 return workouts.map(workout => {
                     return {
                         key: workout._id || workout._id.$oid,
