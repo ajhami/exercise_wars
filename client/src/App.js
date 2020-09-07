@@ -47,7 +47,7 @@ function App() {
           {/* < NavBar /> */}
           <Wrapper>
             <Route exact path="/" component={Welcome} />
-            <Route exact path="/Login" component={Login} />
+            <Route path="/Login" component={Login} />
             <Route exact path="/CreateAccount" component={CreateAccount} />
             <Route exact path="/Home" component={Home} />
             <Route exact path="/AddWorkout" component={AddWorkout} />
@@ -63,7 +63,7 @@ function App() {
             <Route exact path="/PullUps" component={PullUps} />
 
 
-            <Route exact path="/Signup" component={Signup} />
+            <Route path="/Signup" component={Signup} />
             <Route exact path="/Logout" component={Logout} />
           </Wrapper>
           {/* <Footer /> */}
