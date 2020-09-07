@@ -29,7 +29,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use( '/api/profile', profile );
 
-app.use(express.static("public"));
 
 if(process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
@@ -37,8 +36,11 @@ if(process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
   // app.use("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
-  // });
+    //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+    // });
+  }
+  else {
+    app.use(express.static("public"));
 }
 
 
