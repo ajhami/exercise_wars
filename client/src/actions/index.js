@@ -76,12 +76,12 @@ export const getProfileData = (cb) => async dispatch => {
 
 export const searchUsers = (formProps, cb) => async dispatch => {
     try {
-        console.log("inside action");
-        console.log(formProps.searchedUsername);
+        // console.log("inside action");
+        // console.log(formProps.searchedUsername);
         const response = await axios.post("/searchProfiles", { searchedUsername: formProps.searchedUsername });
         // console.log(response);
-        console.log("What's being passed into payload");
-        console.log(response.data.matchedUsers);
+        // console.log("What's being passed into payload");
+        // console.log(response.data.matchedUsers);
         dispatch({ type: SEARCH_USERS, payload: response.data.matchedUsers });
         cb();
     }

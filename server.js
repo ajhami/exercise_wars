@@ -29,22 +29,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use( '/api/profile', profile );
 
+// routes
+app.use(routes);
 
-if(process.env.NODE_ENV === "production") {
+// process.env.NODE_ENV = "production";
+// console.log("process.env.NODE_ENV = ", process.env.NODE_ENV);
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
   // app.use("*", (req, res) => {
-    //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
-    // });
-  }
-  else {
-    app.use(express.static("public"));
+  //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  // });
+}
+else {
+  app.use(express.static("public"));
 }
 
 
-const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB" 
+const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB"
 // const URI = process.env.MONGODB_URI || "mongodb://exercisewars:tigersharkblue7@ds127173.mlab.com:27173/heroku_4jddjplw";
 
 
@@ -53,8 +57,6 @@ mongoose.connect(URI, {
   useFindAndModify: false
 });
 
-// routes
-app.use(routes);
 
 app.listen(PORT, () => {
   console.log("\nWELCOME TO EXPRESS SERVER!\nApp = Exercise Wars\nrunning on port ", PORT);
