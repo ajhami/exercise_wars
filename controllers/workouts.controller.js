@@ -5,7 +5,7 @@ const secret = process.env.herokuAuthSecret || require("../config").secret;
 
 module.exports = {
     getWorkouts: function (req, res) {
-        console.log("Hit workout controller.");
+
         Workouts
             .find()
             .then(data => {

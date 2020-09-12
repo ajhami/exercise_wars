@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SoloCard from "../components/SoloCard"
+import SoloCard from "../../components/SoloCard"
 
 class PullUps extends Component {
 

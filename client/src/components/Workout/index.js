@@ -102,7 +102,9 @@ function Workout(props) {
                                         className="button"
                                         style={{ fontSize: "smaller", margin: "1px" }}
                                         aria-hidden="true"
-                                        onClick={() => props.clickDoWorkout(props)}>Do this workout</Button> {props.comments}
+                                        onClick={() => props.clickDoWorkout(props)}>
+                                        <FontAwesomeIcon icon="dumbbell" />Do this
+                                        </Button> 
                                 </Col>
                                 <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}

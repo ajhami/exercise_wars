@@ -110,8 +110,6 @@ class SearchProfiles extends Component {
 
 function mapStateToProps(state) {
 
-    console.log("Looking at state objects from mapStateToProps");
-    console.log(state);
 
     return {
         user: state.user.user,

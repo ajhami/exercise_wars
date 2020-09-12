@@ -3,7 +3,9 @@ import "./style.css";
 import {
     Navbar,
     NavbarBrand,
-    NavItem
+    Container,
+    Row,
+    Col
 } from "reactstrap";
 import checkAuth from "../../components/checkAuth";
 
@@ -13,14 +15,14 @@ function Welcome() {
         <div>
             <Navbar className="welcome_navbar" color="light" light expand="md">
                 {/* <div className="row"> */}
-                <div className="col-6">
+                <Col>
                     <NavbarBrand className="welcome_navbrand_section">
                         <img className="welcome_navbrand_img" src={process.env.PUBLIC_URL + "/assets/images/logo/exercise_wars_title.png"} alt="EW Logo" />
                     </NavbarBrand>
-                </div>
-                <div className="welcome_nav_login_atag_section col-6 d-none d-sm-block">
+                </Col>
+                <Col className="welcome_nav_login_atag_section d-sm-block">
                     <a className="welcome_nav_login_atag" href="/Login">Login</a>
-                </div>
+                </Col>
                 {/* </div> */}
             </Navbar>
             {/* <img 
