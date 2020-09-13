@@ -63,7 +63,6 @@
 }
 
 .friend_searchbar {
-    /* float: left; */
     margin-left: auto;
     margin-right: auto;
     width: 80%;
@@ -72,6 +71,17 @@
 .search_friends_btn {
     width: 20%;
     background-color: #d90429;
+}
+
+.noresults_div {
+    margin-top: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noresults_text {
+    text-align: center;
 }
 
 .searched_friend_rows {

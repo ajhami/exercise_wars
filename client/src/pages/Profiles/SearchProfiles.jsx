@@ -28,11 +28,20 @@ class SearchProfiles extends Component {
         const { handleSubmit } = this.props;
 
 
-        let hasSearchResults = this.props.searchedUsers;
+        let hasSearchResults = this.props.searchedUsers || false;
         let matchResults;
 
-        if (hasSearchResults[0].username != "" || !hasSearchResults) {
-
+        if(hasSearchResults.length === 0) {
+            matchResults = (
+                <div className="noresults_div">
+                    <h3 className="noresults_text">No results found.</h3>
+                </div>
+            )
+        }
+        else if(hasSearchResults[0].username === "") {
+            matchResults = null;
+        }
+        else if (hasSearchResults) {
             matchResults = this.props.searchedUsers.map(match => (
                 <div key={match.username} value={match.username} className="row searched_friend_rows">
                     <img
@@ -45,7 +54,6 @@ class SearchProfiles extends Component {
                 </div>
             ))
         }
-
         else {
             matchResults = null;
         }
@@ -89,7 +97,7 @@ class SearchProfiles extends Component {
                                                     placeholder="Search by username"
                                                     className="friend_searchbar"
                                                 />
-                                                <button className="search_friends_btn">🔎</button>
+                                                <button className="search_friends_btn"><span role="img" aria-label="search">🔎</span></button>
                                             </div>
                                         </div>
 
@@ -109,8 +117,6 @@ class SearchProfiles extends Component {
 }
 
 function mapStateToProps(state) {
-
-
     return {
         user: state.user.user,
         searchedUsers: state.searchedUsers.searchedUsers,
