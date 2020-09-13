@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import SoloCard from "../components/SoloCard"
-import MinuteChallenge from "../components/MinuteChallenge"
+import SoloCard from "../../components/SoloCard"
 class PushUps extends Component {
 
     render() {

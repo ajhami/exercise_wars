@@ -5,26 +5,25 @@ import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import Wrapper from "./components/Wrapper"
-import PushUps from "./pages/PushUps";
+import PushUps from "./pages/Challenges/PushUps";
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import CreateAccount from "./pages/CreateAccount"
 import AddWorkout from "./pages/AddWorkout"
-import Challengefriends from "./pages/ChallengeFriends"
+import FeedPage from "./pages/FeedPage"
 import GlobalChallenge from "./pages/GlobalChallenge"
-import LocalChallenge from "./pages/LocalChallenge"
 import SoloChallenge from "./pages/SoloChallenge"
 import Signup from "./pages/Signup"
 import Logout from "./pages/Logout"
 import Welcome from "./pages/Welcome/index";
-import Squats from "./pages/Squats"
-import SitUps from "./pages/SitUps"
-import PullUps from "./pages/PullUps"
+import Squats from "./pages/Challenges/Squats"
+import SitUps from "./pages/Challenges/SitUps"
+import PullUps from "./pages/Challenges/PullUps"
 import SearchProfiles from './pages/Profiles';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUsers,faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment } from '@fortawesome/free-solid-svg-icons'
+import { faUsers,faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment, faDumbbell } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUsers, faPlus,faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment)
+library.add(faUsers, faPlus,faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment, faDumbbell)
 
 
 
@@ -51,13 +50,11 @@ function App() {
             <Route exact path="/CreateAccount" component={CreateAccount} />
             <Route exact path="/Home" component={Home} />
             <Route exact path="/AddWorkout" component={AddWorkout} />
-            <Route exact path="/Challengefriends" component={Challengefriends} />
+            <Route exact path="/FeedPage" component={FeedPage} />
             <Route exact path="/GlobalChallenge" component={GlobalChallenge} />
-            <Route exact path="/LocalChallenge" component={LocalChallenge} />
             <Route exact path="/SoloChallenge" component={SoloChallenge} />
             <Route exact path="/PushUps" component={PushUps} />
             <Route exact path="/SearchProfiles" component={SearchProfiles}/> 
-
             <Route exact path="/Squats" component={Squats} />
             <Route exact path="/SitUps" component={SitUps} />
             <Route exact path="/PullUps" component={PullUps} />

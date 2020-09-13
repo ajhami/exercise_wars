@@ -35,7 +35,7 @@ class Home extends Component {
               />
  
             </Col>
-            <Col md={4}>
+            {/* <Col md={4}>
               < MinuteChallenge />
             </Col>
             <Col md={4}>
@@ -45,7 +45,7 @@ class Home extends Component {
                 location="Folsom, CA"
                 profileImg="test_profile_img.jpg"
               />
-            </Col>
+            </Col> */}
 
           </Row>
         </Container>
