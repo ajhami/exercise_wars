@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from "reactstrap";
-import FriendSuggestions from "../components/FriendSuggestions";
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
-import MinuteChallenge from "../components/MinuteChallenge";
 import ProfileCard from '../components/ProfileCard/ProfileCard';
 import * as actions from "./../actions";
 import { compose } from "redux";

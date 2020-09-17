@@ -22,7 +22,7 @@ class SoloChallenge extends Component {
             <div class="col-sm" style = {{border: "1px solid black"}}>
               
               <div className="img" style={{ height: "250px", width: "100%" }} >
-                <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/second_pushup.jpg"} alt="Card image cap" >
+                <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/second_pushup.jpg"} alt="pushups" >
                 </img>
               </div>
               <div className="challenge" style={{ marginLeft: "15%" }}>
@@ -37,7 +37,7 @@ class SoloChallenge extends Component {
                 <AddWorkout />
               </div>
               <div className="img" style={{ height: "250px", width: "100%" }}>
-                <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/pullups.png"} alt="Card image cap" >
+                <img className="img soloImage" src={process.env.PUBLIC_URL + "/assets/images/logo/pullups.png"} alt="pushups" >
                 </img>
               </div>
             </div>

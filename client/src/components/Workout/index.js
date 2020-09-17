@@ -25,7 +25,7 @@ function Workout(props) {
                 </Row>
             </Container>
             <div className="img-container">
-                <img src={props.image} />
+                <img src={props.image} alt="postedWorkout"/>
             </div>
             <div className="content">
                 <ul>

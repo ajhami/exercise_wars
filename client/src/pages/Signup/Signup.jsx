@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import AddPicture from "../../components/SaveWorkout/AddPicture";
+// import AddPicture from "../../components/SaveWorkout/AddPicture";
 import checkAuth from "../../components/checkAuth";
 // import { Alert } from "reactstrap";
 import * as actions from "../../actions";
