@@ -21,7 +21,7 @@ function SoloCard(props) {
 
                     <div className="card" style={{ display: "block", marginRight: "auto", border: "0px", marginLeft: "auto", height: "495px", backgroundColor: "grey", width: "25%", marginTop: "15px" }}>
                         <div className="col-sm" style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "25px", marginTop: "15px" }} >
-                           <h2 className = "cardheader"> {props.name}</h2>
+                            <h2 className="cardheader"> {props.name}</h2>
                             <ChallengeForm />
                         </div>
 
@@ -33,7 +33,7 @@ function SoloCard(props) {
 
 
                         <div className="drop-down" style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "15px" }}       >
-                            <h3 className= "h3dropdown">Complete</h3>
+                            <h3 className="h3dropdown">Complete</h3>
                             < ChallengeDropDown />
                         </div>
 

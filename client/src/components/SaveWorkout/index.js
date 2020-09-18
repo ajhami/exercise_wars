@@ -35,12 +35,13 @@ const SaveWorkout = props => {
   const handleFormSubmit = event => {
     event.preventDefault();
     props.callWorkoutAPI();
+    localStorage.removeItem('newWorkout');
+    window.location.pathname = '/FeedPage'
 
   };
 
   const runWorkout = () => {
     document.getElementById("workoutForm").dispatchEvent(new Event('submit'));
-
   }
   return (
     <div>

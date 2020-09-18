@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 // import API from "../utils/API";
 import { Container, Row, Col } from "reactstrap";
 import NavBar from '../components/NavBar';
-
 import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
 import FriendFeed from "../components/FriendFeed";
@@ -27,14 +26,12 @@ const FeedPage = (props) => {
   })
 
   const clickDoWorkout = (doThisWorkout) => {
-
     const token = localStorage.token;
+    console.log(token)
     const userInfo = axios.post("/getuser", { token: token });
     const username = userInfo.username;
-
-
     let newDoThisWorkout = Object.assign({}, workoutInputs)
-    newDoThisWorkout.title = doThisWorkout.title
+    newDoThisWorkout.title = doThisWorkout.title ? doThisWorkout.title : ""
     newDoThisWorkout.timeHours = doThisWorkout.timeHours ? doThisWorkout.timeHours : ""
     newDoThisWorkout.timeMinutes = doThisWorkout.timeMinutes ? doThisWorkout.timeMinutes : ""
     newDoThisWorkout.timeSeconds = doThisWorkout.timeSeconds ? doThisWorkout.timeSeconds : ""
@@ -48,25 +45,10 @@ const FeedPage = (props) => {
     newDoThisWorkout.exercises.reps = doThisWorkout.exercises.reps ? doThisWorkout.exercises.reps : ""
     newDoThisWorkout.user = username;
     setWorkoutInputs(newDoThisWorkout);
-    console.log(newDoThisWorkout)
-    // window.location.pathname = '/AddWorkout'
-    
-
-
+    localStorage.setItem("newWorkout", JSON.stringify(newDoThisWorkout));
+       window.location.pathname = '/AddWorkout'
   }
 
-// const callWorkoutAPI = () => {
-//   workoutInputs.token = localStorage.token;
-//   API.postWorkouts(workoutInputs)
-//     .then(function (response) {
-//       let newFeed = [workoutInputs, ...workouts]
-//       setWorkouts(newFeed)
-//       // return response.data;
-//     })
-//     .catch(error => console.log(error));
-// };
-
-//set the workout to the return of the API
 useEffect(() => {
   API.fetchWorkouts()
     .then(res => {
