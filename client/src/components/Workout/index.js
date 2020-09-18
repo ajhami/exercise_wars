@@ -25,7 +25,7 @@ function Workout(props) {
                 </Row>
             </Container>
             <div className="img-container">
-                <img src={props.image} alt="postedWorkout"/>
+                <img src={props.image}/>
             </div>
             <div className="content">
                 <ul>
@@ -106,12 +106,12 @@ function Workout(props) {
                                         <FontAwesomeIcon icon="dumbbell" />Do this
                                         </Button> 
                                 </Col>
-                                <Col xs={3}>
+                                {/* <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}
                                 </Col>
                                 <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="comment" /></Button> {props.comments}
-                                </Col>
+                                </Col> */}
 
                             </Row>
                         </Container>

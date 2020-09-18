@@ -40,14 +40,14 @@ class AddPicture extends Component {
 							if ('LIMIT_FILE_SIZE' === response.data.error.code) {
 								this.uploadAlert('Max size: 200MB', 'red');
 							} else {
-								console.log(response.data);
+								// console.log(response.data);
 								// If not the given file type
 								this.uploadAlert(response.data.error, 'red');
 							}
 						} else {
 							// Success
 							let fileName = response.data;
-							console.log('filedata', fileName);
+							// console.log('filedata', fileName);
 							this.props.onImageChange(fileName.location)
 							this.uploadAlert('File Uploaded', '#3089cf');
 						}
@@ -93,6 +93,9 @@ class AddPicture extends Component {
 					<div className="card-header">
 						<h5 className="text-muted" style={{ marginLeft: '12px' }}>Upload an image/video ( Max 200MB )</h5>
 					</div>
+					<div className="img-container">
+						<img src={this.props.value} />
+					</div>
 					<Container>
 						<div className="card-body">
 							<Row>
@@ -100,7 +103,7 @@ class AddPicture extends Component {
 									<input
 										type="file"
 										onChange={this.singleFileChangedHandler}
-										/*outline */color="secondary"
+										/*outline */ color="secondary"
 										style={{ color: "#D90429", borderColor: "#D90429", padding: "4px 8px", fontSize: "14px" }} />
 								</Col>
 								<Col sm={6}>
