@@ -84,7 +84,23 @@ function NavBar() {
                 <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Add</span>
               </NavLink>
             </li>
-            <li>
+
+            <li className="nav-item">
+            <NavLink
+                      to="/SoloChallenge"
+                      className="nav-link"
+                      style={{ color: "darkGray" }}
+                      activeStyle={{ color: "red" }}
+                      exact
+                    >
+                      <FontAwesomeIcon icon="stopwatch" />
+                      <span className="d-block d-sm-none"></span>
+                      <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenges</span>
+
+                    </NavLink>
+            </li>
+
+            {/* <li>
               <Dropdown
                 isOpen={dropdownOpen} toggle={toggle}>
                 <DropdownToggle
@@ -131,7 +147,7 @@ function NavBar() {
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-            </li>
+            </li> */}
 
             <li>
               <NavLink
