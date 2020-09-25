@@ -17,7 +17,7 @@ function ProfileCard(props) {
 
     return (
         <Card className="profile_card col-md-4">
-            <NavLink to="/feedPage">
+            <NavLink to="/userInfo">
                 <FontAwesomeIcon icon="info-circle" className="row info_icon fa-2x" />
             </NavLink>
             <CardTitle className="username_title">{props.username}</CardTitle>
