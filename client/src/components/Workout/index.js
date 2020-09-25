@@ -7,12 +7,6 @@ import { Table } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Workout(props) {
-    console.log(props.title)
-    console.log("Hours" +  props.timeHours)
-    console.log("Minutes" +  props.timeMinutes)
-    console.log("Seconds" +  props.timeSeconds)
-    console.log("time" +  props.time)
-    console.log("-------------")
     return (
         <div className="card">
             <Container>
