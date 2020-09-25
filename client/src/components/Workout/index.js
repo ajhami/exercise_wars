@@ -7,6 +7,12 @@ import { Table } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Workout(props) {
+    console.log(props.title)
+    console.log("Hours" +  props.timeHours)
+    console.log("Minutes" +  props.timeMinutes)
+    console.log("Seconds" +  props.timeSeconds)
+    console.log("time" +  props.time)
+    console.log("-------------")
     return (
         <div className="card">
             <Container>
@@ -25,7 +31,7 @@ function Workout(props) {
                 </Row>
             </Container>
             <div className="img-container">
-                <img src={props.image}/>
+                <img src={props.image} />
             </div>
             <div className="content">
                 <ul>
@@ -67,44 +73,24 @@ function Workout(props) {
                         </Table>
 
                     </li>
-                    <li>
-                        <Table
-                            className="timeTable">
-                            <thead style={{ border: "none" }}>
-                                <tr>
-                                    <th>
-                                        hours
-                                </th>
-                                    <th>
-                                        minutes
-                                </th>
-                                    <th>
-                                        seconds
-                                </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{props.timeHours}</td>
-                                    <td>{props.timeMinutes} </td>
-                                    <td>{props.timeSeconds} </td>
-                                </tr>
-                            </tbody></Table>
-
-
-                    </li>
+                    <Container>
+                        <Row className="userStyle">
+                            <Col xs={7} style={{ textAlign: "right" }}>Completion Time:</Col>
+                            <Col xs={5} style={{ textAlign: "right" }}> {props.time}</Col>
+                        </Row>
+                    </Container>
                     <li>
 
                         <Container>
                             <Row>
-                            <Col xs={3}>
+                                <Col xs={3}>
                                     <Button
                                         className="button"
                                         style={{ fontSize: "smaller", margin: "1px" }}
                                         aria-hidden="true"
                                         onClick={() => props.clickDoWorkout(props)}>
                                         <FontAwesomeIcon icon="dumbbell" />Do this
-                                        </Button> 
+                                        </Button>
                                 </Col>
                                 {/* <Col xs={3}>
                                     <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}

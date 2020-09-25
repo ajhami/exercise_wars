@@ -105,7 +105,7 @@ const SaveWorkout = props => {
                       event.preventDefault();
                       handleChange("timeHours", event.target.value);
                     }}
-                    placeholder={"hh"}
+                    placeholder={"h"}
                   />
                   <FormTime
                     id="timeMinutes"
@@ -116,7 +116,7 @@ const SaveWorkout = props => {
                       handleChange("timeMinutes", event.target.value);
                     }}
                     label=":"
-                    placeholder={"mm"}
+                    placeholder={"m"}
                   />
                   <FormTime
                     id="timeSeconds"
@@ -127,7 +127,7 @@ const SaveWorkout = props => {
                       handleChange("timeSeconds", event.target.value);
                     }}
                     label=": "
-                    placeholder={"ss"}
+                    placeholder={"s"}
                   />
                 </div>
               </Col>
