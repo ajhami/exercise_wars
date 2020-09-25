@@ -1,6 +1,15 @@
 const { Workouts, Users } = require('../models');
 const jwt = require("jwt-simple");
 const secret = process.env.herokuAuthSecret || require("../config").secret;
+const moment = require("moment");
+const momentDurationFormatSetup = require("moment-duration-format");
+
+momentDurationFormatSetup(moment);
+typeof moment.duration.fn.format === "function";
+// true
+typeof moment.duration.format === "function";
+// true
+
 
 
 module.exports = {
@@ -28,10 +37,10 @@ module.exports = {
         let description = req.body.description;
         let image = req.body.image;
         let date = Date(Date.now());
-        let time = req.body.timeHours*3600 + req.body.timeMinutes*60 + req.body.timeSeconds;
         let timeHours = req.body.timeHours;
         let timeMinutes = req.body.timeMinutes;
         let timeSeconds = req.body.timeSeconds;
+        let time = moment.duration(req.body.timeSeconds,"seconds").add(req.body.timeMinutes, "minutes").add(req.body.timeHours, "hours").format("hh:mm:ss");
         let exercises = req.body.exercises;
 
         Users.findOne({ _id: decoded.sub }, function (err, foundUser) {
