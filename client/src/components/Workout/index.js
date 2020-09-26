@@ -39,16 +39,16 @@ function Workout(props) {
                     </li>
                     <li>
                         <Table striped
-                            className="table exerciseTable"
+                            className="table exerciseTable mytable mobile-optimized"
                         >
                             <thead>
                                 <tr>
-                                    <th >#</th>
-                                    <th >name</th>
-                                    <th >weight</th>
-                                    <th >dist.</th>
-                                    <th >reps</th>
-                                    <th >sets</th>
+                                    <th>#</th>
+                                    <th>name</th>
+                                    <th>weight</th>
+                                    <th>dist.</th>
+                                    <th>reps</th>
+                                    <th>sets</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +69,6 @@ function Workout(props) {
                                     )
                                 }
                             </tbody>
-
                         </Table>
 
                     </li>
@@ -92,12 +91,6 @@ function Workout(props) {
                                         <FontAwesomeIcon icon="dumbbell" />Do this
                                         </Button>
                                 </Col>
-                                {/* <Col xs={3}>
-                                    <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="thumbs-up" /></Button> {props.likes}
-                                </Col>
-                                <Col xs={3}>
-                                    <Button className="button" style={{ fontSize: "smaller", margin: "1px" }} aria-hidden="true"><FontAwesomeIcon icon="comment" /></Button> {props.comments}
-                                </Col> */}
 
                             </Row>
                         </Container>
