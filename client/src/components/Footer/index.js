@@ -5,6 +5,7 @@ function Footer() {
     return (
         <div style={{ backgroundColor: "#CED4DA" }}>
             <Container className="footer">
+                
                 <Row>
                     <img className="logoImage" src={process.env.PUBLIC_URL + "/assets/images/logo/exercise_wars_title.png"} alt="Card cap"
                     >
@@ -18,6 +19,10 @@ function Footer() {
                     <div className="contactLabel">Donate to our selected cause: </div>
                     <a href="https://www.theroadhome.org/give/in-kind-donations/" className="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style={{width: "100px", backgroundColor: "#343A40" }}>Donate</a>
                     </Col>
+                </Row>
+                <Row>
+                <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=xa9hsUQ4db6shEL68tt4sm9jOmufZ3IVMrH4OiXgJ3aziz0cMd0H20w2wVyW"></script></span>
+                    
                 </Row>
             </Container>
         </div>
