@@ -17,11 +17,13 @@ function ProfileCard(props) {
 
     return (
         <Card className="profile_card col-md-4">
-            <NavLink to="/feedPage">
+            <NavLink to="/userInfo">
                 <FontAwesomeIcon icon="info-circle" className="row info_icon fa-2x" />
             </NavLink>
             <CardTitle className="username_title">{props.username}</CardTitle>
-            <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img mt-4" />
+            <div style={{ height: "318px", justifyItems: "center" }}>
+                <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img mt-4" />
+            </div>
             <CardBody className="profile_card" style={{ alignText: "center" }}>
                 <CardSubtitle className="user_location_text">{props.location}</CardSubtitle>
                 <div className="row">
