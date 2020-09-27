@@ -2,3 +2,5 @@
 config.js
 /config
 .env
+combined-apache.crt
+server.key
