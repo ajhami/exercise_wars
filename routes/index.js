@@ -32,13 +32,13 @@ router.post("/getuser", function (req, res) {
 
     console.log("Decoded:");
     console.log(decoded.sub);
-    
+
     db.Users.findOne({ _id: decoded.sub }, function (err, userFound) {
-        if(err) {
+        if (err) {
             throw err;
         };
 
-        if(userFound) {
+        if (userFound) {
             console.log("User found:");
             console.log(userFound);
             let userToSend = {};
@@ -56,8 +56,8 @@ router.post("/getuser", function (req, res) {
             res.send({ user: userToSend });
         }
 
-    })
-    
+    });
+
 
 });
 
@@ -67,30 +67,100 @@ router.post("/searchProfiles", function (req, res) {
     console.log(req.body);
     const searchedUsername = req.body.searchedUsername;
 
-    db.Users.find({ username: { $regex: searchedUsername } }, function(err, matchedUsers) {
+    db.Users.find({ username: { $regex: searchedUsername } }, function (err, matchedUsers) {
 
-        if(err) {
+        if (err) {
             throw err;
         }
 
-        if(matchedUsers) {
+        if (matchedUsers) {
             let matchedUsersArray = [];
-    
+
             matchedUsers.map(match => {
                 matchedUsersArray.push({ username: match.username, imageURL: match.imageURL });
             });
-    
+
             res.send({ matchedUsers: matchedUsersArray });
         }
 
         else {
-            res.send({ matchedUsers: [{ username: "", imageURL: ""}] })
+            res.send({ matchedUsers: [{ username: "", imageURL: "" }] })
         }
 
     });
-})
+});
+
+router.post("/updateProfile", function (req, res) {
+    console.log("Reached the backend post request!!!");
+
+    const token = req.body.profileUpdates.token;
+    console.log(token);
+
+    const decoded = jwt.decode(token, secret);
+
+    console.log("Decoded:");
+    console.log(decoded.sub);
+
+    console.log(req.body);
 
 
+    db.Users.updateOne({ _id: decoded.sub }, {
+        location: req.body.profileUpdates.location,
+        height: req.body.profileUpdates.height,
+        weight: req.body.profileUpdates.weight
+    }
+        , function (err, userFound) {
 
+            if (err) {
+                throw err;
+            }
+
+            else {
+                console.log("Update Successful!");
+                console.log(userFound);
+                // res.send({ updatedData: userFound });
+                res.end();
+            }
+        }
+    );
+
+    res.send({ updatedData: req.body });
+});
+
+
+router.post("/updateProfileImg", function (req, res) {
+    console.log("Reached the backend post request!!!");
+
+    const token = req.body.imageObject.token;
+    console.log(token);
+
+    const decoded = jwt.decode(token, secret);
+
+    console.log("Decoded:");
+    console.log(decoded.sub);
+
+    console.log(req.body);
+
+
+    db.Users.updateOne({ _id: decoded.sub }, {
+        imageURL: req.body.imageObject.imageURL
+    }
+        , function (err, userFound) {
+
+            if (err) {
+                throw err;
+            }
+
+            else {
+                console.log("Update Successful!");
+                console.log(userFound);
+                // res.send({ updatedData: userFound });
+                res.end();
+            }
+        }
+    );
+
+    res.send({ updatedImgData: req.body });
+});
 
 module.exports = router;

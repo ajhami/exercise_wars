@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AUTH_USER, AUTH_ERROR, USER_PROFILE, SEARCH_USERS } from "./types";
+import { AUTH_USER, AUTH_ERROR, USER_PROFILE, SEARCH_USERS, UPDATE_PROFILE, UPDATE_PROFILE_IMG } from "./types";
 
 export const signup = (formProps, cb) => async dispatch => {
     try {
@@ -88,5 +88,29 @@ export const searchUsers = (formProps, cb) => async dispatch => {
 
     catch (err) {
         dispatch({ type: AUTH_ERROR, payload: "No results." })
+    }
+}
+
+export const updateProfile = (data, cb) => async dispatch => {
+    try {
+        const response = await axios.post("/updateProfile", { profileUpdates: data });
+        dispatch({ type: UPDATE_PROFILE, payload: response.data.updatedData }); // UPDATE LATER
+        cb();
+    }
+
+    catch (err) {
+        dispatch({ type: AUTH_ERROR, payload: "Failed to update your profile." });
+    }
+}
+
+export const updateProfileImg = (data, cb) => async dispatch => {
+    try {
+        const response = await axios.post("/updateProfileImg", { imageObject: data });
+        dispatch({ type: UPDATE_PROFILE_IMG, payload: response.data.updatedImgData }); // UPDATE LATER
+        cb();
+    }
+
+    catch (err) {
+        dispatch({ type: AUTH_ERROR, payload: "Failed to update your profile picture." });
     }
 }

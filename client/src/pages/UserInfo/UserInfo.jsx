@@ -17,7 +17,7 @@ import {
     Button
 } from "reactstrap";
 import "./style.css";
-import AddPicture from "../../components/SaveWorkout/AddPicture";
+import AddProfilePicture from "../../components/SaveWorkout/AddProfilePicture";
 
 
 
@@ -27,6 +27,7 @@ import AddPicture from "../../components/SaveWorkout/AddPicture";
 const UserInfo = props => {
 
     const [profileData, setProfileData] = useState({
+        image: props.image,
         userLoc: props.userLoc,
         userHeight: props.userHeight,
         userWeight: props.userWeight,
@@ -38,6 +39,9 @@ const UserInfo = props => {
     useEffect(() => {
         props.getProfileData()
             .then(() => {
+                // Trying to find the uploaded imageurl in value
+                // console.log(document.getElementById("profile_image_upload").value);
+                
                 if (profileData.userLoc == "") {
                     props.history.push("/Home");
                 }
@@ -55,13 +59,35 @@ const UserInfo = props => {
         setProfileData({ ...props.profileData, [type]: val });
         // setProfileData({ [type]: val });
     };
+
+    const updateProfileImg = (val) => {
+        // console.log(type);
+        console.log(val);
+        // console.log([type]);
+        // document.getElementById("settings_form_btn").classList.remove("hide");
+        // document.getElementById("settings_form_btn").classList.add("show");
+        setProfileData({ ...props.profileData, image: val });
+        
+        let imageObject = {
+            token: localStorage.token,
+            imageURL: val
+        }
+
+        // REMEMBER TO CREATE THE POST ROUTE TO SAVE UPLOADED IMAGE TO MONGOOSE
+        props.updateProfileImg(imageObject);
+        
+        // setProfileData({ [type]: val });
+    };
+
+
     
     const updateProfileData = (data) => {
         console.log("reached updateProfileData function!");
         console.log(data);
-        // this.props.updateProfile(data, () => {
-        //     console.log("Hit end of updateProfile promise!");
-        // });
+        props.updateProfile(data, () => {
+            console.log("Hit end of updateProfile promise!");
+            props.history.push("/Home");
+        });
     }
 
 
@@ -87,21 +113,22 @@ const UserInfo = props => {
                             <h3>Profile Image</h3>
                         </Row>
 
-                        <Row>
+                        {/* <Row>
                             <Col>
                                 <img src={props.user.imageURL} alt="current_profile" className="profile_img" />
+                                <img src={profileData.image} alt="current_profile" className="profile_img" />
                             </Col>
-                        </Row>
+                        </Row> */}
                         <Row>
                             <Col>
                                 {/* Not ready yet!! */}
-                                <AddPicture
-                                    id="image"
-                                // value={props.workoutInputs.image}
-                                // onImageChange={(image) => {
-                                //     handleChange("image", image);
-                                // }
-                                // }
+                                <AddProfilePicture
+                                //     id="profile_image_upload"
+                                value={profileData.image}
+                                onImageChange={(image) => {
+                                    updateProfileImg(image);
+                                }
+                                }
                                 >
                                     <form
                                         action="/profile"
@@ -111,7 +138,7 @@ const UserInfo = props => {
                                             type="file"
                                             name="avatar" />
                                     </form>
-                                </AddPicture>
+                                </AddProfilePicture>
                             </Col>
                         </Row>
                         <Form id="profile_settings_form">
@@ -265,6 +292,7 @@ const UserInfo = props => {
 function mapStateToProps(state) {
     return {
         user: state.user.user,
+        image: state.user.user.imageURL,
         userLoc: state.user.user.location,
         userHeight: state.user.user.height,
         userWeight: state.user.user.weight,
