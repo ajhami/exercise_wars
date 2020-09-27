@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function NavBar() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggle = () => setDropdownOpen(prevState => !prevState);
+
 
 
 
@@ -27,17 +25,6 @@ function NavBar() {
         <div>
 
           <ul className="navbar-nav">
-            {/* <li className="nav-item d-none d-sm-block">
-              <NavLink
-                to="/"
-                className="nav-link"
-                style={{ color: "darkGray" }}
-                activestyle={{ color: "red" }}
-                exact
-              >
-                Home
-            </NavLink>
-            </li> */}
 
             <li className="nav-item">
               <NavLink
@@ -69,8 +56,6 @@ function NavBar() {
               </NavLink>
             </li>
 
-
-
             <li className="nav-item">
               <NavLink
                 to="/AddWorkout"
@@ -99,56 +84,6 @@ function NavBar() {
 
                     </NavLink>
             </li>
-
-            {/* <li>
-              <Dropdown
-                isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle
-                  style={{ color: "darkGray", backgroundColor: "#F8F9FA" }}
-                  activestyle={{ color: "red" }}
-                  outline color="none"
-                  caret
-                >
-                  <FontAwesomeIcon icon="trophy" />
-                  <span className="d-inline d-sm-none"></span>
-                  <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Challenges</span>
-
-                </DropdownToggle>
-                <DropdownMenu>
-
-                  <DropdownItem>
-                    <NavLink
-                      to="/GlobalChallenge"
-                      className="nav-link"
-                      style={{ color: "darkGray" }}
-                      activeStyle={{ color: "red" }}
-                      exact
-                    >
-                      <FontAwesomeIcon icon="globe" />
-                      <span className="d-block d-sm-none"></span>
-                      <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Global Challenge</span>
-
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink
-                      to="/SoloChallenge"
-                      className="nav-link"
-                      style={{ color: "darkGray" }}
-                      activeStyle={{ color: "red" }}
-                      exact
-                    >
-                      <FontAwesomeIcon icon="stopwatch" />
-                      <span className="d-block d-sm-none"></span>
-                      <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Minute Challenge</span>
-
-                    </NavLink>
-
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </li> */}
-
             <li>
               <NavLink
                 to="/Logout"
