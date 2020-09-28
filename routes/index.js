@@ -24,14 +24,9 @@ router.use('/api', apiRoutes);
 
 // Path for grabbing user data
 router.post("/getuser", function (req, res) {
-    console.log("req.body going to backend api call:");
     const token = req.body.token;
-    console.log(token);
 
     const decoded = jwt.decode(token, secret);
-
-    console.log("Decoded:");
-    console.log(decoded.sub);
 
     db.Users.findOne({ _id: decoded.sub }, function (err, userFound) {
         if (err) {
@@ -39,8 +34,6 @@ router.post("/getuser", function (req, res) {
         };
 
         if (userFound) {
-            console.log("User found:");
-            console.log(userFound);
             let userToSend = {};
             userToSend.firstName = userFound.firstName;
             userToSend.lastName = userFound.lastName;
@@ -63,8 +56,6 @@ router.post("/getuser", function (req, res) {
 
 
 router.post("/searchProfiles", function (req, res) {
-    console.log("searchedProfiles req.body:");
-    console.log(req.body);
     const searchedUsername = req.body.searchedUsername;
 
     db.Users.find({ username: { $regex: searchedUsername } }, function (err, matchedUsers) {
@@ -91,18 +82,10 @@ router.post("/searchProfiles", function (req, res) {
 });
 
 router.post("/updateProfile", function (req, res) {
-    console.log("Reached the backend post request!!!");
 
     const token = req.body.profileUpdates.token;
-    console.log(token);
 
     const decoded = jwt.decode(token, secret);
-
-    console.log("Decoded:");
-    console.log(decoded.sub);
-
-    console.log(req.body);
-
 
     db.Users.updateOne({ _id: decoded.sub }, {
         location: req.body.profileUpdates.location,
@@ -116,8 +99,7 @@ router.post("/updateProfile", function (req, res) {
             }
 
             else {
-                console.log("Update Successful!");
-                console.log(userFound);
+                // console.log(userFound);
                 // res.send({ updatedData: userFound });
                 res.end();
             }
@@ -129,18 +111,10 @@ router.post("/updateProfile", function (req, res) {
 
 
 router.post("/updateProfileImg", function (req, res) {
-    console.log("Reached the backend post request!!!");
 
     const token = req.body.imageObject.token;
-    console.log(token);
 
     const decoded = jwt.decode(token, secret);
-
-    console.log("Decoded:");
-    console.log(decoded.sub);
-
-    console.log(req.body);
-
 
     db.Users.updateOne({ _id: decoded.sub }, {
         imageURL: req.body.imageObject.imageURL
@@ -152,8 +126,7 @@ router.post("/updateProfileImg", function (req, res) {
             }
 
             else {
-                console.log("Update Successful!");
-                console.log(userFound);
+                // console.log(userFound);
                 // res.send({ updatedData: userFound });
                 res.end();
             }
@@ -162,5 +135,25 @@ router.post("/updateProfileImg", function (req, res) {
 
     res.send({ updatedImgData: req.body });
 });
+
+
+// Path for grabbing user data
+router.post("/getUserImg", function (req, res) {
+    const username = req.body.username;
+
+    db.Users.findOne({ username: username }, function (err, userFound) {
+        if (err) {
+            throw err;
+        };
+
+        if (userFound) {
+            res.send({ url: userFound.imageURL });
+        }
+
+    });
+
+
+});
+
 
 module.exports = router;

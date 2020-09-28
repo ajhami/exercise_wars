@@ -40,14 +40,12 @@ class AddPicture extends Component {
 							if ('LIMIT_FILE_SIZE' === response.data.error.code) {
 								this.uploadAlert('Max size: 200MB', 'red');
 							} else {
-								// console.log(response.data);
 								// If not the given file type
 								this.uploadAlert(response.data.error, 'red');
 							}
 						} else {
 							// Success
 							let fileName = response.data;
-							// console.log('filedata', fileName);
 							this.props.onImageChange(fileName.location)
 							this.uploadAlert('File Uploaded', '#3089cf');
 						}

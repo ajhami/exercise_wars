@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Moment from "moment";
 import { Button, Container, Row, Col } from "reactstrap";
 import Exercises from "../Exercises"
 import "./style.css";
 import { Table } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from "axios";
 
 function Workout(props) {
+    
+    const [profileImageURL, setProfileImageURL] = useState();
+
+    useEffect(() => {
+
+        async function getProfileImg(username) {
+            let response = await axios.post("getUserImg", { username: username });
+            setProfileImageURL(response.data.url)
+        }
+
+        getProfileImg(props.user);
+
+    }, []);
+
     return (
         <div className="card">
             <Container>
                 <Row>
                     <Col xs={7}>
+                        <img src={profileImageURL} className="miniProfileImg"/>
                         {props.user}
                     </Col>
                     <Col xs={5} style={{ textAlign: "right" }}>{Moment(props.date).format("MMM D, YYYY")}</Col>

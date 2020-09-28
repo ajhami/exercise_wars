@@ -33,15 +33,11 @@ const express = require( 'express' );
   
   router.post( '/profile-img-upload', ( req, res ) => {
     imgUpload( req, res, ( error ) => {
-      console.log( 'success', req.file );
-      console.log( 'error', error );
       if( error ){
-        console.log( 'errors', error );
         res.json( { error: error } );
       } else {
         // If File not found
         if( req.file === undefined ){
-          console.log( 'Error: No File Selected!' );
           res.json( 'Error: No File Selected' );
         } else {
           // If Success
