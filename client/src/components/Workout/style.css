@@ -101,23 +101,21 @@ span:empty {
       padding:0 0 0 1%;
       margin-left:-100%;
     }
-     td{
+      td{
       padding-left:50%;
-     -moz-box-sizing:border-box;
-     -webkit-box-sizing:border-box;
-      box-sizing:border-box; 
-      
-     }
+      -moz-box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      box-sizing:border-box;  
+      }
 
-  
-    td:empty {
-      display: none;
-    }
+      .is-empty {
+        display: none;
+      }
   
 
-     .labelHide {
-       float: left;
-     }
+      .labelHide {
+        float: left;
+      }
 
     .exerciseValue {
       float: right;
@@ -125,7 +123,7 @@ span:empty {
       
     }
 
-    @media only screen and (min-width: 500px) {
+    @media only screen and (min-width: 501px) {
       .labelHide {
         display: none;
       }
