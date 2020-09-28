@@ -66,6 +66,16 @@ span:empty {
     margin:auto;
   }
 
+
+.miniProfileImg {
+  margin: 8px 8px 8px 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: solid 1px #353434;
+}
+
+
   @media only screen and (max-width: 500px) {
     table, tbody, thead, tbody, th, td, tr {
       display: block;

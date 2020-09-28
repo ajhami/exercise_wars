@@ -22,7 +22,6 @@ export const signup = (formProps, cb) => async dispatch => {
 
 
 
-        // const response = await axios.post("http://localhost:3001/signup", formProps);
         const response = await axios.post("/signup", formProps);
         dispatch({ type: AUTH_USER, payload: response.data.token });
         localStorage.setItem("token", response.data.token);
@@ -45,7 +44,6 @@ export const signout = () => {
 
 export const signin = (formProps, cb) => async dispatch => {
     try {
-        // const response = await axios.post("http://localhost:3001/signin", formProps);
         const response = await axios.post("/signin", formProps);
         dispatch({ type: AUTH_USER, payload: response.data.token });
         localStorage.setItem("token", response.data.token);
@@ -63,7 +61,6 @@ export const getProfileData = (cb) => async dispatch => {
 
         if (token) {
             const response = await axios.post("/getuser", { token: token });
-            // console.log(response.data.user);
             dispatch({ type: USER_PROFILE, payload: response.data.user });
             cb();
         }
@@ -76,12 +73,7 @@ export const getProfileData = (cb) => async dispatch => {
 
 export const searchUsers = (formProps, cb) => async dispatch => {
     try {
-        // console.log("inside action");
-        // console.log(formProps.searchedUsername);
         const response = await axios.post("/searchProfiles", { searchedUsername: formProps.searchedUsername });
-        // console.log(response);
-        // console.log("What's being passed into payload");
-        // console.log(response.data.matchedUsers);
         dispatch({ type: SEARCH_USERS, payload: response.data.matchedUsers });
         cb();
     }

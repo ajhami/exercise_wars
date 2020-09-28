@@ -1,7 +1,3 @@
-
-
-// require ('dotenv').config();
-
 const path = require("path");
 const express = require("express");
 const http = require("http");
@@ -20,36 +16,29 @@ const { ApiGatewayManagementApi } = require('aws-sdk');
 
 
 const PORT = process.env.PORT || 3001;
-// const profile = require( './routes/api/profile' );
 const app = express();
 
 app.use(cors()); // You will need to figure out how to limit cors access 
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use( '/api/profile', profile );
 
 // routes
 app.use(routes);
 
-// process.env.NODE_ENV = "production";
-// console.log("process.env.NODE_ENV = ", process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
-  // app.use("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
-  // });
 }
+
 else {
   app.use(express.static("public"));
-}
+};
 
 
 const URI = process.env.MONGODB_URI || "mongodb://localhost/exercisewarsDB"
-// const URI = process.env.MONGODB_URI || "mongodb://exercisewars:tigersharkblue7@ds127173.mlab.com:27173/heroku_4jddjplw";
 
 
 mongoose.connect(URI, {

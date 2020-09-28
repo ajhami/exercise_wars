@@ -27,7 +27,6 @@ const FeedPage = (props) => {
 
   const clickDoWorkout = (doThisWorkout) => {
     const token = localStorage.token;
-    console.log(token)
     const userInfo = axios.post("/getuser", { token: token });
     const username = userInfo.username;
     let newDoThisWorkout = Object.assign({}, workoutInputs)
@@ -46,37 +45,36 @@ const FeedPage = (props) => {
     newDoThisWorkout.user = username;
     setWorkoutInputs(newDoThisWorkout);
     localStorage.setItem("newWorkout", JSON.stringify(newDoThisWorkout));
-       window.location.pathname = '/AddWorkout'
+    window.location.pathname = '/AddWorkout'
   }
 
-useEffect(() => {
-  API.fetchWorkouts()
-    .then(res => {
-      const sortedWorkouts = [].concat(res)
-        .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
-      setWorkouts(sortedWorkouts)
-      // setWorkoutInputs(workoutInputs)
-    })
-}, []);
+  useEffect(() => {
+    API.fetchWorkouts()
+      .then(res => {
+        const sortedWorkouts = [].concat(res)
+          .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
+        setWorkouts(sortedWorkouts)
+      })
+  }, []);
 
 
-return (
-  <div>
-    <NavBar />
-    <Container>
-      <Row>
-        <Col md={6}>
+  return (
+    <div>
+      <NavBar />
+      <Container>
+        <Row>
+          <Col md={6}>
             <FriendFeed
               workouts={workouts}
               setWorkouts={setWorkouts}
               clickDoWorkout={clickDoWorkout}
             />
-        </Col>
-      </Row>
-    </Container>
-    <Footer />
-  </div>
-);
+          </Col>
+        </Row>
+      </Container>
+      <Footer />
+    </div>
+  );
 };
 
 export default requireAuth(FeedPage);

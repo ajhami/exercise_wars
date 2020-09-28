@@ -25,10 +25,6 @@ module.exports = {
             });
     },
     createWorkout: function (req, res) {
-
-        // console.log("req.body");
-        // console.log(req.body.exercises);
-
         const token = req.body.token;
         const decoded = jwt.decode(token, secret);
 
@@ -67,8 +63,6 @@ module.exports = {
                 })
                 .then(data => {
                     res.status(200).json(data);
-                    console.log("data")
-                    console.log(data)
                 })
                 .catch(error => {
                     console.log(error);
