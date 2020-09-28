@@ -42,4 +42,33 @@ export default {
         })
         .catch(error => console.log(error))
     },
+
+
+    fetchChallenges: function () {
+        return axios
+            .get("/api/challenges")
+            .then(res => {
+                const challenges = res.data;
+                return challenges.map(challenges => {
+                    return {
+                        key: challenges._id || challenges._id.$oid,
+                        id: challenges._id || challenges._id.$oid,
+                        // user: challenges.user,
+                        date: challenges.date,
+                        title: challenges.title,
+                        time: challenges.time,
+                        timeHours: challenges.timeHours,
+                        timeMinutes: challenges.timeMinutes,
+                        timeSeconds: challenges.timeSeconds,
+                        image: challenges.image,
+                        description: challenges.description,
+                        workoutType: challenges.workoutType,
+                        likes: challenges.likes,
+                        comments: challenges.comments,
+                        exercises: challenges.exercises
+                    }
+                })
+            })
+            .catch(error => console.log(error))
+    },
 }

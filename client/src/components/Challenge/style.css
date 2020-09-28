@@ -1,0 +1,135 @@
+.card {
+    background: #fff;
+    border-radius: 2px;
+    min-height: 325px;
+    margin-top: 1rem;
+    position: relative;
+    min-width: 350px;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    text-align: left;
+  }
+  
+  ul {
+    /* margin: 2px; */
+    padding: 5px
+  }
+  .card > .img-container {
+    height: 60%;
+    border: none;
+    overflow: hidden;
+    text-align: center;
+    background:white
+  }
+
+
+  .button {
+    background-color: #495057;
+  }
+
+  .button:hover {
+    background-color: #212529;
+  }
+
+
+
+  .card > .img-container > img {
+    width: 100%
+  }
+
+
+  .card > .img-container > img [src=""] {
+    display: none;
+  }
+
+
+span:empty {
+  display: none;
+}
+
+  
+  .card > .content > ul {
+    list-style-type: none;
+  }
+  
+  .card > .content > ul > li {
+    margin-top: 18px;
+  }
+
+  .userStyle {
+    font-style: italic;
+  }
+
+  .exerciseTable {
+    table-layout: auto;
+    max-width: 100%; 
+    width:100%;
+    margin:auto;
+  }
+
+
+.miniProfileImg {
+  margin: 8px 8px 8px 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: solid 1px #353434;
+}
+
+
+  @media only screen and (max-width: 500px) {
+    table, tbody, thead, tbody, th, td, tr {
+      display: block;
+      float:left;/* ie9 fix */
+      width:100%;
+      clear:both;
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr {
+      border: 1px solid #ccc;
+    }
+    td,th {
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+    td:before {
+      float:left;
+      width: 95%;
+      padding:0 0 0 1%;
+      margin-left:-100%;
+    }
+     td{
+      padding-left:50%;
+     -moz-box-sizing:border-box;
+     -webkit-box-sizing:border-box;
+      box-sizing:border-box; 
+      
+     }
+
+  
+    td:empty {
+      display: none;
+    }
+  
+
+     .labelHide {
+       float: left;
+     }
+
+    .exerciseValue {
+      float: right;
+    }
+      
+    }
+
+    @media only screen and (min-width: 500px) {
+      .labelHide {
+        display: none;
+      }
+        
+      }
+    
+  
