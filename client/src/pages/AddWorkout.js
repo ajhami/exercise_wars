@@ -36,7 +36,7 @@ const AddWorkout = () => {
 
 
   useEffect(() => {
-    API.fetchWorkouts()
+    API.fetchWorkouts(localStorage.token)
       .then(res => {
         const sortedWorkouts = [].concat(res)
           .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)

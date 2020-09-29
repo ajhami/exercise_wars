@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export default {
-    fetchWorkouts: function () {
+    fetchWorkouts: function (token) {
         return axios
-            .get("/api/workouts")
+            .post("/api/workouts", { token: token })
             .then(res => {
                 const workouts = res.data;
                 return workouts.map(workout => {

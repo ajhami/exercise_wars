@@ -99,8 +99,7 @@ router.post("/updateProfile", function (req, res) {
             }
 
             else {
-                // console.log(userFound);
-                // res.send({ updatedData: userFound });
+
                 res.end();
             }
         }
@@ -126,8 +125,6 @@ router.post("/updateProfileImg", function (req, res) {
             }
 
             else {
-                // console.log(userFound);
-                // res.send({ updatedData: userFound });
                 res.end();
             }
         }
@@ -156,76 +153,50 @@ router.post("/getUserImg", function (req, res) {
 });
 
 
-// Path for grabbing user data
+// Path for saving a new following
 router.post("/newFollow", function (req, res) {
     const userToFollow = req.body.newUser;
-    const token = req.body.token;
+    const userToFollowProfileImg = req.body.newUserProfileImg;
+    const currentUser = req.body.currentUser;
+    const currentUserProfileImg = req.body.currentUserProfileImg;
 
-    // console.log(userToFollow, token);
-
-    const decoded = jwt.decode(token, secret);
-
-    db.Users.findOne({ username: userToFollow }, function (err, userFound) {
-        if (err) {
-            throw err;
-        };
-
-        if (userFound) {
-
-            console.log("reached inside of backend call!");
-            // console.log(userFound);
-            db.Users.findOneAndUpdate(
-                { _id: decoded.sub },
-                { 
-                    $push: {
-                        following: {
-                            username: userFound.username,
-                            imageURL: userFound.imageURL
+    db.Users.findOneAndUpdate(
+        { username: currentUser },
+        {
+            $push: {
+                following: {
+                    username: userToFollow,
+                    imageURL: userToFollowProfileImg
+                }
+            }
+        },
+        function (err) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                db.Users.findOneAndUpdate(
+                    { username: userToFollow },
+                    {
+                        $push: {
+                            followers: {
+                                username: currentUser,
+                                imageURL: currentUserProfileImg
+                            }
+                        }
+                    },
+                    function (err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            res.end();
                         }
                     }
-                },
-                function (err) {
-                    if(err) {
-                        console.log(err);
-                    }
-                    else {
-                        db.Users.findOne({ _id: decoded.sub }, function (err, currentUserFound) {
-                            if (err) {
-                                throw err;
-                            }
-
-                            if (currentUserFound) {
-                                db.Users.findOneAndUpdate(
-                                    { username: userToFollow },
-                                    {
-                                        $push: {
-                                            followers: {
-                                                username: currentUserFound.username,
-                                                imageURL: currentUserFound.imageURL
-                                            }
-                                        }
-                                    },
-                                    function (err) {
-                                        if (err) {
-                                            console.log(err);
-                                        }
-                                        else {
-                                            res.end();
-                                        }
-                                    }
-                                )
-                            }
-                        })
-                    }
-                }
-            )
-
-
+                )
+            }
         }
-
-    });
-
-
+    )
 });
 
 module.exports = router;

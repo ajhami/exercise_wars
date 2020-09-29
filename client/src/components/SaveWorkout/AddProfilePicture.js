@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "reactstrap";
 import React, { Component } from 'react';
 import axios from 'axios';
 import $ from 'jquery';
+import "./style.css";
 
 
 class AddProfilePicture extends Component {
@@ -88,26 +89,27 @@ class AddProfilePicture extends Component {
 						minWidth: "200px",
 						boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)'
 					}}>
-					<div className="img-container">
-						<img id="profile_image_upload" value={this.props.value} src={this.props.value} />
-					</div>
 					<div className="card-header">
 						<h5 className="text-muted" style={{ marginLeft: '12px' }}>Upload a Profile Picture</h5>
+					</div>
+					<div className="img-container">
+						<img id="profile_image_upload" value={this.props.value} src={this.props.value} />
 					</div>
 					<Container>
 						<div className="card-body">
 							<Row>
-								<Col sm={6}>
+								<Col lg={6}>
 									<input
+                                        className="file_uploader"
 										type="file"
 										onChange={this.singleFileChangedHandler}
 										/*outline */ color="secondary"
 										style={{ color: "#D90429", borderColor: "#D90429", padding: "4px 8px", fontSize: "14px" }} />
 								</Col>
-								<Col sm={6}>
+								<Col lg={6}>
 									<div className="">
 										<Button
-											className="btn btn-info float-right"
+											className="btn btn-info save_img_btn"
 											outline color="secondary"
 											style={{ color: "#D90429", borderColor: "#D90429", padding: "4px 8px", fontSize: "14px" }}
 											id="imageUploadButton"

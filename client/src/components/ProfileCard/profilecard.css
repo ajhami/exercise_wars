@@ -1,6 +1,6 @@
-/* .profile_card {
-    width: 2%;
-} */
+.profile_card {
+    text-align: center;
+}
 
 .profile_card_img {
     display: block;
@@ -8,9 +8,14 @@
     margin-right: auto; */
     margin: auto;
     width: 70%;
-    height: 70%;
+    height: 100%;
     border: solid 1px #353434;
     border-radius: 50%;
+}
+
+.profile_card_img_div {
+    justify-items: center;
+    height: 225px;
 }
 
 .username_title {
@@ -28,4 +33,22 @@
 
 .info_icon:hover {
     color: #cc0000;
+}
+
+.user_location_text {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.followers_info, .following_info {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .profile_card_img {
+        width: 55%;
+    }
 }
