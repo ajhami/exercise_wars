@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import Wrapper from "./components/Wrapper"
-import PushUps from "./pages/Challenges/PushUps";
+// import PushUps from "./pages/Challenges/PushUps";
 import Login from "./pages/Login"
 import Home from "./pages/Home"
 import CreateAccount from "./pages/CreateAccount"
@@ -16,9 +16,9 @@ import SoloChallenge from "./pages/SoloChallenge"
 import Signup from "./pages/Signup"
 import Logout from "./pages/Logout"
 import Welcome from "./pages/Welcome/index";
-import Squats from "./pages/Challenges/Squats"
-import SitUps from "./pages/Challenges/SitUps"
-import PullUps from "./pages/Challenges/PullUps"
+// import Squats from "./pages/Challenges/Squats"
+// import SitUps from "./pages/Challenges/SitUps"
+// import PullUps from "./pages/Challenges/PullUps"
 import SearchProfiles from './pages/Profiles';
 import UserInfo from "./pages/UserInfo";
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -52,13 +52,13 @@ function App() {
             <Route exact path="/Home" component={Home} />
             <Route exact path="/AddWorkout" component={AddWorkout} />
             <Route exact path="/FeedPage" component={FeedPage} />
-            <Route exact path="/GlobalChallenge" component={GlobalChallenge} />
+            {/* <Route exact path="/GlobalChallenge" component={GlobalChallenge} /> */}
             <Route exact path="/SoloChallenge" component={SoloChallenge} />
-            <Route exact path="/PushUps" component={PushUps} />
+            {/* <Route exact path="/PushUps" component={PushUps} /> */}
             <Route exact path="/SearchProfiles" component={SearchProfiles}/> 
-            <Route exact path="/Squats" component={Squats} />
-            <Route exact path="/SitUps" component={SitUps} />
-            <Route exact path="/PullUps" component={PullUps} />
+            {/* <Route exact path="/Squats" component={Squats} /> */}
+            {/* <Route exact path="/SitUps" component={SitUps} /> */}
+            {/* <Route exact path="/PullUps" component={PullUps} /> */}
             <Route exact path="/userInfo" component={UserInfo} />
 
 

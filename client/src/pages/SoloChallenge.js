@@ -4,11 +4,10 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import requireAuth from "../components/requireAuth";
 import MinuteChallenge from "../components/MinuteChallenge";
-import API from "../utils/API";
 import axios from "axios";
+import challenges from "../challenges.json"
 
 const SoloChallenge = (props) => {
-  const [challenges, setChallenges] = useState([]);
   const [workoutInputs, setWorkoutInputs] = useState({
     id: "",
     title: "",
@@ -23,14 +22,17 @@ const SoloChallenge = (props) => {
     comments: "",
     exercises: []
   })
-
+console.log(challenges);
   const clickDoWorkout = (doThisWorkout) => {
     const token = localStorage.token;
     const userInfo = axios.post("/getuser", { token: token });
     const username = userInfo.username;
     let newDoThisWorkout = Object.assign({}, workoutInputs)
     newDoThisWorkout.title = doThisWorkout.title ? doThisWorkout.title : ""
-    newDoThisWorkout.timeMinutes = 1
+    newDoThisWorkout.timeHours = doThisWorkout.timeHours ? doThisWorkout.timeHours : ""
+    newDoThisWorkout.timeMinutes = doThisWorkout.timeMinutes ? doThisWorkout.timeMinutes : ""
+    newDoThisWorkout.timeSeconds = doThisWorkout.timeSeconds ? doThisWorkout.timeSeconds : ""
+    newDoThisWorkout.workoutType = doThisWorkout.workoutType ? doThisWorkout.workoutType : ""
     newDoThisWorkout.image = doThisWorkout.image ? doThisWorkout.image : ""
     newDoThisWorkout.exercises = doThisWorkout.exercises
     newDoThisWorkout.exercises.exerciseName = doThisWorkout.exercises.exerciseName ? doThisWorkout.exercises.exerciseName : ""
@@ -44,13 +46,6 @@ const SoloChallenge = (props) => {
     window.location.pathname = '/AddWorkout'
   }
 
-  useEffect(() => {
-    API.fetchChallenges()
-      .then(res => {
-        setChallenges(challenges)
-      })
-  }, []);
-
 
   return (
     <div>
@@ -60,7 +55,6 @@ const SoloChallenge = (props) => {
           <Col md={6}>
             <MinuteChallenge
               challenges={challenges}
-              setChallenges={setChallenges}
               clickDoWorkout={clickDoWorkout}
             />
           </Col>

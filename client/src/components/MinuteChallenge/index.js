@@ -19,7 +19,7 @@ const MinuteChallenge = (props) => {
                                 key={i++}
                                 id={workout.id}
                                 user={workout.user}
-                                // date={workout.date}
+                                date={workout.date}
                                 title={workout.title}
                                 time={workout.time}
                                 timeHours={workout.timeHours}

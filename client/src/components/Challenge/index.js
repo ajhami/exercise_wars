@@ -7,9 +7,6 @@ import { Table } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Challenge(props) {
-    
-
-
     return (
         <div className="card">
             <Container>

@@ -1,0 +1,96 @@
+[
+
+  {
+    "id": 1,
+    "title": "Push ups in a minute",
+    "image": "assets/images/logo/pushup.png",
+    "description": "Build your pectoral muscles",
+    "workoutType": "Strength Training",
+    "exercises": [{
+      "id": 1,
+      "exerciseName": "push ups",
+      "reps": 10
+    }],
+    "timeSeconds":0,
+    "timeMinutes": 1,
+    "timeHours":0,
+    "time":"1:00"
+  },
+
+  {
+    "id": 1,
+    "title": "Sit ups in a minute",
+    "image": "assets/images/logo/situp.png",
+    "description": "Abs-olutely",
+    "workoutType": "Strength Training",
+    "exercises": [{
+      "id": 1,
+      "exerciseName": "sit ups",
+      "reps": 10
+    }],
+    "timeSeconds":0,
+    "timeMinutes": 1,
+    "timeHours":0,
+    "time":"1:00"
+  },
+
+  {
+    "id": 1,
+    "title": "Pull ups in a minute",
+    "image": "assets/images/logo/pullups.png",
+    "description": "Get those Lats and Biceps",
+    "workoutType": "Strength Training",
+    "exercises": [{
+      "id": 1,
+      "exerciseName": "pull ups",
+      "reps": 10
+    }],
+    "timeSeconds":0,
+    "timeMinutes": 1,
+    "timeHours":0,
+    "time":"1:00"
+  },
+
+  {
+    "id": 1,
+    "title": "Air Squats in a minute",
+    "image": "assets/images/logo/squats.png",
+    "description": "Quads Quads Quads",
+    "workoutType": "Strength Training",
+    "exercises": [{
+      "id": 1,
+      "exerciseName": "Air Squats",
+      "reps": 10
+    }],
+    "timeSeconds":0,
+    "timeMinutes": 1,
+    "timeHours":0,
+    "time":"1:00"
+  },
+
+  {
+    "id": 1,
+    "title": "Killer Workout Bro",
+    "image": "https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/05/bench-press_0.jpg",
+    "description": "Burnout",
+    "workoutType": "Strength Training",
+    "exercises": [{
+      "id": 1,
+      "exerciseName": "Bench Press",
+      "reps": 10,
+      "sets": 4,
+      "weight": "135 lbs"
+    },
+    {
+      "id": 2,
+      "exerciseName": "Squats",
+      "reps": 10,
+      "sets": 4,
+      "weight": "225 lbs"
+    }],
+    "timeSeconds":0,
+    "timeMinutes": 10,
+    "timeHours":0,
+    "time":"10:00"
+  }
+]
