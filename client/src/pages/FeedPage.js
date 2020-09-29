@@ -7,6 +7,9 @@ import requireAuth from "../components/requireAuth";
 import FriendFeed from "../components/FriendFeed";
 import API from "../utils/API";
 import axios from "axios";
+// import * as actions from "./../actions";
+// import { compose } from "redux";
+// import { connect } from "react-redux";
 
 const FeedPage = (props) => {
   const [workouts, setWorkouts] = useState([]);
@@ -49,7 +52,7 @@ const FeedPage = (props) => {
   }
 
   useEffect(() => {
-    API.fetchWorkouts()
+    API.fetchWorkouts(localStorage.token)
       .then(res => {
         const sortedWorkouts = [].concat(res)
           .sort((a, b) => Date(a.date) < Date(b.date) ? 1 : -1)
@@ -57,8 +60,8 @@ const FeedPage = (props) => {
       })
   }, []);
 
-
   return (
+
     <div>
       <NavBar />
       <Container>

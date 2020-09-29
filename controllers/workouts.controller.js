@@ -3,6 +3,7 @@ const jwt = require("jwt-simple");
 const secret = process.env.herokuAuthSecret || require("../config").secret;
 const moment = require("moment");
 const momentDurationFormatSetup = require("moment-duration-format");
+// const { default: user } = require('../client/src/reducers/user');
 
 momentDurationFormatSetup(moment);
 typeof moment.duration.fn.format === "function";
@@ -13,17 +14,42 @@ typeof moment.duration.format === "function";
 
 
 module.exports = {
+
     getWorkouts: function (req, res) {
 
-        Workouts
-            .find()
-            .then(data => {
-                res.status(200).json(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        const token = req.body.token;
+        const decoded = jwt.decode(token, secret);
+
+        Users.findOne({ _id: decoded.sub }, function (err, userFound) {
+            if (err) {
+                throw err;
+            }
+
+            if(userFound) {
+
+                let feedUsers = [];
+                feedUsers.push(userFound.username);
+
+                if(userFound.following.length > 0) {
+                    userFound.following.map(following => {
+                        feedUsers.push(following.username);
+                    });
+
+                }
+
+                Workouts.find({ user: { $in: feedUsers } }, function (err, workoutsFound) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        res.json(workoutsFound);
+                    }
+                })
+            }
+
+        })
     },
+
     createWorkout: function (req, res) {
         const token = req.body.token;
         const decoded = jwt.decode(token, secret);

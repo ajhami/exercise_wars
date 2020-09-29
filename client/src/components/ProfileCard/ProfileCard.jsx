@@ -21,13 +21,22 @@ function ProfileCard(props) {
                 <FontAwesomeIcon icon="info-circle" className="row info_icon fa-2x" />
             </NavLink>
             <CardTitle className="username_title">{props.username}</CardTitle>
-            <div style={{ height: "318px", justifyItems: "center" }}>
-                <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img mt-4" />
+            <div className="profile_card_img_div">
+                <CardImg top src={props.imageURL} alt="Profile Image" className="profile_card_img" />
             </div>
-            <CardBody className="profile_card" style={{ alignText: "center" }}>
+            <CardBody className="profile_card">
                 <CardSubtitle className="user_location_text">{props.location}</CardSubtitle>
                 <div className="row">
-                    <CardText style={{ marginLeft: "15px" }}>Followers: {props.followers} | Following: {props.following}</CardText>
+                    <div className="col-6">
+                        <CardText className="followers_info">
+                            Followers: {props.followers}
+                        </CardText>
+                    </div>
+                    <div className="col-6">
+                        <CardText className="following_info">
+                            Following: {props.following}
+                        </CardText>
+                    </div>
                 </div>
             </CardBody>
         </Card>

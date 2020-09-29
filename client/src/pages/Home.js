@@ -13,9 +13,12 @@ class Home extends Component {
   componentDidMount = () => {
     this.props.getProfileData();
   }
-
+  
   render() {
 
+    localStorage.username = this.props.user.username;
+    localStorage.imageURL = this.props.user.imageURL;
+    
     return (
       <div>
         <NavBar />

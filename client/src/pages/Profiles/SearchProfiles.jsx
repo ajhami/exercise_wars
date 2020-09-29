@@ -80,6 +80,7 @@ class SearchProfiles extends Component {
                     <button
                         className={match.buttonClass}
                         value={match.username}
+                        data-profileimgurl={match.imageURL}
                         onClick={(event) => {
 
                             if (match.isFollowing) {
@@ -88,7 +89,12 @@ class SearchProfiles extends Component {
 
                             else {
                                 match.isFollowing = true;
-                                axios.post("/newFollow", { token: localStorage.token, newUser: event.target.value });
+                                axios.post("/newFollow", { 
+                                    currentUserProfileImg: localStorage.imageURL, 
+                                    currentUser: localStorage.username,
+                                    newUser: event.target.value,
+                                    newUserProfileImg: event.target.dataset.profileimgurl
+                                });
                                 this.props.history.push("/SearchProfiles");
                             }
 
@@ -130,7 +136,7 @@ class SearchProfiles extends Component {
                         </div>
                         <div className="col-md-8">
                             <div className="row mt-3">
-                                <div className="col-12">
+                                <div className="col-12 mb-4">
                                     <h2 className="find_friends_title">Find Friends</h2>
                                     <form className="search_form" onSubmit={handleSubmit(this.onSubmitFriendSearch)}>
                                         <div className="row">
@@ -149,7 +155,9 @@ class SearchProfiles extends Component {
 
                                     </form>
 
-                                    <div>{matchResults}</div>
+                                    <div>
+                                        {matchResults}
+                                    </div>
 
                                 </div>
                             </div>
