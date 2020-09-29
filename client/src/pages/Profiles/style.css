@@ -119,3 +119,15 @@
     color: #ffffff;
     font-weight: bold;
 }
+
+.following_user_btn {
+    float: right;
+    width: 20%;
+    height: 50%;
+    margin: auto;
+    border-radius: 10%;
+    background-color: #2df86a;
+    color: #ffffff;
+    font-weight: bold;
+}
+
