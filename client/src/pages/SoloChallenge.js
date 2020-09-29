@@ -22,7 +22,6 @@ const SoloChallenge = (props) => {
     comments: "",
     exercises: []
   })
-console.log(challenges);
   const clickDoWorkout = (doThisWorkout) => {
     const token = localStorage.token;
     const userInfo = axios.post("/getuser", { token: token });

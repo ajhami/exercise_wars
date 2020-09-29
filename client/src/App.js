@@ -17,9 +17,9 @@ import Welcome from "./pages/Welcome/index";
 import SearchProfiles from './pages/Profiles';
 import UserInfo from "./pages/UserInfo";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUsers, faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment, faDumbbell, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faUsers, faPlus, faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faSignOutAlt, faThumbsUp, faComment, faDumbbell, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUsers, faPlus,faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faThumbsUp, faComment, faDumbbell, faInfoCircle)
+library.add(faUsers, faPlus,faTrophy, faStopwatch, faUserFriends, faGlobe, faMapMarkerAlt, faSignOutAlt, faThumbsUp, faComment, faDumbbell, faInfoCircle)
 
 
 

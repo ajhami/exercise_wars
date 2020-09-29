@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Moment from "moment";
+import React from 'react';
 import { Button, Container, Row, Col } from "reactstrap";
 import Exercises from "../Exercises"
 import "./style.css";
