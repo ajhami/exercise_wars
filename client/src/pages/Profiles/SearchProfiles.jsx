@@ -11,38 +11,65 @@ import "./style.css";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 import requireAuth from "../../components/requireAuth";
+import axios from "axios";
 
 class SearchProfiles extends Component {
 
     componentDidMount = () => {
         this.props.getProfileData();
+    };
+
+    componentDidUpdate = () => {
+        this.props.getProfileData();
     }
 
     onSubmitFriendSearch = (formProps) => {
         this.props.searchUsers(formProps);
-    }
+    };
 
 
     render() {
 
         const { handleSubmit } = this.props;
 
-
         let hasSearchResults = this.props.searchedUsers || false;
         let matchResults;
 
-        if(hasSearchResults.length === 0) {
+        if (hasSearchResults.length === 0) {
             matchResults = (
                 <div className="noresults_div">
                     <h3 className="noresults_text">No results found.</h3>
                 </div>
             )
         }
-        else if(hasSearchResults[0].username === "") {
+        else if (hasSearchResults[0].username === "") {
             matchResults = null;
         }
         else if (hasSearchResults) {
-            matchResults = this.props.searchedUsers.map(match => (
+
+            let searchedUsers = this.props.searchedUsers;
+            let currentlyFollowing = this.props.user.following;
+
+            let currentlyFollowingUsernames = [];
+
+            for (let i = 0; i < currentlyFollowing.length; i++) {
+                currentlyFollowingUsernames.push(currentlyFollowing[i].username);
+            }
+
+            for (let i = 0; i < searchedUsers.length; i++) {
+                if (!currentlyFollowingUsernames.includes(searchedUsers[i].username)) {
+                    searchedUsers[i].isFollowing = false;
+                    searchedUsers[i].buttonText = "Follow";
+                    searchedUsers[i].buttonClass = "follow_user_btn";
+                }
+                else {
+                    searchedUsers[i].isFollowing = true;
+                    searchedUsers[i].buttonText = "Following";
+                    searchedUsers[i].buttonClass = "following_user_btn";
+                }
+            }
+
+            matchResults = searchedUsers.map(match => (
                 <div key={match.username} value={match.username} className="row searched_friend_rows">
                     <img
                         src={match.imageURL}
@@ -50,7 +77,26 @@ class SearchProfiles extends Component {
                         className="searched_friend_miniprofile_pic"
                     />
                     <h4 className="searched_friend_name_label">{match.username}</h4>
-                    <button className="follow_user_btn" value={match.username}>Follow</button>
+                    <button
+                        className={match.buttonClass}
+                        value={match.username}
+                        onClick={(event) => {
+
+                            if (match.isFollowing) {
+                                return;
+                            }
+
+                            else {
+                                match.isFollowing = true;
+                                axios.post("/newFollow", { token: localStorage.token, newUser: event.target.value });
+                                this.props.history.push("/SearchProfiles");
+                            }
+
+                        }
+                        }
+                    >
+                        {match.buttonText}
+                    </button>
                 </div>
             ))
         }
