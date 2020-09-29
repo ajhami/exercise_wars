@@ -9,7 +9,6 @@ class AuthHeader extends Component {
                 <Link to="/Signup">Sign Up</Link>
                 <Link to="/Login">Login</Link>
                 <Link to="/Logout">Logout</Link>
-                <Link to="/AuthSuccess">Auth Success</Link>
             </div>
         )
     }
