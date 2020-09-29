@@ -5,7 +5,6 @@ window.onresize = function(){ window.location.reload(); }
 
 const FriendFeed = (props) => {
     let i = 0;
-    console.log(props.workouts)
     const clickDoWorkout = (workout) => {
         props.clickDoWorkout(workout)
     }
