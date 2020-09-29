@@ -1,6 +1,6 @@
 import React from 'react';
 import Workout from "../Workout";
-window.onresize = function(){ window.location.reload(); }
+// window.onresize = function(){ window.location.reload(); }
 
 
 const FriendFeed = (props) => {
