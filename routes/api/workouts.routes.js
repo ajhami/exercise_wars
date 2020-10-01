@@ -4,7 +4,7 @@ const { workoutsController } = require("../../controllers")
 // // path => /api/workouts/
 router
     .route("/")
-    .post(workoutsController.getWorkouts)
+    .get(workoutsController.getWorkouts)
     .post(workoutsController.createWorkout);
 
 module.exports = router

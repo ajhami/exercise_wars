@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     fetchWorkouts: function (token) {
         return axios
-            .post("/api/workouts", { token: token })
+            .get("/api/workouts", { params: { token: token }})
             .then(res => {
                 const workouts = res.data;
                 return workouts.map(workout => {

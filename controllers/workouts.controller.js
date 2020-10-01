@@ -3,7 +3,6 @@ const jwt = require("jwt-simple");
 const secret = process.env.herokuAuthSecret || require("../config").secret;
 const moment = require("moment");
 const momentDurationFormatSetup = require("moment-duration-format");
-// const { default: user } = require('../client/src/reducers/user');
 
 momentDurationFormatSetup(moment);
 typeof moment.duration.fn.format === "function";
@@ -17,7 +16,7 @@ module.exports = {
 
     getWorkouts: function (req, res) {
 
-        const token = req.body.token;
+        const token = req.query.token;
         const decoded = jwt.decode(token, secret);
 
         Users.findOne({ _id: decoded.sub }, function (err, userFound) {
