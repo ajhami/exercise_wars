@@ -2,8 +2,6 @@ import axios from 'axios';
 
 export default {
     fetchWorkouts: function (token) {
-        console.log("Frontend API call");
-        console.log(token);
         return axios
             .get("/api/workouts", { params: { token: token }})
             .then(res => {
