@@ -8,6 +8,7 @@ const morgan = require("morgan");
 const db = require("./models");
 const routes = require("./routes");
 const cors = require("cors");
+const enforce = require("express-sslify");
 
 
 const uuid = require('uuid');
@@ -28,18 +29,25 @@ app.use(routes);
 
 // Production Requirements
 if (process.env.NODE_ENV === "production") {
+
+  // sslify requirements to force HTTPS
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  
   app.use(express.static(path.join(__dirname, "/client/build")));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
 
+
+
+
   // Redirect for secure connection
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https')
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    else
-      next()
-  });
+  // app.use((req, res, next) => {
+  //   if (req.header('x-forwarded-proto') !== 'https')
+  //     res.redirect(`https://${req.header('host')}${req.url}`)
+  //   else
+  //     next()
+  // });
 }
 
 else {

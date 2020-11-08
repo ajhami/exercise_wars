@@ -59,7 +59,7 @@ function NavBar() {
             className="nav-link"
             style={{ color: "darkGray" }}
             activeStyle={{ color: "red" }}
-            onClick={localStorage.removeItem("newWorkout")}
+            // onClick={localStorage.removeItem("newWorkout")}
             exact
           >
             <FontAwesomeIcon icon="plus" />
