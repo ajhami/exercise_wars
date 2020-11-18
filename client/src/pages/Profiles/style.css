@@ -1,7 +1,7 @@
 .your_friends_card_title {
     text-align: center;
-    background-color: #6c757d;
-    color: #d90429;
+    background-color: #CED4DA;
+    color: #212529;
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 0;
@@ -15,10 +15,7 @@
     margin-bottom: 20px;
 }
 
-.your_friends_col {
-    padding-left: 0;
-    padding-right: 0;
-}
+
 
 .your_friends_card {
     width: 100%;
@@ -57,19 +54,22 @@
 
 .friend_searchbar_row {
     justify-content: center;
-    width: 45%;
+    /* width: 45%; */
     margin-left: auto;
     margin-right: auto;
 }
 
 .friend_searchbar {
     margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+    margin-right: 5px;
+    width: 175px;
+    height: 35px
 }
 
 .search_friends_btn {
-    width: 20%;
+    width: 15%;
+    width: 45px;
+    border: none;
     background-color: #d90429;
 }
 
@@ -111,24 +111,26 @@
 }
 
 .follow_user_btn {
-    float: right;
-    width: 20%;
-    height: 50%;
+    /* float: right; */
+    /* width: 20%; */
+    /* height: 50%; */
     margin: auto;
-    border-radius: 10%;
+    /* border-radius: 10%; */
     background-color: #d90429;
     color: #ffffff;
     font-weight: bold;
+    border: none;
 }
 
 .following_user_btn {
-    float: right;
-    width: 20%;
-    height: 50%;
+    /* float: right; */
+    /* width: 20%; */
+    /* height: 50%; */
     margin: auto;
-    border-radius: 10%;
-    background-color: #2df86a;
+    /* border-radius: 10%; */
+    background-color: #212529;
     color: #ffffff;
     font-weight: bold;
+    border: none;
 }
 

@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import {
-    Card,
-    CardTitle
-} from "reactstrap";
+import { Card, CardTitle, Container, Row, Col, Button } from "reactstrap";
 import * as actions from "../../actions";
 import "./style.css";
 import NavBar from "../../components/NavBar";
@@ -29,6 +26,7 @@ class SearchProfiles extends Component {
 
 
     render() {
+        // console.log(this.props.user)
 
         const { handleSubmit } = this.props;
 
@@ -77,7 +75,7 @@ class SearchProfiles extends Component {
                         className="searched_friend_miniprofile_pic"
                     />
                     <h4 className="searched_friend_name_label">{match.username}</h4>
-                    <button
+                    <Button
                         className={match.buttonClass}
                         value={match.username}
                         data-profileimgurl={match.imageURL}
@@ -89,8 +87,8 @@ class SearchProfiles extends Component {
 
                             else {
                                 match.isFollowing = true;
-                                axios.post("/newFollow", { 
-                                    currentUserProfileImg: localStorage.imageURL, 
+                                axios.post("/newFollow", {
+                                    currentUserProfileImg: localStorage.imageURL,
                                     currentUser: localStorage.username,
                                     newUser: event.target.value,
                                     newUserProfileImg: event.target.dataset.profileimgurl
@@ -102,7 +100,7 @@ class SearchProfiles extends Component {
                         }
                     >
                         {match.buttonText}
-                    </button>
+                    </Button>
                 </div>
             ))
         }
@@ -114,11 +112,36 @@ class SearchProfiles extends Component {
         return (
             <div>
                 <NavBar />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-4 your_friends_col">
+                <Container>
+                    <Row>
+                        <Col md={12}>
+                 
+                                {/* <CardTitle className="your_friends_card_title">Find Friends</CardTitle> */}
+            
+                                <form className="search_form" onSubmit={handleSubmit(this.onSubmitFriendSearch)}>
+                                    <Row className="friend_searchbar_row">
+                                        <Field
+                                            name="searchedUsername"
+                                            type="text"
+                                            component="input"
+                                            autoComplete="none"
+                                            placeholder="Search by username"
+                                            className="friend_searchbar"
+                                        />
+                                        <Button className="search_friends_btn"><span role="img" aria-label="search">🔎</span></Button>
+                                    </Row>
+                                </form>
+                                <div>
+                                    {matchResults}
+                                </div>
+                         
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md={6}>
                             <Card className="your_friends_card">
-                                <CardTitle className="your_friends_card_title">Your Friends</CardTitle>
+                                <CardTitle className="your_friends_card_title">Following</CardTitle>
                                 <hr className="your_friends_hr" />
 
                                 {this.props.user.following.map(friend => (
@@ -132,38 +155,27 @@ class SearchProfiles extends Component {
                                     </div>
                                 ))}
                             </Card>
+                        </Col>
 
-                        </div>
-                        <div className="col-md-8">
-                            <div className="row mt-3">
-                                <div className="col-12 mb-4">
-                                    <h2 className="find_friends_title">Find Friends</h2>
-                                    <form className="search_form" onSubmit={handleSubmit(this.onSubmitFriendSearch)}>
-                                        <div className="row">
-                                            <div className="friend_searchbar_row">
-                                                <Field
-                                                    name="searchedUsername"
-                                                    type="text"
-                                                    component="input"
-                                                    autoComplete="none"
-                                                    placeholder="Search by username"
-                                                    className="friend_searchbar"
-                                                />
-                                                <button className="search_friends_btn"><span role="img" aria-label="search">🔎</span></button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-
-                                    <div>
-                                        {matchResults}
+                        <Col md={6}>
+                            <Card className="your_friends_card">
+                                <CardTitle className="your_friends_card_title">Followers</CardTitle>
+                                <hr className="your_friends_hr" />
+                                {this.props.user.followers.map(friend => (
+                                    <div key={friend.username} value={friend.username} className="row your_friend_miniprofile_row">
+                                        <img
+                                            src={friend.imageURL}
+                                            alt={friend.username}
+                                            className="your_friend_miniprofile_pic"
+                                        />
+                                        <h4 className="your_friend_name_label">{friend.username}</h4>
                                     </div>
+                                ))}
+                            </Card>
+                        </Col>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </Row>
+                </Container>
                 <Footer />
             </div>
         )
