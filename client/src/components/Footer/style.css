@@ -27,6 +27,8 @@ h5 {
 }
 
 .contactLabel {
-    display: inline;
-    margin-right: 10px;
+    /* display: inline; */
+    float: right;
+
+
 }
