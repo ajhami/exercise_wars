@@ -9,6 +9,7 @@ import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 import requireAuth from "../../components/requireAuth";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SearchProfiles extends Component {
 
@@ -57,12 +58,19 @@ class SearchProfiles extends Component {
             for (let i = 0; i < searchedUsers.length; i++) {
                 if (!currentlyFollowingUsernames.includes(searchedUsers[i].username)) {
                     searchedUsers[i].isFollowing = false;
-                    searchedUsers[i].buttonText = "Follow";
+                    searchedUsers[i].buttonText = <html>
+                    <FontAwesomeIcon icon="plus" />
+                    <span className="d-block d-sm-none"></span>
+                    <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Follow</span></html>
                     searchedUsers[i].buttonClass = "follow_user_btn";
                 }
                 else {
                     searchedUsers[i].isFollowing = true;
-                    searchedUsers[i].buttonText = "Following";
+                    searchedUsers[i].buttonText = <html>
+                    <FontAwesomeIcon icon="check" />
+                    <span className="d-block d-sm-none"></span>
+                    <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span></html>
+                    searchedUsers[i].buttonClass = "follow_user_btn";
                     searchedUsers[i].buttonClass = "following_user_btn";
                 }
             }
@@ -115,26 +123,22 @@ class SearchProfiles extends Component {
                 <Container>
                     <Row>
                         <Col md={12}>
-                 
-                                {/* <CardTitle className="your_friends_card_title">Find Friends</CardTitle> */}
-            
-                                <form className="search_form" onSubmit={handleSubmit(this.onSubmitFriendSearch)}>
-                                    <Row className="friend_searchbar_row">
-                                        <Field
-                                            name="searchedUsername"
-                                            type="text"
-                                            component="input"
-                                            autoComplete="none"
-                                            placeholder="Search by username"
-                                            className="friend_searchbar"
-                                        />
-                                        <Button className="search_friends_btn"><span role="img" aria-label="search">🔎</span></Button>
-                                    </Row>
-                                </form>
-                                <div>
-                                    {matchResults}
-                                </div>
-                         
+                            <form className="search_form" onSubmit={handleSubmit(this.onSubmitFriendSearch)}>
+                                <Row className="friend_searchbar_row">
+                                    <Field
+                                        name="searchedUsername"
+                                        type="text"
+                                        component="input"
+                                        autoComplete="none"
+                                        placeholder="Search by username"
+                                        className="friend_searchbar"
+                                    />
+                                    <Button className="search_friends_btn"><span role="img" aria-label="search">🔎</span></Button>
+                                </Row>
+                            </form>
+                            <div>
+                                {matchResults}
+                            </div>
                         </Col>
                     </Row>
 
