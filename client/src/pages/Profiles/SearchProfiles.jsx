@@ -11,6 +11,7 @@ import requireAuth from "../../components/requireAuth";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
 class SearchProfiles extends Component {
 
     componentDidMount = () => {
