@@ -123,9 +123,7 @@
 }
 
 .following_user_btn {
-    /* float: right; */
-    /* width: 20%; */
-    /* height: 50%; */
+   
     margin: auto;
     /* border-radius: 10%; */
     background-color: #212529;
@@ -134,7 +132,22 @@
     border: none;
 }
 
+.followingButton {
+    position: absolute;
+    right: 5px;
+    margin: auto;
+    background-color: #212529;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+}
+
 .followButton {
     position: absolute;
-    right: 0;
+    right: 5px;
+    margin: auto;
+    background-color: #d90429;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
 }
