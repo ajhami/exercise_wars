@@ -15,6 +15,7 @@ class SearchProfiles extends Component {
 
     componentDidMount = () => {
         this.props.getProfileData();
+
     };
 
     componentDidUpdate = () => {
@@ -24,11 +25,9 @@ class SearchProfiles extends Component {
     onSubmitFriendSearch = (formProps) => {
         this.props.searchUsers(formProps);
     };
-
-
     render() {
-        // console.log(this.props.user)
 
+        let currentlyFollowing = this.props.user.following;
         const { handleSubmit } = this.props;
 
         let hasSearchResults = this.props.searchedUsers || false;
@@ -45,12 +44,10 @@ class SearchProfiles extends Component {
             matchResults = null;
         }
         else if (hasSearchResults) {
-
             let searchedUsers = this.props.searchedUsers;
-            let currentlyFollowing = this.props.user.following;
-
+            // let currentlyFollowing = this.props.user.following;
             let currentlyFollowingUsernames = [];
-
+            //adding buttons
             for (let i = 0; i < currentlyFollowing.length; i++) {
                 currentlyFollowingUsernames.push(currentlyFollowing[i].username);
             }
@@ -59,22 +56,22 @@ class SearchProfiles extends Component {
                 if (!currentlyFollowingUsernames.includes(searchedUsers[i].username)) {
                     searchedUsers[i].isFollowing = false;
                     searchedUsers[i].buttonText = <html>
-                    <FontAwesomeIcon icon="plus" />
-                    <span className="d-block d-sm-none"></span>
-                    <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Follow</span></html>
+                        <FontAwesomeIcon icon="plus" />
+                        <span className="d-block d-sm-none"></span>
+                        <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Follow</span></html>
                     searchedUsers[i].buttonClass = "follow_user_btn";
                 }
                 else {
                     searchedUsers[i].isFollowing = true;
                     searchedUsers[i].buttonText = <html>
-                    <FontAwesomeIcon icon="check" />
-                    <span className="d-block d-sm-none"></span>
-                    <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span></html>
+                        <FontAwesomeIcon icon="check" />
+                        <span className="d-block d-sm-none"></span>
+                        <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Unfollow</span></html>
                     searchedUsers[i].buttonClass = "follow_user_btn";
                     searchedUsers[i].buttonClass = "following_user_btn";
                 }
             }
-
+            //Matched Results
             matchResults = searchedUsers.map(match => (
                 <div key={match.username} value={match.username} className="row searched_friend_rows">
                     <img
@@ -147,15 +144,22 @@ class SearchProfiles extends Component {
                             <Card className="your_friends_card">
                                 <CardTitle className="your_friends_card_title">Following</CardTitle>
                                 <hr className="your_friends_hr" />
-
+                                {console.log(this.props.user)}
                                 {this.props.user.following.map(friend => (
+
                                     <div key={friend.username} value={friend.username} className="row your_friend_miniprofile_row">
                                         <img
                                             src={friend.imageURL}
                                             alt={friend.username}
                                             className="your_friend_miniprofile_pic"
                                         />
+
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
+                                        <Button>
+                                            <FontAwesomeIcon icon="check" />
+                                            <span className="d-block d-sm-none"></span>
+                                            <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Unfollow</span>
+                                        </Button>
                                     </div>
                                 ))}
                             </Card>
@@ -173,6 +177,15 @@ class SearchProfiles extends Component {
                                             className="your_friend_miniprofile_pic"
                                         />
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
+                                        <Button
+                                        >
+                                            {
+                                                currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length === 1}
+                        <FontAwesomeIcon icon="check" />
+                                            <span className="d-block d-sm-none"></span>
+                                            <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Unfollow</span>
+
+                                        </Button>
                                     </div>
                                 ))}
                             </Card>

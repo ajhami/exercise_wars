@@ -18,7 +18,8 @@ class Home extends Component {
 
     localStorage.username = this.props.user.username;
     localStorage.imageURL = this.props.user.imageURL;
-    
+    localStorage.following = this.props.user.following;
+    console.log(this.props)
     return (
       <div>
         <NavBar />
