@@ -19,7 +19,6 @@ class Home extends Component {
     localStorage.username = this.props.user.username;
     localStorage.imageURL = this.props.user.imageURL;
     localStorage.following = this.props.user.following;
-    console.log(this.props)
     return (
       <div>
         <NavBar />
@@ -37,17 +36,7 @@ class Home extends Component {
               />
  
             </Col>
-            {/* <Col md={4}>
-              < MinuteChallenge />
-            </Col>
-            <Col md={4}>
-              <FriendSuggestions
-                id={1}
-                name="Jack Edwards"
-                location="Folsom, CA"
-                profileImg="test_profile_img.jpg"
-              />
-            </Col> */}
+
 
           </Row>
         </Container>
