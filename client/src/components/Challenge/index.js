@@ -49,7 +49,7 @@ function Challenge(props) {
                                                 exerciseName={exercise.exerciseName}
                                                 distance={exercise.distance}
                                                 reps={exercise.reps}
-                                                sets={exercise.sets}
+                                                // sets={exercise.sets}
                                                 weight={exercise.weight}
                                             />
                                         )
