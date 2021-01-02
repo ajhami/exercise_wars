@@ -144,23 +144,26 @@ class SearchProfiles extends Component {
                             <Card className="your_friends_card">
                                 <CardTitle className="your_friends_card_title">Following</CardTitle>
                                 <hr className="your_friends_hr" />
-                                {console.log(this.props.user)}
+                                {/* {console.log(this.props.user)} */}
                                 {this.props.user.following.map(friend => (
 
-                                    <div key={friend.username} value={friend.username} className="row your_friend_miniprofile_row">
+                                    <Row key={friend.username} value={friend.username} className="row your_friend_miniprofile_row">
+                                        
                                         <img
                                             src={friend.imageURL}
                                             alt={friend.username}
                                             className="your_friend_miniprofile_pic"
                                         />
 
-                                        <h4 className="your_friend_name_label">{friend.username}</h4>
-                                        <Button>
+                                        <h4 className="your_friend_name_label">{friend.username}</h4> 
+                                        
+                                        <Button className="followButton">
                                             <FontAwesomeIcon icon="check" />
                                             <span className="d-block d-sm-none"></span>
                                             <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Unfollow</span>
                                         </Button>
-                                    </div>
+                                        
+                                    </Row>
                                 ))}
                             </Card>
                         </Col>
@@ -177,8 +180,7 @@ class SearchProfiles extends Component {
                                             className="your_friend_miniprofile_pic"
                                         />
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
-                                        <Button
-                                        >
+                                        <Button className="followButton">
                                             {
                                                 currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length === 1}
                         <FontAwesomeIcon icon="check" />

@@ -45,7 +45,7 @@
 .your_friend_name_label {
     margin: auto 0 auto 0;
     padding-left: 10px;
-    width: 78%;
+    max-width: 65%;
 }
 
 .find_friends_title {
@@ -134,3 +134,7 @@
     border: none;
 }
 
+.followButton {
+    position: absolute;
+    right: 0;
+}
