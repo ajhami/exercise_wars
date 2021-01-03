@@ -68,7 +68,7 @@ function SubForm(props) {
         { value: 'Walk' },
         { value: 'Wall sit' }
     ]
-console.log(value)
+
     return (
         <Container style={{ margin: "5px", }}>
             <div>
@@ -97,9 +97,9 @@ console.log(value)
                                                         type="text"
                                                         name="exerciseName"
                                                         placeholder="exercise"
-                                                        value={item.value}
-                                                        onChange={(e) => item.value = e.target.value}
-                                                        onSelect={(val) => item.value = val}
+                                                        // value={item.value}
+                                                        // onChange={(e) => item.value = e.target.value}
+                                                        // onSelect={(val) => item.value = val}
                                                         className="form-control"
                                                     />
 
