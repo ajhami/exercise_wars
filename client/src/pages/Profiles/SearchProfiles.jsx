@@ -14,25 +14,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SearchProfiles extends Component {
 
     componentDidMount = () => {
-        this.props.getProfileData();
-
+        this.props.getProfileData()
     };
-
     componentDidUpdate = () => {
         this.props.getProfileData();
     }
-
     onSubmitFriendSearch = (formProps) => {
         this.props.searchUsers(formProps);
     };
     render() {
-
         let currentlyFollowing = this.props.user.following;
         const { handleSubmit } = this.props;
-
         let hasSearchResults = this.props.searchedUsers || false;
         let matchResults;
-
         if (hasSearchResults.length === 0) {
             matchResults = (
                 <div className="noresults_div">
@@ -113,7 +107,6 @@ class SearchProfiles extends Component {
             matchResults = null;
         }
 
-
         return (
             <div>
                 <NavBar />
@@ -146,9 +139,7 @@ class SearchProfiles extends Component {
                                 <hr className="your_friends_hr" />
                                 {/* {console.log(this.props.user)} */}
                                 {this.props.user.following.map(friend => (
-
                                     <Row key={friend.username} value={friend.username} className="row your_friend_miniprofile_row">
-
                                         <img
                                             src={friend.imageURL}
                                             alt={friend.username}
@@ -180,19 +171,20 @@ class SearchProfiles extends Component {
                                             className="your_friend_miniprofile_pic"
                                         />
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
-
+                                        {(currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length === 1) ?
                                         <Button className="followingButton">
-                                            {currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length === 1}
                                             <FontAwesomeIcon icon="check" />
                                             <span className="d-block d-sm-none"></span>
                                             <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span>
                                         </Button>
+                                        :
                                         <Button className="followButton">
-                                            {currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length !== 1}
+                                            {/* {currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length !== 1} */}
                                             <FontAwesomeIcon icon="plus" />
                                             <span className="d-block d-sm-none"></span>
                                             <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Follow</span>
                                         </Button>
+    }
                                     </div>
                                 ))}
                             </Card>
