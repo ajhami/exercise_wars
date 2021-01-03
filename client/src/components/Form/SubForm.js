@@ -68,16 +68,7 @@ function SubForm(props) {
                                                         className="form-control"
                                                     />
                                                 </td>
-                                                <td style={{ width: "75px", }}>
-                                                    <input
-                                                        type="number"
-                                                        name="sets"
-                                                        placeholder="sets"
-                                                        value={item.sets}
-                                                        onChange={handleChange(idx)}
-                                                        className="form-control"
-                                                    />
-                                                </td>
+
                                                 <td>
                                                     <Button
                                                         className="btn btn-outline-danger btn-sm"
