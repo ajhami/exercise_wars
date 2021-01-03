@@ -53,12 +53,10 @@ function Workout(props) {
                         >
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>name</th>
                                     <th>weight</th>
                                     <th>dist.</th>
                                     <th>reps</th>
-                                    <th>sets</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +69,6 @@ function Workout(props) {
                                                 exerciseName={exercise.exerciseName}
                                                 distance={exercise.distance}
                                                 reps={exercise.reps}
-                                                sets={exercise.sets}
                                                 weight={exercise.weight}
                                             />
                                         )

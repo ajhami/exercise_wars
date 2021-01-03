@@ -15,7 +15,6 @@ const SaveWorkout = props => {
     event.preventDefault();
     const item = {
       reps: "",
-      sets: "",
       weight: "",
       distance: "",
     };

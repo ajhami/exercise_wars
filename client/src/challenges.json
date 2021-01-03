@@ -78,14 +78,12 @@
       "id": 1,
       "exerciseName": "Bench Press",
       "reps": 10,
-      "sets": 4,
       "weight": "135 lbs"
     },
     {
       "id": 2,
       "exerciseName": "Squats",
       "reps": 10,
-      "sets": 4,
       "weight": "225 lbs"
     }],
     "timeSeconds":0,

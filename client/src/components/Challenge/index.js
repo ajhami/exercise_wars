@@ -31,7 +31,7 @@ function Challenge(props) {
                         >
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                   
                                     <th>name</th>
                                     <th>weight</th>
                                     <th>dist.</th>
@@ -49,7 +49,7 @@ function Challenge(props) {
                                                 exerciseName={exercise.exerciseName}
                                                 distance={exercise.distance}
                                                 reps={exercise.reps}
-                                                sets={exercise.sets}
+                                                // sets={exercise.sets}
                                                 weight={exercise.weight}
                                             />
                                         )
