@@ -96,8 +96,8 @@ class SearchProfiles extends Component {
                                 axios.post("/newFollow", {
                                     currentUserProfileImg: localStorage.imageURL,
                                     currentUser: localStorage.username,
-                                    newUser: event.target.value,
-                                    newUserProfileImg: event.target.dataset.profileimgurl
+                                    newUser: match.username,
+                                    newUserProfileImg: match.imageURL
                                 });
                                 this.props.history.push("/SearchProfiles");
                             }
