@@ -88,12 +88,17 @@ class SearchProfiles extends Component {
                         onClick={(event) => {
 
                             if (match.isFollowing) {
-                                match.isFollowing = false;
-                                let index = (this.props.user.following.findIndex(v => v.username === match.username))
-                                console.log(this.props.user.following)
-                                this.props.user.following.splice(index, 1);
-                                console.log(this.props.user.following)
-                                return;
+                                // match.isFollowing = false;
+                                axios.post("/unfollow", 
+                                {                     
+                                    currentUserProfileImg: localStorage.imageURL,
+                                    currentUser: localStorage.username,
+                                    unfollowUser: match.username,
+                                    unfollowUserProfileImg: match.imageURL
+                                    })
+                                    .then(response => {console.log(response)
+                                    })
+                                    this.props.history.push("/SearchProfiles");
                             }
 
                             else {

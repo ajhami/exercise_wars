@@ -160,6 +160,7 @@ router.post("/newFollow", function (req, res) {
     const currentUser = req.body.currentUser;
     const currentUserProfileImg = req.body.currentUserProfileImg;
 
+
     db.Users.findOneAndUpdate(
         { username: currentUser },
         {
@@ -198,5 +199,41 @@ router.post("/newFollow", function (req, res) {
         }
     )
 });
+
+
+// Path for deleting
+router.post("/unfollow", function (req, res) {
+ 
+    const userToUnfollow = req.body.unfollowUser;
+    const userToUnfollowProfileImg = req.body.unfollowUserProfileImg;
+    const currentUser = req.body.currentUser;
+    // const currentUserProfileImg = req.body.currentUserProfileImg;
+    
+    db.Users.findOneAndUpdate(
+        { username: currentUser },
+        {
+            $pull: {
+                following: {
+                    username: userToUnfollow,
+                    imageURL: userToUnfollowProfileImg
+                }
+            }
+        },
+
+        function (err) {
+            if (err) {
+                console.log(err);
+            }
+            
+                    
+                
+            
+        }
+    )
+});
+
+
+
+
 
 module.exports = router;
