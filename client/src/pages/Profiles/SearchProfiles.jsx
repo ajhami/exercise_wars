@@ -88,19 +88,18 @@ class SearchProfiles extends Component {
                         onClick={(event) => {
 
                             if (match.isFollowing) {
-                                // match.isFollowing = false;
-                                axios.post("/unfollow", 
-                                {                     
-                                    currentUserProfileImg: localStorage.imageURL,
-                                    currentUser: localStorage.username,
-                                    unfollowUser: match.username,
-                                    unfollowUserProfileImg: match.imageURL
+                                axios.post("/unfollow",
+                                    {
+                                        currentUserProfileImg: localStorage.imageURL,
+                                        currentUser: localStorage.username,
+                                        unfollowUser: match.username,
+                                        unfollowUserProfileImg: match.imageURL
                                     })
-                                    .then(response => {console.log(response)
+                                    .then(response => {
+                                        console.log(response)
                                     })
-                                    this.props.history.push("/SearchProfiles");
+                                this.props.history.push("/SearchProfiles");
                             }
-
                             else {
                                 match.isFollowing = true;
                                 axios.post("/newFollow", {
@@ -111,7 +110,6 @@ class SearchProfiles extends Component {
                                 });
                                 this.props.history.push("/SearchProfiles");
                             }
-
                         }
                         }
                     >
@@ -168,7 +166,21 @@ class SearchProfiles extends Component {
 
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
 
-                                        <Button className="followingButton">
+                                        <Button className="followingButton"
+                                            onClick={() => {
+                                                axios.post("/unfollow",
+                                                    {
+                                                        currentUserProfileImg: localStorage.imageURL,
+                                                        currentUser: localStorage.username,
+                                                        unfollowUser: friend.username,
+                                                        unfollowUserProfileImg: friend.imageURL
+
+                                                    })
+                                                    .then(response => {
+                                                        console.log(response)
+                                                    })
+                                                this.props.history.push("/SearchProfiles");
+                                            }}>
                                             <FontAwesomeIcon icon="check" />
                                             <span className="d-block d-sm-none"></span>
                                             <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span>
@@ -192,13 +204,39 @@ class SearchProfiles extends Component {
                                         />
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
                                         {(currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length === 1) ?
-                                            <Button className="followingButton">
+                                            <Button className="followingButton"
+                                                onClick={() => {
+                                                    axios.post("/unfollow",
+                                                        {
+                                                            currentUserProfileImg: localStorage.imageURL,
+                                                            currentUser: localStorage.username,
+                                                            unfollowUser: friend.username,
+                                                            unfollowUserProfileImg: friend.imageURL
+
+                                                        })
+                                                        .then(response => {
+                                                            console.log(response)
+                                                        })
+                                                    this.props.history.push("/SearchProfiles");
+                                                }}
+                                            >
                                                 <FontAwesomeIcon icon="check" />
                                                 <span className="d-block d-sm-none"></span>
                                                 <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span>
                                             </Button>
                                             :
-                                            <Button className="followButton">
+                                            <Button className="followButton"
+                                                onClick={() => {
+                                                    friend.isFollowing = true;
+                                                    axios.post("/newFollow", {
+                                                        currentUserProfileImg: localStorage.imageURL,
+                                                        currentUser: localStorage.username,
+                                                        newUser: friend.username,
+                                                        newUserProfileImg: friend.imageURL
+                                                    });
+                                                    this.props.history.push("/SearchProfiles")
+                                                }}
+                                            >
                                                 {/* {currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length !== 1} */}
                                                 <FontAwesomeIcon icon="plus" />
                                                 <span className="d-block d-sm-none"></span>
