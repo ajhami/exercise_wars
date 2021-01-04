@@ -88,7 +88,17 @@ class SearchProfiles extends Component {
                         onClick={(event) => {
 
                             if (match.isFollowing) {
-                                return;
+                                // match.isFollowing = false;
+                                axios.post("/unfollow", 
+                                {                     
+                                    currentUserProfileImg: localStorage.imageURL,
+                                    currentUser: localStorage.username,
+                                    unfollowUser: match.username,
+                                    unfollowUserProfileImg: match.imageURL
+                                    })
+                                    .then(response => {console.log(response)
+                                    })
+                                    this.props.history.push("/SearchProfiles");
                             }
 
                             else {
@@ -182,19 +192,19 @@ class SearchProfiles extends Component {
                                         />
                                         <h4 className="your_friend_name_label">{friend.username}</h4>
                                         {(currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length === 1) ?
-                                        <Button className="followingButton">
-                                            <FontAwesomeIcon icon="check" />
-                                            <span className="d-block d-sm-none"></span>
-                                            <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span>
-                                        </Button>
-                                        :
-                                        <Button className="followButton">
-                                            {/* {currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length !== 1} */}
-                                            <FontAwesomeIcon icon="plus" />
-                                            <span className="d-block d-sm-none"></span>
-                                            <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Follow</span>
-                                        </Button>
-    }
+                                            <Button className="followingButton">
+                                                <FontAwesomeIcon icon="check" />
+                                                <span className="d-block d-sm-none"></span>
+                                                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Following</span>
+                                            </Button>
+                                            :
+                                            <Button className="followButton">
+                                                {/* {currentlyFollowing.filter(currentFollowed => currentFollowed["username"] === friend.username).length !== 1} */}
+                                                <FontAwesomeIcon icon="plus" />
+                                                <span className="d-block d-sm-none"></span>
+                                                <span className="d-none d-sm-inline"><i className="d-none d-sm-inline mr-1"></i>Follow</span>
+                                            </Button>
+                                        }
                                     </div>
                                 ))}
                             </Card>
